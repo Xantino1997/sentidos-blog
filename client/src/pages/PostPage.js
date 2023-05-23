@@ -45,7 +45,7 @@ export default function PostPage() {
       }
       <div className="image">
 
-        <img className="post-final" src={`https://sentidos-back-blog.vercel.app/${postInfo.cover}`} alt="" />
+        <img className="post-final" src={`https://sentidos-back-blog.vercel.app/api/${postInfo.cover}`} alt="" />
 
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
