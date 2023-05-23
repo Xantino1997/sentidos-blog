@@ -12,7 +12,7 @@ export default function IndexPage() {
 
   useEffect(() => {
 
-    fetch("https://sentidos-back-blog.vercel.app/post")
+    fetch("https://sentidos-back-blog.vercel.app/api/post")
       .then((response) => response.json())
       .then((posts) => {
         setPosts(posts);
