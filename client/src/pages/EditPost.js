@@ -11,7 +11,11 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
   const [selectedFont, setSelectedFont] = useState("Arial");
   useEffect(() => {
+<<<<<<< HEAD
     fetch(`https://sentidos-back-blog.vercel.app/post/` + id,)
+=======
+    fetch(`http://localhost:4000/post/` + id,)
+>>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
@@ -32,7 +36,11 @@ export default function EditPost() {
       data.set('file', files?.[0]);
 
     }
+<<<<<<< HEAD
     const response = await fetch('https://sentidos-back-blog.vercel.app/post', {
+=======
+    const response = await fetch('http://localhost:4000/post', {
+>>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
       method: 'PUT',
       body: data,
       credentials: 'include',

@@ -11,7 +11,11 @@ export default function LoginPage() {
 
   async function login(ev) {
     ev.preventDefault();
+<<<<<<< HEAD
     const response = await fetch(`https://sentidos-back-blog.vercel.app/login`, {
+=======
+    const response = await fetch(`http://localhost:4000/login`, {
+>>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
