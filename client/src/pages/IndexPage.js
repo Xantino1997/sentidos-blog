@@ -18,7 +18,7 @@ export default function IndexPage() {
         setPosts(posts);
       });
   }, []);
-
+//Aqui  comenzaria el codigo
   const handleNext = () => {
     setCurrentPostIndex((prevIndex) =>
       prevIndex < Math.ceil(posts.length / postsPerPage) - 1 ? prevIndex + 1 : prevIndex
