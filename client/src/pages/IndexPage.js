@@ -12,13 +12,13 @@ export default function IndexPage() {
 
   useEffect(() => {
 
-    fetch("https://sentidos-back-blog.vercel.app/post")
+    fetch("https://sentidos-back-blog.vercel.app/api/post")
       .then((response) => response.json())
       .then((posts) => {
         setPosts(posts);
       });
   }, []);
-
+//Aqui  comenzaria el codigo
   const handleNext = () => {
     setCurrentPostIndex((prevIndex) =>
       prevIndex < Math.ceil(posts.length / postsPerPage) - 1 ? prevIndex + 1 : prevIndex
