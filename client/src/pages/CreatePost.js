@@ -24,11 +24,8 @@ export default function CreatePost() {
     data.set("file", files[0]);
     data.set("profileAvatar", userInfo.profilePicture);
     ev.preventDefault();
-<<<<<<< HEAD
+
     const response = await fetch("https://sentidos-back-blog.vercel.app/post", {
-=======
-    const response = await fetch("http://localhost:4000/post", {
->>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
       method: "POST",
       body: data,
       credentials: "include",

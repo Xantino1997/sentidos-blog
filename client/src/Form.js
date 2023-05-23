@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from "react";
 import Swal from "sweetalert2";
 
@@ -88,7 +87,7 @@ export default function Form() {
     </div>
   );
 }
-=======
+
 import { useState } from "react";
 import Swal from "sweetalert2";
 
@@ -178,4 +177,4 @@ export default function Form() {
     </div>
   );
 }
->>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
+

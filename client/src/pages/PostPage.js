@@ -12,11 +12,9 @@ export default function PostPage() {
 
 
   useEffect(() => {
-<<<<<<< HEAD
+
     fetch(`https://sentidos-back-blog.vercel.app/post/` + id)
-=======
-    fetch(`http://localhost:4000/post/` + id)
->>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
+
       .then(response => {
         response.json().then(postInfo => {
           setPostInfo(postInfo);
@@ -46,11 +44,9 @@ export default function PostPage() {
       )
       }
       <div className="image">
-<<<<<<< HEAD
+
         <img className="post-final" src={`https://sentidos-back-blog.vercel.app/${postInfo.cover}`} alt="" />
-=======
-        <img className="post-final" src={`http://localhost:4000/${postInfo.cover}`} alt="" />
->>>>>>> 3c0a41cfdbc64b613d8aa6c5d915079a96fb3747
+
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
       <br></br>
