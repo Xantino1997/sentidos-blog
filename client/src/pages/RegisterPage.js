@@ -15,7 +15,7 @@ export default function RegisterPage() {
       profilePicture ? profilePicture : await fetch("/user.png").then((r) => r.blob())
     );
 
-    const response = await fetch(`https://sentidos-back-blog.vercel.app/register`, {
+    const response = await fetch(`https://backend-blog-psi.vercel.app/register`, {
 
       method: "POST",
       body: formData,

@@ -10,7 +10,7 @@ export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   useEffect(() => {
 
-    fetch(`https://sentidos-back-blog.vercel.app/profile`, {
+    fetch(`https://backend-blog-psi.vercel.app/profile`, {
 
       credentials: 'include',
     }).then(response => {
@@ -24,7 +24,7 @@ export default function Header() {
  
   function logout() {
 
-    fetch('https://sentidos-back-blog.vercel.app/logout', {
+    fetch('https://backend-blog-psi.vercel.app/logout', {
 
       credentials: 'include',
       method: 'POST',
@@ -43,7 +43,7 @@ export default function Header() {
         {username && (
           <>
 
-            <img className="author-avatar-img" src={`https://sentidos-back-blog.vercel.app/` + profilePicture} alt="Profile picture" />
+            <img className="author-avatar-img" src={`https://backend-blog-psi.vercel.app/` + profilePicture} alt="Profile picture" />
 
             <Link to="/create" className="login">Create new post</Link>
             <a onClick={logout} className="register">Logout ({username})</a>

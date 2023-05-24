@@ -13,7 +13,7 @@ export default function PostPage() {
 
   useEffect(() => {
 
-    fetch(`https://sentidos-back-blog.vercel.app/post/` + id)
+    fetch(`https://backend-blog-psi.vercel.app/post/` + id)
 
       .then(response => {
         response.json().then(postInfo => {
@@ -45,7 +45,7 @@ export default function PostPage() {
       }
       <div className="image">
 
-        <img className="post-final" src={`https://sentidos-back-blog.vercel.app/api/${postInfo.cover}`} alt="" />
+        <img className="post-final" src={`https://backend-blog-psi.vercel.app/${postInfo.cover}`} alt="" />
 
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />

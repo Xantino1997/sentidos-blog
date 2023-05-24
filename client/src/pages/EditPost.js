@@ -12,7 +12,7 @@ export default function EditPost() {
   const [selectedFont, setSelectedFont] = useState("Arial");
   useEffect(() => {
 
-    fetch(`https://sentidos-back-blog.vercel.app/post/` + id,)
+    fetch(`http://localhost:4000/post/` + id,)
 
       .then(response => {
         response.json().then(postInfo => {
@@ -35,7 +35,7 @@ export default function EditPost() {
 
     }
 
-    const response = await fetch('https://sentidos-back-blog.vercel.app/post', {
+    const response = await fetch('https://backend-blog-psi.vercel.app/post', {
 
       method: 'PUT',
       body: data,

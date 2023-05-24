@@ -12,7 +12,7 @@ export default function LoginPage() {
   async function login(ev) {
     ev.preventDefault();
 
-    const response = await fetch(`https://sentidos-back-blog.vercel.app/login`, {
+    const response = await fetch(`https://backend-blog-psi.vercel.app/login`, {
 
       method: "POST",
       body: JSON.stringify({ username, password }),

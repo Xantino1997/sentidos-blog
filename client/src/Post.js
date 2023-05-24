@@ -14,7 +14,7 @@ export default function Post({ _id, title, summary, cover, content, author, crea
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-          <img className="post-picture" src={'https://sentidos-back-blog.vercel.app/' + cover} alt="" />
+          <img className="post-picture" src={'http://localhost:4000/' + cover} alt="" />
 
         </Link>
       </div>
@@ -30,7 +30,7 @@ export default function Post({ _id, title, summary, cover, content, author, crea
         <br></br>
         <br></br>
         <hr></hr>
-        <img className="profile-picture" src={`https://sentidos-back-blog.vercel.app/` + profileAvatar} alt="" />
+        <img className="profile-picture" src={`https://backend-blog-psi.vercel.app/` + profileAvatar} alt="" />
         <h6 className="author">
           <p>Author: {author.username}</p>
           <time className="time-post-page">{format(new Date(createdAt), "PPpp")}</time>
