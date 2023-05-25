@@ -15,7 +15,7 @@ export default function Form() {
     };
 
     // Enviar datos a la base de datos utilizando fetch
-    fetch("https://backend-blog-psi.vercel.app/api/suscriptores", {
+    fetch("https://backend-blog-psi.vercel.app/suscriptores", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
