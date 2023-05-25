@@ -40,7 +40,7 @@ export default function Form() {
           // Mostrar ventana emergente de error
           Swal.fire({
             icon: "error",
-            title: "Oops... Ha ocurrido un error",
+            title: "Oops... Ocurrio un error",
             text: "Parece que el correo ya existe, intenta otro por favor."
           });
         }
