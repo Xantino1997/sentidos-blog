@@ -41,7 +41,7 @@ export default function Form() {
           Swal.fire({
             icon: "error",
             title: "Oops... Ha ocurrido un error",
-            text: "Parece que el correo ya existe, intenta otro por favor."
+            text: "Por favor, inténtalo de nuevo más tarde."
           });
         }
       })
@@ -50,7 +50,8 @@ export default function Form() {
         Swal.fire({
           icon: "error",
           title: "Oops... Ha ocurrido un error",
-          text: "Por favor, inténtalo de nuevo más tarde."
+          text: "Parece que el correo ya existe, intenta otro por favor."
+         
         });
       });
 
