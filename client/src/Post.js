@@ -14,7 +14,7 @@ export default function Post({ _id, title, summary, cover, content, author, crea
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-          <img className="post-picture" src={'http://localhost:4000/' + cover} alt="" />
+          <img className="post-picture" src={'https://backend-blog-psi.vercel.app/' + cover} alt="" />
 
         </Link>
       </div>

@@ -12,7 +12,7 @@ export default function EditPost() {
   const [selectedFont, setSelectedFont] = useState("Arial");
   useEffect(() => {
 
-    fetch(`http://localhost:4000/post/` + id,)
+    fetch(`https://backend-blog-psi.vercel.app/post/` + id,)
 
       .then(response => {
         response.json().then(postInfo => {
