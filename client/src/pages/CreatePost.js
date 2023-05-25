@@ -5,8 +5,7 @@ import { Navigate } from "react-router-dom";
 import Editor from "../Editor";
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
-
-
+import axios from "axios";
 
 export default function CreatePost() {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -25,18 +24,22 @@ export default function CreatePost() {
     data.set("profileAvatar", userInfo.profilePicture);
     ev.preventDefault();
 
-    const response = await fetch("https://backend-blog-psi.vercel.app/post", {
-      method: "POST",
-      body: data,
-      credentials: "include",
-    });
-    if (response.ok) {
-      setRedirect(true);
+    try {
+      const response = await axios.post("https://backend-blog-psi.vercel.app/post", data, {
+        withCredentials: true, // Para incluir las cookies
+      });
+      if (response.status === 200) {
+        setRedirect(true);
+      }
+    } catch (error) {
+      console.error(error);
     }
   }
+
   if (redirect) {
     return <Navigate to={"/"} />;
   }
+
   return (
     <form onSubmit={createNewPost}>
       <input
