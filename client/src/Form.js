@@ -16,7 +16,7 @@ export default function Form() {
 
     // ${process.env.REACT_APP_API_URL}
     // Enviar datos a la base de datos utilizando fetch
-    fetch(`https://backend-blog-psi.vercel.app/suscriptor`, {
+    fetch(`https://backend-blog-psi.vercel.app/suscriptors`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
