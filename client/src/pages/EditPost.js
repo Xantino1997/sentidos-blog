@@ -35,12 +35,11 @@ export default function EditPost() {
 
     }
 
-    const response = await fetch('https://backend-blog-psi.vercel.app/post', {
+    const response = await fetch('https://backend-blog-psi.vercel.app/post' + id, {
 
       method: 'PUT',
       body: data,
       credentials: 'include',
-      mode:"no-cors",
     });
     if (response.ok) {
       setRedirect(true);
