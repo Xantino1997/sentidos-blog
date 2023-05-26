@@ -32,7 +32,8 @@ export default function EditPost() {
       if (files?.[0]) {
         data.set('file', files?.[0]);
       }
-      console.log (JSON.parse(data)+ ' La respuesta ANTES del FETCH DEL PUT') 
+      console.log(id,title,content, summary,data);
+     
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
@@ -46,7 +47,7 @@ export default function EditPost() {
         throw new Error('Failed to update post');
       }
     } catch (error) {
-      console.log(JSON.parse(error) + 'ERROR DEL FRONT');
+      console.log(error + 'ERROR DEL FRONT');
       // Aquí puedes agregar lógica para mostrar un mensaje de error al usuario
     }
   }
