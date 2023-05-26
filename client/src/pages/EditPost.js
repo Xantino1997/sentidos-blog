@@ -22,27 +22,34 @@ export default function EditPost() {
   }, []);
 
   async function updatePost(ev, err) {
-    ev.preventDefault();
-    const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
-    data.set('id', id);
-    if (files?.[0]) {
-      data.set('file', files?.[0]);
-    }
-
-    const response = await fetch('https://backend-blog-psi.vercel.app/./post', {
-      method: 'PUT',
-      body: data,
-      credentials: 'include',
-    
-    });
-
-    if (response.ok) {
-      setRedirect(true);
+    try {
+      ev.preventDefault();
+      const data = new FormData();
+      data.set('title', title);
+      data.set('summary', summary);
+      data.set('content', content);
+      data.set('id', id);
+      if (files?.[0]) {
+        data.set('file', files?.[0]);
+      }
+  
+      const response = await fetch('https://backend-blog-psi.vercel.app/post', {
+        method: 'PUT',
+        body: data,
+        credentials: 'include',
+      });
+  
+      if (response.ok) {
+        setRedirect(true);
+      } else {
+        throw new Error('Failed to update post');
+      }
+    } catch (error) {
+      console.log(error + 'ERROR DEL FRONT');
+      // Aquí puedes agregar lógica para mostrar un mensaje de error al usuario
     }
   }
+  
 
   // redirect
   if (redirect) {
