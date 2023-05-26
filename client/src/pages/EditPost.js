@@ -37,7 +37,7 @@ export default function EditPost() {
         data.set("file", files?.[0]);
       }
 
-      const response = await axios.put(`https://backend-blog-psi.vercel.app/post/${id}`, data, {
+      const response = await axios.put(`https://backend-blog-psi.vercel.app/post`, data, {
         withCredentials: true,
       });
 
