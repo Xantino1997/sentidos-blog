@@ -34,11 +34,14 @@ export default function EditPost() {
 
     const response = await fetch('https://backend-blog-psi.vercel.app/post', {
       method: 'PUT',
-      body: data,
+      body: JSON.stringify({
+        title,
+        summary,
+        content,
+        file: files[0],
+      }),
+      headers: { "Content-Type": "application/json" },
       credentials: 'include',
-      headers: {
-        'Access-Control-Allow-Origin': 'https://sentidos.vercel.app' // Agrega el encabezado CORS
-      }
     });
 
     if (response.ok) {

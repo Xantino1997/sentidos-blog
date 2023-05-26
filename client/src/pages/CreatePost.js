@@ -27,7 +27,14 @@ export default function CreatePost() {
 
     const response = await fetch("https://backend-blog-psi.vercel.app/post", {
       method: "POST",
-      body: data,
+      body:  JSON.stringify({
+        title,
+        summary,
+        content,
+        file: files[0],
+        profileAvatar: userInfo.profilePicture
+      }),
+      headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
     if (response.ok) {
