@@ -32,16 +32,11 @@ export default function EditPost() {
       data.set('file', files?.[0]);
     }
 
-    const response = await fetch('https://backend-blog-psi.vercel.app/post', {
+    const response = await fetch('https://backend-blog-psi.vercel.app/api/post', {
       method: 'PUT',
-      body: JSON.stringify({
-        title,
-        summary,
-        content,
-        file: files[0],
-      }),
-      headers: { "Content-Type": "application/json" },
+      body: data,
       credentials: 'include',
+    
     });
 
     if (response.ok) {

@@ -25,16 +25,9 @@ export default function CreatePost() {
     data.set("profileAvatar", userInfo.profilePicture);
     ev.preventDefault();
 
-    const response = await fetch("https://backend-blog-psi.vercel.app/post", {
+    const response = await fetch("https://backend-blog-psi.vercel.app/api/post", {
       method: "POST",
-      body:  JSON.stringify({
-        title,
-        summary,
-        content,
-        file: files[0],
-        profileAvatar: userInfo.profilePicture
-      }),
-      headers: { "Content-Type": "application/json" },
+      body: data,
       credentials: "include",
     });
     if (response.ok) {
