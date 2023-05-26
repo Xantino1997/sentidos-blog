@@ -18,7 +18,7 @@ export default function IndexPage() {
         setPosts(posts);
       });
   }, []);
-//Aqui  comenzaria el codigo
+  //Aqui  comenzaria el codigo
   const handleNext = () => {
     setCurrentPostIndex((prevIndex) =>
       prevIndex < Math.ceil(posts.length / postsPerPage) - 1 ? prevIndex + 1 : prevIndex
@@ -54,7 +54,7 @@ export default function IndexPage() {
     <>
       {/* <FindPost/> */}
       <div>
-        <h1 style={{ textAlign: "center",fontFamily:"Permanent Marker" }}>BIENVENIDO AL BLOG DE SENTIDOS</h1>
+        <h1 style={{ textAlign: "center", fontFamily: "Permanent Marker" }}>BIENVENIDO AL BLOG DE SENTIDOS</h1>
         <br></br>
         <br></br>
         <h2 style={{ textAlign: "center" }}>
@@ -65,6 +65,8 @@ export default function IndexPage() {
           <Post className="content-post" key={post._id} {...post} />
         ))}
       </div>
+      <br></br>
+      <br></br>
       <br></br>
       <br></br>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
