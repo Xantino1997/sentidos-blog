@@ -32,7 +32,7 @@ export default function EditPost() {
       if (files?.[0]) {
         data.set('file', files?.[0]);
       }
-      console.log (data+ data.set + ' La respuesta ANTES del FETCH DEL PUT') 
+      console.log (JSON.stringify(data)+ ' La respuesta ANTES del FETCH DEL PUT') 
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
