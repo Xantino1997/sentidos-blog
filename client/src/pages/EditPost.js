@@ -37,7 +37,8 @@ export default function EditPost() {
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
-        credentials: 'include',
+        credentials:'same-origin'
+        // credentials: 'include',
       });
   
       console.log(response + ' La respuesta luego del FETCH DEL PUT')
