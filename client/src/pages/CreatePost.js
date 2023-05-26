@@ -25,9 +25,10 @@ export default function CreatePost() {
     data.set("profileAvatar", userInfo.profilePicture);
     ev.preventDefault();
 
-    const response = await fetch("https://backend-blog-psi.vercel.app/./post", {
+    const response = await fetch("https://backend-blog-psi.vercel.app/post", {
       method: "POST",
       body: data,
+      mode:"no-cors",
       credentials: "include",
     });
     if (response.ok) {
