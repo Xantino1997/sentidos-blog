@@ -32,19 +32,23 @@ export default function EditPost() {
       if (files?.[0]) {
         data.set('file', files?.[0]);
       }
-      console.log(id,title,content, summary,data);
-     
+      console.log(id, title, content, summary, data);
+
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
         credentials: 'include',
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
-  
+
+
       console.log(response + ' La respuesta luego del FETCH DEL PUT')
       if (response.ok) {
         setRedirect(true);
       } else {
-        console.log(err +'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
+        console.log(err + 'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
         throw new Error('Failed to update post');
 
       }
@@ -53,7 +57,7 @@ export default function EditPost() {
       // Aquí puedes agregar lógica para mostrar un mensaje de error al usuario
     }
   }
-  
+
 
   // redirect
   if (redirect) {
