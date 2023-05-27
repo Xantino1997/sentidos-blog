@@ -44,7 +44,9 @@ export default function EditPost() {
       if (response.ok) {
         setRedirect(true);
       } else {
+        console.log(err +'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
         throw new Error('Failed to update post');
+
       }
     } catch (error) {
       console.log(error + 'ERROR DEL FRONT');
