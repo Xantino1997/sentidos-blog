@@ -5,8 +5,7 @@ import { Navigate } from "react-router-dom";
 import Editor from "../Editor";
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
-
-
+// other change 
 
 export default function CreatePost() {
   const { userInfo, setUserInfo } = useContext(UserContext);
