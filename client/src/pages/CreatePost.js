@@ -5,7 +5,8 @@ import { Navigate } from "react-router-dom";
 import Editor from "../Editor";
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
-import axios from "axios";
+
+
 
 export default function CreatePost() {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -16,36 +17,27 @@ export default function CreatePost() {
   const [redirect, setRedirect] = useState(false);
 
   async function createNewPost(ev) {
-    ev.preventDefault();
     const data = new FormData();
     data.set("title", title);
     data.set("summary", summary);
-    data.set("content", content);
+    data.set("content", content); 
     data.set("file", files[0]);
     data.set("profileAvatar", userInfo.profilePicture);
+    ev.preventDefault();
 
-    try {
-      const response = await axios.post(
-        "https://backend-blog-psi.vercel.app/post",
-        data,
-        {
-          withCredentials: true,
-        }
-      );
-
-      if (response.status === 200) {
-        setRedirect(true);
-      }
-    } catch (error) {
-      console.error(error);
-      // Manejar el error de la solicitud
+    const response = await fetch("https://backend-blog-psi.vercel.app/post", {
+      method: "POST",
+      body: data,
+      mode:"no-cors",
+      credentials: "include",
+    });
+    if (response.ok) {
+      setRedirect(true);
     }
   }
-
   if (redirect) {
     return <Navigate to={"/"} />;
   }
-
   return (
     <form onSubmit={createNewPost}>
       <input
@@ -63,10 +55,10 @@ export default function CreatePost() {
       <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
       <Editor value={content} onChange={setContent} />
       <button style={{ marginTop: "5px" }}>Crea tu post</button>
-      <br />
-      <br />
-      <br />
-      <hr />
+      <br></br>
+      <br></br>
+      <br></br>
+      <hr></hr>
     </form>
   );
 }
