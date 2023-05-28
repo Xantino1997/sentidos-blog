@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
+const { v4: uuidv4 } = require('uuid');
 
 export default function EditPost() {
   const { id } = useParams();
@@ -34,12 +35,14 @@ export default function EditPost() {
       }
       console.log(id, title, content, summary, data);
 
+      const boundary = `------------------------${uuidv4()}`;
+
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
         credentials: 'include',
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': `multipart/form-data; boundary=${boundary}`,
         },
       });
 
