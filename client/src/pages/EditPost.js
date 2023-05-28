@@ -34,19 +34,20 @@ export default function EditPost() {
         data.set('file', files?.[0]);
       }
       console.log(id, title, content, summary, data);
-      
-const requestOptions = {
-  method: 'PUT',
-  body: data,
-};
 
-fetch('https://backend-blog-psi.vercel.app/post', requestOptions)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.log(error));
+      const response = await fetch('https://backend-blog-psi.vercel.app/post', {
+        method: 'PUT',
+        body: data,
+        headers: {
+          'Content-Type': `multipart/form-data`,
+        },
+        credentials: 'include',
+      });
+      const responseData = await response.json();
+      console.log(responseData);
 
-
-      if (requestOptions) {
+      console.log(response + ' La respuesta luego del FETCH DEL PUT')
+      if (response.ok) {
         setRedirect(true);
       } else {
         console.log(err + 'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
