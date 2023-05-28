@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
+import { useCookies } from "react-cookie";
 const { v4: uuidv4 } = require('uuid');
 
 export default function EditPost() {
@@ -11,6 +12,9 @@ export default function EditPost() {
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [selectedFont, setSelectedFont] = useState("Arial");
+  const [cookies] = useCookies(['token']); // Obtener y establecer las cookies
+  const token = cookies.token; // Obtener el token de acceso de las cookies
+
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
       .then(response => {
@@ -35,18 +39,18 @@ export default function EditPost() {
       }
       console.log(id, title, content, summary, data);
 
-      const boundary = `------------------------${uuidv4()}`;
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
         headers: {
-          'Content-Type': `multipart/form-data; boundary=${boundary}`,
+          'Accept': 'application/json',
+          'Content-Type': 'multipart/form-data;boundary=None',
+          'Authorization': `Bearer ${token}` // Incluir el token de acceso en el encabezado de autorización
         },
         credentials: 'include',
       });
       const responseData = await response.json();
       console.log(responseData);
-
 
       console.log(response + ' La respuesta luego del FETCH DEL PUT')
       if (response.ok) {
@@ -54,14 +58,12 @@ export default function EditPost() {
       } else {
         console.log(err + 'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
         throw new Error('Failed to update post');
-
       }
     } catch (error) {
       console.log(error + 'ERROR DEL FRONT');
       // Aquí puedes agregar lógica para mostrar un mensaje de error al usuario
     }
   }
-
 
   // redirect
   if (redirect) {
