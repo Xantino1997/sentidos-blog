@@ -12,8 +12,7 @@ export default function EditPost() {
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [selectedFont, setSelectedFont] = useState("Arial");
-  const [cookies] = useCookies(['token']); // Obtener y establecer las cookies
-  const token = cookies.token; // Obtener el token de acceso de las cookies
+  const [cookies] = useCookies(['token']); // Obtén la cookie 'token' del almacenamiento de cookies
 
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
@@ -45,7 +44,7 @@ export default function EditPost() {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'multipart/form-data;boundary=None',
-          'Authorization': `Bearer ${token}` // Incluir el token de acceso en el encabezado de autorización
+          'Authorization': `Bearer ${cookies.token}` // Agrega el token de acceso a la cabecera de autorización
         },
         credentials: 'include',
       });
@@ -58,12 +57,14 @@ export default function EditPost() {
       } else {
         console.log(err + 'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
         throw new Error('Failed to update post');
+
       }
     } catch (error) {
       console.log(error + 'ERROR DEL FRONT');
       // Aquí puedes agregar lógica para mostrar un mensaje de error al usuario
     }
   }
+
 
   // redirect
   if (redirect) {
