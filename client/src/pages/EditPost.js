@@ -42,6 +42,7 @@ export default function EditPost() {
         headers: {
           'Content-Type': `multipart/form-data; boundary=${boundary}`,
         },
+        credentials: 'include',
       });
       const responseData = await response.json();
       console.log(responseData);
