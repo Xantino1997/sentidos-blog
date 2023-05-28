@@ -26,28 +26,28 @@ export default function EditPost() {
     try {
       ev.preventDefault();
       const data = new FormData();
-      data.set('title', title);
-      data.set('summary', summary);
-      data.set('content', content);
-      data.set('id', id);
-      if (files?.[0]) {
-        data.set('file', files?.[0]);
-      }
-      console.log(id, title, content, summary, data);
-
-      const response = await fetch('https://backend-blog-psi.vercel.app/post', {
+      data.set('title', 'Ejemplo de título');
+      data.set('summary', 'Ejemplo de resumen');
+      data.set('content', 'Ejemplo de contenido');
+      data.set('id', '12345');
+      
+      const headers = new Headers();
+      headers.append('Content-Type', 'multipart/form-data; boundary=' + data._boundary);
+      
+      const requestOptions = {
         method: 'PUT',
         body: data,
-        headers: {
-          'Content-Type': `multipart/form-data`,
-        },
-        credentials: 'include',
-      });
-      const responseData = await response.json();
-      console.log(responseData);
+        headers: headers,
+      };
+      
+      fetch('https://backend-blog-psi.vercel.app/post', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+      
 
-      console.log(response + ' La respuesta luego del FETCH DEL PUT')
-      if (response.ok) {
+      console.log(requestOptions + ' La respuesta luego del FETCH DEL PUT')
+      if (requestOptions.ok) {
         setRedirect(true);
       } else {
         console.log(err + 'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
