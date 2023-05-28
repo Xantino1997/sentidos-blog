@@ -36,15 +36,15 @@ export default function EditPost() {
       console.log(id, title, content, summary, data);
 
       const boundary = `------------------------${uuidv4()}`;
-
       const response = await fetch('https://backend-blog-psi.vercel.app/post', {
         method: 'PUT',
         body: data,
-        credentials: 'include',
         headers: {
           'Content-Type': `multipart/form-data; boundary=${boundary}`,
         },
       });
+      const responseData = await response.json();
+      console.log(responseData);
 
 
       console.log(response + ' La respuesta luego del FETCH DEL PUT')
