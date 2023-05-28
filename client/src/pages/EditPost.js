@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-import { useCookies } from "react-cookie";
 const { v4: uuidv4 } = require('uuid');
 
 export default function EditPost() {
@@ -12,8 +11,6 @@ export default function EditPost() {
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [selectedFont, setSelectedFont] = useState("Arial");
-  const [cookies] = useCookies(['token']); // Obtén la cookie 'token' del almacenamiento de cookies
-
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
       .then(response => {
@@ -42,14 +39,13 @@ export default function EditPost() {
         method: 'PUT',
         body: data,
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'multipart/form-data;boundary=None',
-          'Authorization': `Bearer ${cookies.token}` // Agrega el token de acceso a la cabecera de autorización
+          'Content-Type': `multipart/form-data`,
         },
         credentials: 'include',
       });
       const responseData = await response.json();
       console.log(responseData);
+
 
       console.log(response + ' La respuesta luego del FETCH DEL PUT')
       if (response.ok) {
