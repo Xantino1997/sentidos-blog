@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-const { v4: uuidv4 } = require('uuid');
 
 export default function EditPost() {
   const { id } = useParams();
@@ -10,7 +9,7 @@ export default function EditPost() {
   const [content, setContent] = useState('');
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const [selectedFont, setSelectedFont] = useState("Arial");
+
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
       .then(response => {
@@ -22,44 +21,34 @@ export default function EditPost() {
       });
   }, []);
 
-  async function updatePost(ev, err) {
+  async function updatePost(ev) {
     try {
       ev.preventDefault();
       const data = new FormData();
-      data.set('title', 'Ejemplo de título');
-      data.set('summary', 'Ejemplo de resumen');
-      data.set('content', 'Ejemplo de contenido');
-      data.set('id', '12345');
-      
-      const headers = new Headers();
-      headers.append('Content-Type', 'multipart/form-data; boundary=' + data._boundary);
-      
-      const requestOptions = {
+      data.append('title', title);
+      data.append('summary', summary);
+      data.append('content', content);
+      data.append('id', id);
+      if (files?.[0]) {
+        data.append('file', files[0]);
+      }
+
+      const response = await fetch(`https://backend-blog-psi.vercel.app/post/${id}`, {
         method: 'PUT',
         body: data,
-        headers: headers,
-      };
-      
-      fetch('https://backend-blog-psi.vercel.app/post', requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.log(error));
-      
+        credentials: 'include',
+      });
 
-      console.log(requestOptions + ' La respuesta luego del FETCH DEL PUT')
-      if (requestOptions.ok) {
+      if (response.ok) {
         setRedirect(true);
       } else {
-        console.log(err + 'AQUIE ESTA EL ERROR DEL PUT LUEGO DE LA RESPUESTA')
         throw new Error('Failed to update post');
-
       }
     } catch (error) {
-      console.log(error + 'ERROR DEL FRONT');
+      console.log(error);
       // Aquí puedes agregar lógica para mostrar un mensaje de error al usuario
     }
   }
-
 
   // redirect
   if (redirect) {
@@ -70,13 +59,13 @@ export default function EditPost() {
     <form onSubmit={updatePost}>
       <input
         type="title"
-        placeholder={'Title'}
+        placeholder="Title"
         value={title}
         onChange={ev => setTitle(ev.target.value)}
       />
       <input
         type="summary"
-        placeholder={'Summary'}
+        placeholder="Summary"
         value={summary}
         onChange={ev => setSummary(ev.target.value)}
       />
@@ -84,7 +73,6 @@ export default function EditPost() {
       <Editor
         onChange={setContent}
         value={content}
-        selectedFont={selectedFont}
       />
       <button style={{ marginTop: '5px' }}>Update post</button>
       <br />
