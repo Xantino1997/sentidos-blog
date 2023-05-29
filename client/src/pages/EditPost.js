@@ -58,7 +58,6 @@ export default function EditPost() {
     }
   }
 
-
   if (redirect) {
     return <Navigate to={'/post/' + id} />;
   }
