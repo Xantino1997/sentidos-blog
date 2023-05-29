@@ -26,12 +26,12 @@ export default function EditPost() {
       ev.preventDefault();
       const data = new FormData();
       data.append('title', title);
-      // data.append('summary', summary);
-      // data.append('content', content);
+      data.append('summary', summary);
+      data.append('content', content);
       data.append('id', id);
-      // if (files?.[0]) {
-      //   data.append('file', files[0]);
-      // }
+      if (files?.[0]) {
+        data.append('file', files[0]);
+      }
 
       const token = document.cookie
         .split('; ')
@@ -74,13 +74,13 @@ export default function EditPost() {
       <input
         type="summary"
         placeholder="Summary"
-        // value={summary}
+        value={summary}
         onChange={ev => setSummary(ev.target.value)}
       />
-      {/* <input type="file" onChange={ev => setFiles(ev.target.files)} /> */}
+      <input type="file" onChange={ev => setFiles(ev.target.files)} />
       <Editor
         onChange={setContent}
-        // value={content}
+        value={content}
       />
       <button style={{ marginTop: '5px' }}>Update post</button>
       <br />
