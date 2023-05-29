@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
@@ -33,10 +34,7 @@ export default function EditPost() {
         data.append('file', files[0]);
       }
 
-      const token = document.cookie
-        .split('; ')
-        .find(cookie => cookie.startsWith('token='))
-        .split('=')[1];
+      const token = sessionStorage.getItem('token');
 
       const response = await fetch(`https://backend-blog-psi.vercel.app/post/${id}`, {
         method: 'PUT',
@@ -89,3 +87,5 @@ export default function EditPost() {
     </form>
   );
 }
+
+
