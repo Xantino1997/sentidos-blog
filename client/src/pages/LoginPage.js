@@ -20,15 +20,13 @@ export default function LoginPage() {
     });
 
     if (response.ok) {
-      response.json().then((userInfo) => {
-        const jwt = userInfo.token;
-        setUserInfo(userInfo);
-        setJWT(jwt); // Actualizar el estado jwt en el contexto
-        Cookies.set("token", jwt, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
-        setRedirect(true);
-      });
+      const { token, userInfo } = await response.json();
+      setUserInfo(userInfo); // Actualizar la información del usuario en el contexto
+      setJWT(token); // Actualizar el estado jwt en el contexto
+      Cookies.set("token", token, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
+      setRedirect(true);
     } else {
-      alert("Wrong credentials");
+      alert("Wrong credentials in the Login method");
     }
   }
 
