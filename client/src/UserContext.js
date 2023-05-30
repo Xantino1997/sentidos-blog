@@ -6,7 +6,7 @@ export const UserContext = createContext();
 
 export function UserContextProvider({ children }) {
   const [userInfo, setUserInfo] = useState({});
-  const [jwt, setJWT] = useState(() => Cookies.get('token') || '');
+  const [jwt, setJWT] = useState(() => Cookies.get('token') || '123456');
 
   const updateJWT = (token) => {
     setJWT(token);
