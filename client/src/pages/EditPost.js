@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
 import { UserContext } from "../UserContext";
+import Cookies from "js-cookie";
+
 
 export default function EditPost() {
   const { id } = useParams();
