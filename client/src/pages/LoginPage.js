@@ -21,16 +21,20 @@ export default function LoginPage() {
 
     if (response.ok) {
       const { token, userInfo } = await response.json();
-      setUserInfo(userInfo); // Actualizar la información del usuario en el contexto
-      setJWT(token); // Actualizar el estado jwt en el contexto
-      Cookies.set("token", token, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
+      setUserInfo(userInfo);
+      setJWT(token);
+      Cookies.set("token", token, { expires: 7 });
       setRedirect(true);
-      alert(" Login method ok");
-
-      console.log(token, userInfo, JSON.stringify(userInfo), JSON.stringify(token));
-
+      alert("Login method ok");
     } else {
-      alert("Wrong credentials in the Login method");
+      const storedToken = Cookies.get("token");
+      if (storedToken) {
+        setJWT(storedToken);
+        setRedirect(true);
+        alert("Using token from cookie");
+      } else {
+        alert("Wrong credentials in the Login method");
+      }
     }
   }
 
