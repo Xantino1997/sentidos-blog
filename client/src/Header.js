@@ -53,7 +53,7 @@ export default function Header() {
           <>
             <img className="img-sentidos" src={sentidos} alt="Sentidos" />
             <Link to="/login" className="login">Login</Link>
-            {/* <Link to="/register" className="login">register</Link> */}
+            <Link to="/register" className="login">register</Link>
           </>
         )}
       </nav>
