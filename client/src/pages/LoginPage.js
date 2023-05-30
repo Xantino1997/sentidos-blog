@@ -12,29 +12,35 @@ export default function LoginPage() {
   async function login(ev) {
     ev.preventDefault();
 
-    const response = await fetch(`https://backend-blog-psi.vercel.app/login`, {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    try {
+      const response = await fetch("https://backend-blog-psi.vercel.app/login", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
 
-    if (response.ok) {
-      const { token, userInfo } = await response.json();
-      setUserInfo(userInfo);
-      setJWT(token);
-      Cookies.set("token", token, { expires: 7 });
-      setRedirect(true);
-      alert("Login method ok");
-    } else {
-      const storedToken = Cookies.get("token");
-      if (storedToken) {
-        setJWT(storedToken);
+      if (response.ok) {
+        const { token, userInfo } = await response.json();
+        setUserInfo(userInfo);
+        setJWT(token);
+        Cookies.set("token", token, { expires: 7, secure: true, sameSite: "none" });
         setRedirect(true);
-        alert("Using token from cookie");
+        alert("Inicio de sesión exitoso");
       } else {
-        alert("Wrong credentials in the Login method");
+        const storedToken = Cookies.get("token");
+        if (storedToken) {
+          setJWT(storedToken);
+          setRedirect(true);
+          alert("Usando token de la cookie");
+        } else {
+          alert("Credenciales incorrectas en el método de inicio de sesión");
+        }
       }
+    } catch (error) {
+      console.log("Error de conexión:", error);
+      // Manejar el error de conexión
+      // ...
     }
   }
 
@@ -58,7 +64,7 @@ export default function LoginPage() {
         onChange={(ev) => setPassword(ev.target.value)}
       />
 
-      <button>Login</button>
+      <button type="submit">Login</button>
       <br />
       <br />
       <br />
