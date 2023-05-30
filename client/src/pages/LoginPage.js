@@ -7,7 +7,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const { setUserInfo, setJWT } = useContext(UserContext); // Agregar setJWT al contexto
+  const { setUserInfo, setJWT } = useContext(UserContext);
 
   async function login(ev) {
     ev.preventDefault();
@@ -21,10 +21,10 @@ export default function LoginPage() {
 
     if (response.ok) {
       response.json().then((userInfo) => {
-        setUserInfo(userInfo);
         const jwt = userInfo.token;
-        Cookies.set("token", jwt, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
+        setUserInfo(userInfo);
         setJWT(jwt); // Actualizar el estado jwt en el contexto
+        Cookies.set("token", jwt, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
         setRedirect(true);
       });
     } else {
