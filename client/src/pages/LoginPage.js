@@ -7,7 +7,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const { setUserInfo } = useContext(UserContext);
+  const { setUserInfo, setJWT } = useContext(UserContext); // Agregar setJWT al contexto
 
   async function login(ev) {
     ev.preventDefault();
@@ -24,10 +24,11 @@ export default function LoginPage() {
         setUserInfo(userInfo);
         const jwt = userInfo.token;
         Cookies.set("token", jwt, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
+        setJWT(jwt); // Actualizar el estado jwt en el contexto
         setRedirect(true);
       });
     } else {
-      alert("wrong credentials");
+      alert("Wrong credentials");
     }
   }
 
@@ -52,9 +53,9 @@ export default function LoginPage() {
       />
 
       <button>Login</button>
-      <br></br>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
+      <br />
     </form>
   );
 }
