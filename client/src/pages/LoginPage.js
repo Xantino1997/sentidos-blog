@@ -25,6 +25,10 @@ export default function LoginPage() {
       setJWT(token); // Actualizar el estado jwt en el contexto
       Cookies.set("token", token, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
       setRedirect(true);
+      alert(" Login method ok");
+
+      console.log(token, userInfo, JSON.stringify(userInfo), JSON.stringify(token));
+
     } else {
       alert("Wrong credentials in the Login method");
     }
