@@ -22,8 +22,8 @@ export default function LoginPage() {
     if (response.ok) {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);
-        const token = userInfo.token;
-        Cookies.set("token", token, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
+        const jwt = userInfo.token;
+        Cookies.set("token", jwt, { expires: 7 }); // Guardar el token en una cookie con una duración de 7 días
         setRedirect(true);
       });
     } else {

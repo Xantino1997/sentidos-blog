@@ -1,20 +1,21 @@
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
+import { UserContext } from "../UserContext";
 
 export default function EditPost() {
   const { id } = useParams();
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [content, setContent] = useState('');
-  const [files, setFiles] = useState('');
+  const [title, setTitle] = useState("");
+  const [summary, setSummary] = useState("");
+  const [content, setContent] = useState("");
+  const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const { jwt } = useContext(UserContext);
 
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
-      .then(response => {
-        response.json().then(postInfo => {
+      .then((response) => {
+        response.json().then((postInfo) => {
           setTitle(postInfo.title);
           setContent(postInfo.content);
           setSummary(postInfo.summary);
@@ -26,29 +27,27 @@ export default function EditPost() {
     try {
       ev.preventDefault();
       const data = new FormData();
-      data.append('title', title);
-      data.append('summary', summary);
-      data.append('content', content);
-      data.append('id', id);
+      data.append("title", title);
+      data.append("summary", summary);
+      data.append("content", content);
+      data.append("id", id);
       if (files?.[0]) {
-        data.append('file', files[0]);
+        data.append("file", files[0]);
       }
 
-      const token = sessionStorage.getItem('token');
-
       const response = await fetch(`https://backend-blog-psi.vercel.app/post/${id}`, {
-        method: 'PUT',
+        method: "PUT",
         body: data,
-        credentials: 'include',
+        credentials: "include",
         headers: {
-          'Authorization': `Bearer ${token}`
+          Authorization: `Bearer ${jwt}`
         }
       });
 
       if (response.ok) {
         setRedirect(true);
       } else {
-        throw new Error('Failed to update post');
+        throw new Error("Failed to update post");
       }
     } catch (error) {
       console.log(error);
@@ -66,19 +65,16 @@ export default function EditPost() {
         type="title"
         placeholder="Title"
         value={title}
-        onChange={ev => setTitle(ev.target.value)}
+        onChange={(ev) => setTitle(ev.target.value)}
       />
       <input
         type="summary"
         placeholder="Summary"
         value={summary}
-        onChange={ev => setSummary(ev.target.value)}
+        onChange={(ev) => setSummary(ev.target.value)}
       />
-      <input type="file" onChange={ev => setFiles(ev.target.files)} />
-      <Editor
-        onChange={setContent}
-        value={content}
-      />
+      <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+      <Editor onChange={setContent} value={content} />
       <button style={{ marginTop: '5px' }}>Update post</button>
       <br />
       <br />
@@ -87,5 +83,3 @@ export default function EditPost() {
     </form>
   );
 }
-
-
