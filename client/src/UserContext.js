@@ -1,14 +1,17 @@
-// UserContextProvider.js
-import { createContext, useState } from 'react';
+import { useState } from "react";
+import { createContext } from "react";
+import Cookies from "js-cookie";
 
-export const UserContextProvider = createContext();
+export const UserContext = createContext();
 
-export const UserInfoProvider = ({ children }) => {
-  const [userInfo, setUserInfo] = useState(null);
-
+export function UserContextProvider({ children }) {
+  const [userInfo, setUserInfo] = useState({});
   return (
-    <UserContextProvider.Provider value={{ userInfo, setUserInfo }}>
+    <UserContext.Provider value={{
+      userInfo,
+      setUserInfo,
+    }}>
       {children}
-    </UserContextProvider.Provider>
+    </UserContext.Provider>
   );
-};
+}

@@ -4,7 +4,7 @@ import Layout from "./Layout";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { UserContextProvider } from "./UserContext";
+import { UserContext } from "./UserContext";
 import { JwtProvider } from './JwtProviderContext';
 import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
@@ -13,7 +13,7 @@ import PostNext from './PostNext';
 function App() {
 
   return (
-    <UserContextProvider>
+    <UserContext>
       <JwtProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -27,7 +27,7 @@ function App() {
           </Route>
         </Routes>
       </JwtProvider>
-    </UserContextProvider>
+    </UserContext>
   );
 }
 
