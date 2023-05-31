@@ -10,13 +10,11 @@ import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 import PostNext from './PostNext';
-// </JwtProvider>
-// <JwtProvider>
-
 function App() {
 
   return (
     <UserContextProvider>
+      <JwtProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<IndexPage />} />
@@ -28,6 +26,7 @@ function App() {
             <Route path="/post" element={<PostNext />} />
           </Route>
         </Routes>
+      </JwtProvider>
     </UserContextProvider>
   );
 }
