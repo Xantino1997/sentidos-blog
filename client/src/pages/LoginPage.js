@@ -7,7 +7,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const { setUserInfo, setJWT } = useContext(UserContext);
+  const { setUserInfo } = useContext(UserContext);
 
   async function login(ev) {
     ev.preventDefault();
@@ -20,26 +20,12 @@ export default function LoginPage() {
     });
 
     if (response.ok) {
-      const { token, userInfo } = await response.json();
+      const { userInfo } = await response.json();
       setUserInfo(userInfo);
-      setJWT(token);
-      Cookies.set("token", token, { expires: 7 });
-      console.log(userInfo + 'USERInfo login');
-      console.log(setJWT(token)+ 'tokensetJWT login' );
-      console.log(token + 'TOKEN login');
-      console.log(JSON.stringify(token) + 'TOKEN JSON login');
-
       setRedirect(true);
-      alert("Login method ok");
+      alert("Login successful");
     } else {
-      const storedToken = Cookies.get("token");
-      if (storedToken) {
-        setJWT(storedToken);
-        setRedirect(true);
-        alert("Using token from cookie");
-      } else {
-        alert("Wrong credentials in the Login method");
-      }
+      alert("Wrong credentials");
     }
   }
 

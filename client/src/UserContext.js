@@ -1,26 +1,14 @@
-import { useState } from "react";
-import { createContext } from "react";
-import Cookies from "js-cookie";
+// UserInfoContext.js
+import { createContext, useState } from 'react';
 
-export const UserContext = createContext();
+export const UserInfoContext = createContext();
 
-export function UserContextProvider({ children }) {
-  const [userInfo, setUserInfo] = useState({});
-  const [jwt, setJWT] = useState(() => Cookies.get('token') || '');
-
-  const updateJWT = (token) => {
-    setJWT(token);
-    Cookies.set("token", token, { expires: 7 });
-  };
+export const UserInfoProvider = ({ children }) => {
+  const [userInfo, setUserInfo] = useState(null);
 
   return (
-    <UserContext.Provider value={{
-      userInfo,
-      setUserInfo,
-      jwt,
-      setJWT: updateJWT
-    }}>
+    <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
       {children}
-    </UserContext.Provider>
+    </UserInfoContext.Provider>
   );
-}
+};
