@@ -23,7 +23,8 @@ export default function LoginPage() {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);
         setRedirect(true);
-
+        console.log(userInfo);
+        console.log(JSON.stringify(userInfo));
       });
     } else {
       alert("wrong credentials");
