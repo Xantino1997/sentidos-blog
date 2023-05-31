@@ -12,28 +12,29 @@ export default function LoginPage() {
   async function login(ev) {
     ev.preventDefault();
 
-    try {
-      const response = await fetch("https://backend-blog-psi.vercel.app/login", {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
+    const response = await fetch(`https://backend-blog-psi.vercel.app/login`, {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
 
-      if (response.ok) {
-        const { token, userInfo } = await response.json();
-        setUserInfo(userInfo);
-        setJWT(token);
-        Cookies.set("token", token, { expires: 7, secure: true, sameSite: "none" });
+    if (response.ok) {
+      const { token, userInfo } = await response.json();
+      setUserInfo(userInfo);
+      setJWT(token);
+      Cookies.set("token", token, { expires: 7 });
+      setRedirect(true);
+      alert("Login method ok");
+    } else {
+      const storedToken = Cookies.get("token");
+      if (storedToken) {
+        setJWT(storedToken);
         setRedirect(true);
-        alert("Inicio de sesión exitoso, al colocar las cookies");
+        alert("Using token from cookie");
       } else {
-        alert("Credenciales incorrectas en el método de inicio de sesión");
+        alert("Wrong credentials in the Login method");
       }
-    } catch (error) {
-      console.log("Error de conexión:", error);
-      // Manejar el error de conexión
-      // ...
     }
   }
 
@@ -57,7 +58,7 @@ export default function LoginPage() {
         onChange={(ev) => setPassword(ev.target.value)}
       />
 
-      <button type="submit">Login</button>
+      <button>Login</button>
       <br />
       <br />
       <br />
