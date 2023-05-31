@@ -10,7 +10,7 @@ export default function EditPost() {
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:4000/post/` + id,)
+    fetch(`https://backend-blog-psi.vercel.app/post/` + id,)
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
