@@ -12,7 +12,7 @@ export default function EditPost() {
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const { jwt } = useContext(UserContext);
+  // const { jwt } = useContext(UserContext);
 
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
@@ -42,7 +42,7 @@ export default function EditPost() {
         body: data,
         credentials: "include",
         headers: {
-          Authorization: `Bearer ${jwt}`
+          // Authorization: `Bearer ${jwt}`
         }
       });
 

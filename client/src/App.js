@@ -17,7 +17,6 @@ function App() {
 
   return (
     <UserContextProvider>
-    
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<IndexPage />} />
