@@ -24,6 +24,11 @@ export default function LoginPage() {
       setUserInfo(userInfo);
       setJWT(token);
       Cookies.set("token", token, { expires: 7 });
+      console.log(userInfo + 'USERInfo login');
+      console.log(setJWT(token)+ 'tokensetJWT login' );
+      console.log(token + 'TOKEN login');
+      console.log(JSON.stringify(token) + 'TOKEN JSON login');
+
       setRedirect(true);
       alert("Login method ok");
     } else {
