@@ -1,16 +1,16 @@
 import './App.css';
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Layout from "./Layout";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { UserContextProvider } from "./UserContext";
+import {UserContextProvider} from "./UserContext";
 import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 import PostNext from './PostNext';
 function App() {
-
+ 
   return (
     <UserContextProvider>
       <Routes>
@@ -24,7 +24,6 @@ function App() {
           <Route path="/post" element={<PostNext />} />
         </Route>
       </Routes>
-
     </UserContextProvider>
   );
 }
