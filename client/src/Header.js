@@ -16,7 +16,7 @@ export default function Header() {
     }).then(response => {
       response.json().then(userInfo => {
         setUserInfo(userInfo);
-        console.log(JSON.stringify(userInfo) +  'aca deberia aparecer los datos SUPUESTAMENTE AL LLAMARLO ES POR QUE ES EL');
+        console.log(userInfo +  'aca deberia aparecer los datos SUPUESTAMENTE AL LLAMARLO ES POR QUE ES EL');
       });
     });
   }, []);
