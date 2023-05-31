@@ -4,8 +4,7 @@ import Layout from "./Layout";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import { UserContext } from "./UserContext";
-import { JwtProvider } from './JwtProviderContext';
+import { UserContextProvider } from "./UserContext";
 import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
@@ -13,8 +12,7 @@ import PostNext from './PostNext';
 function App() {
 
   return (
-    <UserContext>
-      <JwtProvider>
+    <UserContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<IndexPage />} />
@@ -26,8 +24,8 @@ function App() {
             <Route path="/post" element={<PostNext />} />
           </Route>
         </Routes>
-      </JwtProvider>
-    </UserContext>
+
+    </UserContextProvider>
   );
 }
 
