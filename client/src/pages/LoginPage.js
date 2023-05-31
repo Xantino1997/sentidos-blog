@@ -1,5 +1,4 @@
-
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 
@@ -7,8 +6,19 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const { setUserInfo } = useContext(UserContext);
+  const { setUserInfo, setJWT } = useContext(UserContext);
 
+  useEffect(() => {
+    const storedToken = document.cookie.replace(
+      /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
+      "$1"
+    );
+
+    if (storedToken) {
+      setJWT(storedToken);
+      setRedirect(true);
+    }
+  }, [setJWT]);
 
   async function login(ev) {
     ev.preventDefault();
@@ -18,22 +28,21 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
-    console.log(response);
+
     if (response.ok) {
-      response.json().then((userInfo) => {
-        setUserInfo(userInfo);
+      response.json().then((data) => {
+        setUserInfo(data);
         setRedirect(true);
-        console.log(userInfo);
-        console.log(JSON.stringify(userInfo));
       });
     } else {
-      alert("wrong credentials");
+      alert("Wrong credentials");
     }
   }
 
   if (redirect) {
     return <Navigate to={"/"} />;
   }
+
   return (
     <form className="login" onSubmit={login}>
       <h1>Login</h1>
@@ -51,9 +60,9 @@ export default function LoginPage() {
       />
 
       <button>Login</button>
-      <br></br>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
+      <br />
     </form>
   );
 }
