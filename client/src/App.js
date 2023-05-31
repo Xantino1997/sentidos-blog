@@ -1,19 +1,20 @@
 import './App.css';
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import IndexPage from "./pages/IndexPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import {UserContextProvider} from "./UserContext";
+import { UserContextProvider } from "./UserContext";
 import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 import PostNext from './PostNext';
 function App() {
- 
+
   return (
-    <UserContextProvider>
-      <Routes>
+    <Routes>
+      <UserContextProvider>
+
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -23,8 +24,9 @@ function App() {
           <Route path="/edit/:id" element={<EditPost />} />
           <Route path="/post" element={<PostNext />} />
         </Route>
-      </Routes>
-    </UserContextProvider>
+      </UserContextProvider>
+
+    </Routes>
   );
 }
 
