@@ -32,7 +32,7 @@ export default function LoginPage() {
     if (response.ok) {
       response.json().then((data) => {
         setUserInfo(data);
-        setJWT(data.token); // Establecer el token recibido en el contexto
+        // setJWT(data.token); // Establecer el token recibido en el contexto
         setRedirect(true);
         console.log(data);
         console.log(data.token);
