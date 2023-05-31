@@ -9,11 +9,8 @@ export default function LoginPage() {
   const { setUserInfo, setJWT } = useContext(UserContext);
 
   useEffect(() => {
-    const storedToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
-
+    const storedToken = localStorage.getItem("token");
+    
     if (storedToken) {
       setJWT(storedToken);
       setRedirect(true);
@@ -32,10 +29,11 @@ export default function LoginPage() {
     if (response.ok) {
       response.json().then((data) => {
         setUserInfo(data);
-        setJWT(data.token); // Establecer el token recibido en el contexto
+        const token = data.token;
+        setJWT(token);
+        localStorage.setItem("token", token); // Guardar el token en localStorage
+        document.cookie = `token=${token}`; // Establecer la cookie con el token
         setRedirect(true);
-        console.log(data);
-        console.log(data.token);
       });
     } else {
       alert("Wrong credentials");
