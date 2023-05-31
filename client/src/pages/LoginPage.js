@@ -27,9 +27,9 @@ export default function LoginPage() {
         Cookies.set("token", token, { expires: 7, secure: true, sameSite: "none" });
         setRedirect(true);
         alert("Inicio de sesión exitoso, al colocar las cookies");
-      }else {
-          alert("Credenciales incorrectas en el método de inicio de sesión");
-        }
+      } else {
+        alert("Credenciales incorrectas en el método de inicio de sesión");
+      }
     } catch (error) {
       console.log("Error de conexión:", error);
       // Manejar el error de conexión
