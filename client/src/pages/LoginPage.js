@@ -33,6 +33,8 @@ export default function LoginPage() {
       response.json().then((data) => {
         setUserInfo(data);
         setRedirect(true);
+        console.log(data);
+        console.log(setJWT);
       });
     } else {
       alert("Wrong credentials");
