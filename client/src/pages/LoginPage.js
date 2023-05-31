@@ -26,17 +26,10 @@ export default function LoginPage() {
         setJWT(token);
         Cookies.set("token", token, { expires: 7, secure: true, sameSite: "none" });
         setRedirect(true);
-        alert("Inicio de sesión exitoso");
-      } else {
-        const storedToken = Cookies.get("token");
-        if (storedToken) {
-          setJWT(storedToken);
-          setRedirect(true);
-          alert("Usando token de la cookie");
-        } else {
+        alert("Inicio de sesión exitoso, al colocar las cookies");
+      }else {
           alert("Credenciales incorrectas en el método de inicio de sesión");
         }
-      }
     } catch (error) {
       console.log("Error de conexión:", error);
       // Manejar el error de conexión
