@@ -27,6 +27,7 @@ export default function EditPost() {
         headers: {
           Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
         },
+        credentials: "include"
       })
         .then(response => {
           response.json().then(postInfo => {
