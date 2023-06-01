@@ -6,19 +6,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const { setUserInfo, setJWT } = useContext(UserContext);
-
-  useEffect(() => {
-    const storedToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
-
-    if (storedToken) {
-      setJWT(storedToken);
-      setRedirect(true);
-    }
-  }, [setJWT]);
+  const { setUserInfo } = useContext(UserContext);
 
   async function login(ev) {
     ev.preventDefault();
@@ -32,15 +20,25 @@ export default function LoginPage() {
     if (response.ok) {
       response.json().then((data) => {
         setUserInfo(data);
-        // setJWT(data.token); // Establecer el token recibido en el contexto
+        const token = data.token;
+        document.cookie = `token=${token}; path=/`; // Guardar el token en la cookie
         setRedirect(true);
-        console.log(data);
-        console.log(data.token);
       });
     } else {
       alert("Wrong credentials");
     }
   }
+
+  useEffect(() => {
+    const storedToken = document.cookie.replace(
+      /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
+      "$1"
+    );
+
+    if (storedToken) {
+      setRedirect(true);
+    }
+  }, []);
 
   if (redirect) {
     return <Navigate to={"/"} />;
