@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-import { TokenContext } from "../TokenProvider";
+import TokenContext  from "../TokenProvider";
 
 export default function EditPost() {
   const { id } = useParams();
