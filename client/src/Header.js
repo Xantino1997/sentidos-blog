@@ -1,14 +1,14 @@
 
-import { Link } from "react-router-dom";
-import { useContext, useEffect,useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import sentidos from './assets/sentidos.png';
 import user from './assets/user.png';
-
+import { Link, Redirect } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
+  const [redirect, setRedirect] = useState(false);
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/profile`, {
       credentials: 'include',
@@ -22,7 +22,7 @@ export default function Header() {
 
  
   // Definir el tiempo de inactividad en 2 minutos (120000 milisegundos)
-const inactivityTimeout = 120000;
+const inactivityTimeout = 600000;
 let inactivityTimer;
 
 function resetInactivityTimer() {
@@ -43,17 +43,13 @@ function logout() {
     method: 'POST',
   });
 
-  // Limpiar las cookies
-  const currentDate = new Date();
-  const expirationDate = new Date(currentDate.getTime() + 10 * 60 * 1000); // 10 minutos en milisegundos
-  const expirationUTCString = expirationDate.toUTCString();
-  document.cookie = `token=; expires=${expirationUTCString}; path=/;`;
-
-  // Limpiar la información del usuario en el contexto
   setUserInfo(null);
+  setRedirect(true);
+}
 
-  // Recargar la página para redirigir a la raíz
-  window.location.reload();
+
+if (redirect) {
+  return <Redirect to="/" />;
 }
 
 // Llamar a la función logout después de 2 minutos de inactividad
