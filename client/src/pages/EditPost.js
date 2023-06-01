@@ -79,8 +79,8 @@ export default function EditPost() {
         placeholder={'Summary'}
         value={summary}
         onChange={ev => setSummary(ev.target.value)} />
-      <input type="file"
-        onChange={ev => setFiles(ev.target.files)} />
+      {/* <input type="file"
+        onChange={ev => setFiles(ev.target.files)} /> */}
       <Editor onChange={setContent} value={content} />
       <button style={{ marginTop: '5px' }}>Update post</button>
       <br /><br /><br /><hr />
