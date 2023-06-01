@@ -1,12 +1,14 @@
 import { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
+import { TokenContext } from "../TokenProvider";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { setUserInfo } = useContext(UserContext);
+  const { setToken } = useContext(TokenContext);
 
   async function login(ev) {
     ev.preventDefault();
@@ -16,6 +18,8 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
+    setToken(response.token)
+    console.log(response.token + 'HER IS THE OTHER TOKEN'); 
 
     if (response.ok) {
       response.json().then((data) => {
