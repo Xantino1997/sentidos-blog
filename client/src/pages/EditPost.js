@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
+import { TokenContext } from "../TokenContext";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -9,8 +10,16 @@ export default function EditPost() {
   const [content, setContent] = useState('');
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
+
+  // Obtener el token del contexto
+  const token = useContext(TokenContext);
+
   useEffect(() => {
-    fetch(`https://backend-blog-psi.vercel.app/post/` + id,)
+    fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
+      headers: {
+        Authorization: `Bearer ${token}`, // Agregar el token en el encabezado de la solicitud
+      },
+    })
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
@@ -18,7 +27,7 @@ export default function EditPost() {
           setSummary(postInfo.summary);
         });
       });
-  }, []);
+  }, [id, token]); // Agregar 'token' como dependencia del efecto
 
   async function updatePost(ev, err) {
     ev.preventDefault();
@@ -29,20 +38,26 @@ export default function EditPost() {
     data.set('id', id);
     if (files?.[0]) {
       data.set('file', files?.[0]);
-
     }
     const response = await fetch(`https://backend-blog-psi.vercel.app/post`, {
       method: 'PUT',
       body: data,
+      headers: {
+        Authorization: `Bearer ${token}`, // Agregar el token en el encabezado de la solicitud
+      },
       credentials: 'include',
     });
     if (response.ok) {
       setRedirect(true);
     }
   }
-  // redirect
+
+  // Imprimir el token en la consola
+  console.log('Este es el token del login:', token);
+
+  // Redireccionar
   if (redirect) {
-    return <Navigate to={'/post/' + id} />
+    return <Navigate to={'/post/' + id} />;
   }
 
   return (
@@ -59,9 +74,7 @@ export default function EditPost() {
         onChange={ev => setFiles(ev.target.files)} />
       <Editor onChange={setContent} value={content} />
       <button style={{ marginTop: '5px' }}>Update post</button>
-      <br></br><br></br><br></br><hr></hr>
+      <br /><br /><br /><hr />
     </form>
   );
 }
-
-
