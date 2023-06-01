@@ -13,7 +13,7 @@ export default function EditPost() {
 
   // Obtener el token del contexto
   const token = useContext(TokenContext);
-
+console.log(token + 'el token de EDITPOST')
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
       headers: {
