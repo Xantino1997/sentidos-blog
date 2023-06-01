@@ -6,13 +6,14 @@ export const TokenProvider = ({ children }) => {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    const storedToken = document.cookie.replace(
-      /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
+    const storedToken = document.cookie
+      .split(";")
+      .map((cookie) => cookie.trim())
+      .find((cookie) => cookie.startsWith("token="));
 
     if (storedToken) {
-      setToken(storedToken);
+      const [, tokenValue] = storedToken.split("=");
+      setToken(tokenValue);
     }
   }, []);
 
