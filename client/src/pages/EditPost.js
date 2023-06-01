@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-import TokenContext  from "../TokenProvider";
+import TokenContext from "../TokenProvider";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -16,19 +16,27 @@ export default function EditPost() {
 
   useEffect(() => {
     console.log("Valor del token, en EditPost:", token);
-    fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
-      headers: {
-        Authorization: `Bearer ${token}`, // Agregar el token en el encabezado de la solicitud
-      },
-    })
-      .then(response => {
-        response.json().then(postInfo => {
-          setTitle(postInfo.title);
-          setContent(postInfo.content);
-          setSummary(postInfo.summary);
+    const storedToken = document.cookie
+      .split(";")
+      .map((cookie) => cookie.trim())
+      .find((cookie) => cookie.startsWith("token="));
+
+    if (storedToken) {
+      const [, tokenValue] = storedToken.split(" ");
+      fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
+        headers: {
+          Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
+        },
+      })
+        .then(response => {
+          response.json().then(postInfo => {
+            setTitle(postInfo.title);
+            setContent(postInfo.content);
+            setSummary(postInfo.summary);
+          });
         });
-      });
-  }, [id, token]); // Agregar 'token' como dependencia del efecto
+    }
+  }, [id, token]);
 
   async function updatePost(ev, err) {
     ev.preventDefault();
@@ -44,7 +52,7 @@ export default function EditPost() {
       method: 'PUT',
       body: data,
       headers: {
-        Authorization: `Bearer ${token}`, // Agregar el token en el encabezado de la solicitud
+        Authorization: `Bearer ${token}`, // Utilizar el token del contexto
       },
       credentials: 'include',
     });
@@ -53,10 +61,8 @@ export default function EditPost() {
     }
   }
 
-  // Imprimir el token en la consola
   console.log('Este es el token del login:', token);
 
-  // Redireccionar
   if (redirect) {
     return <Navigate to={'/post/' + id} />;
   }
