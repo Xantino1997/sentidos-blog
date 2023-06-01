@@ -19,7 +19,7 @@ export default function LoginPage() {
       credentials: "include",
     });
     // setToken(response)
-    console.log(JSON.stringify(response.token) + 'HER IS THE OTHER TOKEN'); 
+    console.log(JSON.stringify(response) + 'HER IS THE OTHER TOKEN'); 
 
     if (response.ok) {
       response.json().then((data) => {
