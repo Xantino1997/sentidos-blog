@@ -21,31 +21,44 @@ export default function Header() {
   }, []);
 
  
-  function logout() {
-    fetch('https://backend-blog-psi.vercel.app/logout', {
-      credentials: 'include',
-      method: 'POST',
-    });
-  
-    // Obtener la fecha actual
-    const currentDate = new Date();
-  
-    // Calcular la fecha de expiración del cookie (10 minutos en el futuro)
-    const expirationDate = new Date(currentDate.getTime() + 10 * 60 * 1000); // 10 minutos en milisegundos
-  
-    // Convertir la fecha de expiración a formato UTC
-    const expirationUTCString = expirationDate.toUTCString();
-  
-    // Limpiar las cookies estableciendo la fecha de expiración en 10 minutos en el futuro
-    document.cookie = `token=; expires=${expirationUTCString}; path=/;`;
-  
-    // Limpiar la información del usuario en el contexto
-    setUserInfo(null);
-  
-    // Recargar la página para redirigir a la raíz
-    window.location.reload();
-  }
-  
+  // Definir el tiempo de inactividad en 2 minutos (120000 milisegundos)
+const inactivityTimeout = 120000;
+let inactivityTimer;
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(logout, inactivityTimeout);
+}
+
+// Reiniciar el temporizador de inactividad cuando hay interacción del usuario
+document.addEventListener('mousemove', resetInactivityTimer);
+document.addEventListener('mousedown', resetInactivityTimer);
+document.addEventListener('keypress', resetInactivityTimer);
+document.addEventListener('touchmove', resetInactivityTimer);
+document.addEventListener('touchstart', resetInactivityTimer);
+
+function logout() {
+  fetch('https://backend-blog-psi.vercel.app/logout', {
+    credentials: 'include',
+    method: 'POST',
+  });
+
+  // Limpiar las cookies
+  const currentDate = new Date();
+  const expirationDate = new Date(currentDate.getTime() + 10 * 60 * 1000); // 10 minutos en milisegundos
+  const expirationUTCString = expirationDate.toUTCString();
+  document.cookie = `token=; expires=${expirationUTCString}; path=/;`;
+
+  // Limpiar la información del usuario en el contexto
+  setUserInfo(null);
+
+  // Recargar la página para redirigir a la raíz
+  window.location.reload();
+}
+
+// Llamar a la función logout después de 2 minutos de inactividad
+resetInactivityTimer();
+
 
   const username = userInfo?.username;
   const profilePicture = userInfo?.profilePicture || user;
