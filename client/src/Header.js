@@ -44,7 +44,8 @@ function logout() {
   });
 
   setUserInfo(null);
-  setRedirect(true);
+  window.location.reload();
+  // setRedirect(true);
 }
 
 

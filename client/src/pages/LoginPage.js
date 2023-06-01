@@ -18,14 +18,13 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
-    // setToken(response)
-    console.log(JSON.stringify(response) + 'HER IS THE OTHER TOKEN'); 
-
+  
     if (response.ok) {
       response.json().then((data) => {
         setUserInfo(data);
         const token = data.token;
-        document.cookie = `token=${token}; path=/`; // Guardar el token en la cookie
+        // para evitar que se vea el token lo comente
+        // document.cookie = `token=${token}; path=/`; // Guardar el token en la cookie
         setRedirect(true);
       });
     } else {
