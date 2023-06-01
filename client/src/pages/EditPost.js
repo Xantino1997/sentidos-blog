@@ -1,7 +1,6 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-import TokenContext from "../TokenProvider";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -11,18 +10,14 @@ export default function EditPost() {
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
 
-  // Obtener el token del contexto
-  const token = useContext(TokenContext);
-
   useEffect(() => {
-    console.log("Valor del token, en EditPost:", token);
     const storedToken = document.cookie
       .split(";")
       .map((cookie) => cookie.trim())
       .find((cookie) => cookie.startsWith("token="));
 
     if (storedToken) {
-      const [, tokenValue] = storedToken.split(" ");
+      const [, tokenValue] = storedToken.split("=");
       fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
         headers: {
           Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
@@ -36,11 +31,10 @@ export default function EditPost() {
             setSummary(postInfo.summary);
           });
         });
-        console.log(token)
     }
-  }, [id, token]);
+  }, [id]);
 
-  async function updatePost(ev, err) {
+  async function updatePost(ev) {
     ev.preventDefault();
     const data = new FormData();
     data.set('title', title);
@@ -50,20 +44,27 @@ export default function EditPost() {
     if (files?.[0]) {
       data.set('file', files?.[0]);
     }
-    const response = await fetch(`https://backend-blog-psi.vercel.app/post`, {
-      method: 'PUT',
-      body: data,
-      headers: {
-        Authorization: `Bearer ${token}`, // Utilizar el token del contexto
-      },
-      credentials: 'include',
-    });
-    if (response.ok) {
-      setRedirect(true);
+    const storedToken = document.cookie
+      .split(";")
+      .map((cookie) => cookie.trim())
+      .find((cookie) => cookie.startsWith("token="));
+
+    if (storedToken) {
+      const [, tokenValue] = storedToken.split("=");
+      const response = await fetch(`https://backend-blog-psi.vercel.app/post`, {
+        method: 'PUT',
+        body: data,
+        headers: {
+          Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
+        },
+        credentials: 'include',
+      });
+      
+      if (response.ok) {
+        setRedirect(true);
+      }
     }
   }
-
-  console.log('Este es el token del login:', token);
 
   if (redirect) {
     return <Navigate to={'/post/' + id} />;
@@ -79,8 +80,8 @@ export default function EditPost() {
         placeholder={'Summary'}
         value={summary}
         onChange={ev => setSummary(ev.target.value)} />
-      {/* <input type="file"
-        onChange={ev => setFiles(ev.target.files)} /> */}
+      <input type="file"
+        onChange={ev => setFiles(ev.target.files)} />
       <Editor onChange={setContent} value={content} />
       <button style={{ marginTop: '5px' }}>Update post</button>
       <br /><br /><br /><hr />
