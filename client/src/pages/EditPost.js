@@ -13,13 +13,9 @@ export default function EditPost() {
 
   // Obtener el token del contexto
   const token = useContext(TokenContext);
-console.log(token + 'el token de EDITPOST')
-
-useEffect(() => {
-  console.log("Valor actualizado del token:", token);
-}, [token]);
 
   useEffect(() => {
+    console.log("Valor del token, en EditPost:", token);
     fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
       headers: {
         Authorization: `Bearer ${token}`, // Agregar el token en el encabezado de la solicitud
