@@ -9,11 +9,10 @@ import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
 import PostNext from './PostNext';
-import { TokenContextProvider } from './TokenProvider';
+import { TokenContext } from './TokenProvider';
 function App() {
 
   return (
-    <TokenContextProvider>
       <UserContextProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -27,7 +26,6 @@ function App() {
           </Route>
         </Routes>
       </UserContextProvider>
-    </TokenContextProvider>
   );
 }
 

@@ -49,7 +49,7 @@ function logout() {
 
 
 if (redirect) {
-  return <Redirect to="/" />;
+  return <Navigate to="/" />;
 }
 
 // Llamar a la función logout después de 2 minutos de inactividad

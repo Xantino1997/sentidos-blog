@@ -8,7 +8,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { setUserInfo } = useContext(UserContext);
-  const { setToken } = useContext(TokenContext);
+  // const { setToken } = useContext(TokenContext);
 
   async function login(ev) {
     ev.preventDefault();
@@ -18,8 +18,8 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
-    setToken(response)
-    console.log(response.token + 'HER IS THE OTHER TOKEN'); 
+    // setToken(response)
+    console.log(JSON.stringify(response.token) + 'HER IS THE OTHER TOKEN'); 
 
     if (response.ok) {
       response.json().then((data) => {
