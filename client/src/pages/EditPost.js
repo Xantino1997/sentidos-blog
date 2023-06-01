@@ -35,6 +35,7 @@ export default function EditPost() {
             setSummary(postInfo.summary);
           });
         });
+        console.log(token)
     }
   }, [id, token]);
 
