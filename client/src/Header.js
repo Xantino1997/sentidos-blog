@@ -1,6 +1,5 @@
-
 import { Link } from "react-router-dom";
-import { useContext, useEffect,useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import sentidos from './assets/sentidos.png';
@@ -9,6 +8,16 @@ import user from './assets/user.png';
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
+
+  // Establecer el tiempo de inactividad en 10 minutos (600000 milisegundos)
+  const inactivityTimeout = 600000;
+  let inactivityTimer;
+
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(logout, inactivityTimeout);
+  }
+
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/profile`, {
       credentials: 'include',
@@ -18,15 +27,24 @@ export default function Header() {
         console.log(JSON.stringify(userInfo) +  'aca deberia aparecer los datos SUPUESTAMENTE AL LLAMARLO ES POR QUE ES EL');
       });
     });
+
+    // Reiniciar el temporizador de inactividad cuando hay interacción del usuario
+    document.addEventListener("mousemove", resetInactivityTimer);
+    document.addEventListener("mousedown", resetInactivityTimer);
+    document.addEventListener("keypress", resetInactivityTimer);
+    document.addEventListener("touchmove", resetInactivityTimer);
+    document.addEventListener("touchstart", resetInactivityTimer);
   }, []);
 
  
   function logout() {
-    fetch('https://backend-blog-psi.vercel.app/logout', {
-      credentials: 'include',
-      method: 'POST',
-    });
+    // Limpiar las cookies
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+    // Limpiar la información del usuario en el contexto
     setUserInfo(null);
+
+    // Recargar la página para redirigir a la raíz
     window.location.reload();
   }
 
@@ -53,8 +71,5 @@ export default function Header() {
         )}
       </nav>
     </header>
-    
   );
 }
-
-
