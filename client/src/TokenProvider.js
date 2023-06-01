@@ -12,9 +12,8 @@ export const TokenContext = ({ children }) => {
     if (storedToken) {
       const [, tokenValue] = storedToken.split("=");
       setToken(tokenValue);
+      console.log("Valor del token:", tokenValue);
     }
-
-    console.log("Valor del token:", token); // Agregar el console.log aquí
   }, []);
 
   return (
