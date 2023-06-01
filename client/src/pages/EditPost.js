@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Editor from "../Editor";
-import { TokenContext } from "../TokenContext";
+import { TokenContext } from "../TokenProvider";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -14,6 +14,11 @@ export default function EditPost() {
   // Obtener el token del contexto
   const token = useContext(TokenContext);
 console.log(token + 'el token de EDITPOST')
+
+useEffect(() => {
+  console.log("Valor actualizado del token:", token);
+}, [token]);
+
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
       headers: {

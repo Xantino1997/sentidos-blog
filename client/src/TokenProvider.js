@@ -1,8 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-
-export const TokenContext = createContext();
-
-export const TokenProvider = ({ children }) => {
+export const TokenContext = ({ children }) => {
   const [token, setToken] = useState("");
 
   useEffect(() => {
@@ -15,6 +12,8 @@ export const TokenProvider = ({ children }) => {
       const [, tokenValue] = storedToken.split("=");
       setToken(tokenValue);
     }
+
+    console.log("Valor del token:", token); // Agregar el console.log aquí
   }, []);
 
   return (
