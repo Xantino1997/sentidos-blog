@@ -18,7 +18,7 @@ export default function LoginPage() {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
-    setToken(response.token)
+    setToken(response)
     console.log(response.token + 'HER IS THE OTHER TOKEN'); 
 
     if (response.ok) {
