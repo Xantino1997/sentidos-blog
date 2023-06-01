@@ -23,8 +23,7 @@ export default function LoginPage() {
       response.json().then((data) => {
         setUserInfo(data);
         const token = data.token;
-        // para evitar que se vea el token lo comente
-        // document.cookie = `token=${token}; path=/`; // Guardar el token en la cookie
+        document.cookie = `token=${token}; path=/`; // Guardar el token en la cookie
         setRedirect(true);
       });
     } else {

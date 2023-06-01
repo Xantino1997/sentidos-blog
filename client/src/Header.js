@@ -21,7 +21,7 @@ export default function Header() {
   }, []);
 
  
-  // Definir el tiempo de inactividad en 2 minutos (120000 milisegundos)
+  // Definir el tiempo de inactividad en 10 minutos (120000 milisegundos)
 const inactivityTimeout = 600000;
 let inactivityTimer;
 
@@ -53,7 +53,7 @@ if (redirect) {
   return <Navigate to="/" />;
 }
 
-// Llamar a la función logout después de 2 minutos de inactividad
+// Llamar a la función logout después de 10 minutos de inactividad
 resetInactivityTimer();
 
 
@@ -75,7 +75,7 @@ resetInactivityTimer();
           <>
             <img className="img-sentidos" src={sentidos} alt="Sentidos" />
             <Link to="/login" className="login">Login</Link>
-            <Link to="/register" className="login">register</Link>
+            {/* <Link to="/register" className="login">register</Link> */}
           </>
         )}
       </nav>
