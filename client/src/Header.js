@@ -67,7 +67,7 @@ export default function Header() {
 
   const username = userInfo?.username;
   const profilePicture = userInfo?.profilePicture || user;
-  console.log(profilePicture + 'fotos de perfil desde login')
+  console.log(profilePicture + 'fotos de perfil en login')
   console.log(JSON.stringify(profilePicture )+ 'fotos de perfil desde login')
 
   return (
