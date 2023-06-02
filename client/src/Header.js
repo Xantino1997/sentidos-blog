@@ -75,7 +75,7 @@ export default function Header() {
       <nav>
         {username && (
           <>
-            <img className="author-avatar-img" src={`https://backend-blog-psi.vercel.app/` + profilePicture} alt="Profile picture" />
+            <img className="author-avatar-img" src={ profilePicture} alt="Profile picture" />
             <Link to="/create" className="login">Create new post</Link>
             <a onClick={logout} className="register">Logout ({username})</a>
           </>
