@@ -16,6 +16,7 @@ export default function Header() {
         setUserInfo(userInfo);
       });
     });
+    console.log(response);
   }, []);
 
   // Definir el tiempo de inactividad en 5 minutos (300000 milisegundos)
