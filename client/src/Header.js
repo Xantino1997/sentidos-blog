@@ -9,7 +9,7 @@ export default function Header() {
   const [redirect, setRedirect] = useState(false);
   
   useEffect(() => {
-    fetch(`https://backend-blog-psi.vercel.app/profile`, {
+    fetch(`https:/res.cloudinary.com/dcwwhkqb2/image/upload/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
