@@ -1,65 +1,71 @@
-
 import { UserContext } from "./UserContext";
 import sentidos from './assets/sentidos.png';
 import user from './assets/user.png';
-import { Link, Redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
+  
   useEffect(() => {
     fetch(`https://backend-blog-psi.vercel.app/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
         setUserInfo(userInfo);
-        console.log(JSON.stringify(userInfo) +  'aca deberia aparecer los datos SUPUESTAMENTE AL LLAMARLO ES POR QUE ES EL');
       });
     });
   }, []);
 
- 
-  // Definir el tiempo de inactividad en 10 minutos (120000 milisegundos)
-const inactivityTimeout = 600000;
-let inactivityTimer;
+  // Definir el tiempo de inactividad en 5 minutos (300000 milisegundos)
+  const inactivityTimeout = 300000;
+  let inactivityTimer;
 
-function resetInactivityTimer() {
-  clearTimeout(inactivityTimer);
-  inactivityTimer = setTimeout(logout, inactivityTimeout);
-}
+  function resetInactivityTimer() {
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(logout, inactivityTimeout);
+  }
 
-// Reiniciar el temporizador de inactividad cuando hay interacción del usuario
-document.addEventListener('mousemove', resetInactivityTimer);
-document.addEventListener('mousedown', resetInactivityTimer);
-document.addEventListener('keypress', resetInactivityTimer);
-document.addEventListener('touchmove', resetInactivityTimer);
-document.addEventListener('touchstart', resetInactivityTimer);
+  useEffect(() => {
+    // Reiniciar el temporizador de inactividad cuando hay interacción del usuario
+    document.addEventListener('mousemove', resetInactivityTimer);
+    document.addEventListener('mousedown', resetInactivityTimer);
+    document.addEventListener('keypress', resetInactivityTimer);
+    document.addEventListener('touchmove', resetInactivityTimer);
+    document.addEventListener('touchstart', resetInactivityTimer);
 
-function logout() {
-  fetch('https://backend-blog-psi.vercel.app/logout', {
-    credentials: 'include',
-    method: 'POST',
-  });
+    // Llamar a la función logout después de 5 minutos de inactividad
+    resetInactivityTimer();
 
-  setUserInfo(null);
-  window.location.reload();
-  // setRedirect(true);
-}
+    return () => {
+      // Limpiar los event listeners al desmontar el componente
+      document.removeEventListener('mousemove', resetInactivityTimer);
+      document.removeEventListener('mousedown', resetInactivityTimer);
+      document.removeEventListener('keypress', resetInactivityTimer);
+      document.removeEventListener('touchmove', resetInactivityTimer);
+      document.removeEventListener('touchstart', resetInactivityTimer);
+    };
+  }, []);
 
+  function logout() {
+    fetch('https://backend-blog-psi.vercel.app/logout', {
+      credentials: 'include',
+      method: 'POST',
+    });
 
-if (redirect) {
-  return <Navigate to="/" />;
-}
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    setUserInfo(null);
+    setRedirect(true);
+  }
 
-// Llamar a la función logout después de 10 minutos de inactividad
-resetInactivityTimer();
-
+  if (redirect) {
+    return <Navigate to="/" />;
+  }
 
   const username = userInfo?.username;
   const profilePicture = userInfo?.profilePicture || user;
-  
+
   return (
     <header>
       <Link to="/" className="logo">Inicio</Link>
@@ -80,8 +86,5 @@ resetInactivityTimer();
         )}
       </nav>
     </header>
-    
   );
 }
-
-
