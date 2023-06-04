@@ -15,7 +15,7 @@ export default function EditPost() {
       .split(";")
       .map((cookie) => cookie.trim())
       .find((cookie) => cookie.startsWith("token="));
-
+ console.log(response)
     if (storedToken) {
       const [, tokenValue] = storedToken.split("=");
       fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
