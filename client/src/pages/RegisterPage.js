@@ -15,7 +15,7 @@ export default function RegisterPage() {
       profilePicture ? profilePicture : await fetch("/user.png").then((r) => r.blob())
     );
 
-    const response = await fetch(`https:/res.cloudinary.com/dcwwhkqb2/image/upload/register`, {
+    const response = await fetch(`https://res.cloudinary.com/dcwwhkqb2/image/upload/register`, {
 
       method: "POST",
       body: formData,
