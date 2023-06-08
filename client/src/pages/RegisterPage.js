@@ -18,7 +18,7 @@ export default function RegisterPage() {
     const response = await fetch(`https://res.cloudinary.com/dcwwhkqb2/image/upload/register`, {
       method: "POST",
       body: formData,
-      credentials: "include", // Incluye las cookies en la solicitud
+      withcredentials:false, // Incluye las cookies en la solicitud
       headers: {
         "Authorization": `Bearer ${document.cookie.token}` // Incluye el token en el encabezado de la solicitud
       }
