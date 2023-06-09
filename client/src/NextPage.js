@@ -26,7 +26,7 @@ export default function NextPage({ _id, title, summary, cover, content, author, 
                 <div className="content-image__img-post">
                   <img
                     className="content-image__img-post__img-post"
-                    src={`https://backend-blog-psi.vercel.app/` + cover}
+                    src={ cover}
                     alt="Imagen"
                   />
                 </div>
