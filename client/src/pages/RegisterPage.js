@@ -16,7 +16,7 @@ export default function RegisterPage() {
     );
 
     try {
-      const response = await fetch("https://res.cloudinary.com/dcwwhkqb2/image/upload/register", {
+      const response = await fetch("https://backend-blog-psi.vercel.app/register", {
         method: "POST",
         body: formData,
       });
