@@ -39,19 +39,8 @@
     border-right-color: transparent;
     background-color:orange;
   }
-  
-  .img-sentidos{
-    position:absolute;
-    width:40%;
-    height:15%;
-    left:25% ;
-    border-radius:8px;
-    top:3%;
-    border:none;
-    box-shadow: 0 0 10px #fff;
-    margin:3px;
-    padding:5px;
-  }
+  /* PARA LOS CELUS */
+
 
   main{
     padding:10px;
@@ -94,6 +83,40 @@
     top:10px;
   }
 
+  .edit-row {
+    /*este es para editar el boton de edit post; */
+  }
+  
+  .edit-post-btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left:5rem;
+    justify-content: center;
+    background-color: red;
+    border: 2px solid white;
+    width: 190px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .edit-post-btn svg {
+    width: 24px;
+    height: 24px;
+    /* margin-right: 10px; */
+  }
+  
+  .edit-post-btn:hover {
+    background-color: lightblue;
+    border-radius: 8px;
+    border: 2px solid white;
+  }
+  
+  
+
+
   .profile-picture-avatar{
     position: absolute;
     width:10%;
@@ -122,14 +145,6 @@
     border-radius: 50%;
   }
 
-  .userDefault{
-    position: relative;
-    width: 35%;
-    height: 80%;
-    left:30%;
-    margin: 15px;
-    border: 10px solid violet;
-  }
   header{
     justify-content: space-between;
     align-items: center;
@@ -149,26 +164,112 @@
     font-family: 'Permanent Marker', cursive;
     
   }
-  
+
+  header .title-login{
+    font-family: 'Permanent Marker', cursive;
+    color:yellowgreen;
+  }
+
+  header .title-register{
+    font-family: 'Permanent Marker', cursive;
+    color:yellowgreen;
+
+  }
+
+  .img-sentidos{
+    position:absolute;
+    width:150px;
+    height:0 auto;
+    left:40% ;
+    border-radius:8px;
+    top:1%;
+    border:none;
+    box-shadow: 0 0 10px #fff;
+    margin:3px;
+    padding:5px;
+  }
   .login{
-    margin: 0 auto;
+    margin: 55px auto;
     font-weight: bold;
     font-size: 1rem;
     color:#fff;
-    border:transparent;
+    border:3px solid #fff;
+    padding: 60px 15px  ;
+    width: 500px;
+    height: 400px;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+  .login h1{
     font-family: 'Permanent Marker', cursive;
   }
   
 .register{
-  margin: 0 auto;
-  font-weight: bold;
-  font-size: 1rem;
-  color:#fff;
-  border:transparent;
+    margin: 55px auto;
+    font-weight: bold;
+    font-size: 1rem;
+    color:#fff;
+    border:3px solid #fff;
+    padding: 60px 15px  ;
+    justify-content: center;
+    width: 600px;
+    height: 800px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.register h1{
   font-family: 'Permanent Marker', cursive;
+}
+.register-username{
+  background-color:transparent;
+  border:none;
+  color:white;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+  margin:45px 0px 45px 0px;
+  transition: all 0.3s ease;
+}
+.register-username::placeholder {
+  color: white;
+}
+
+.register-password{
+  background-color:transparent;
+  border:none;
+  color:white;
+  font-weight: bold;
+  border-bottom: 2px solid #fff;
+  margin:95px 0px 45px 0px;
+  transition: all 0.3s ease;
+}
+
+.slide-up{
+  border-bottom: 2px solid lightblue;
+  transform: translateY(-20px);
+  outline: none;
+  color:white;
+  font-size:25px
+
+}
+.slide-up::placeholder{
+  transition: all 0.6s ease;
+  transform: translateX(-200px);
+}
+
+.register-password::placeholder {
+  color: white;
 }
 
 
+.userDefault{
+  position: relative;
+  width: 30%;
+  height: 30%;
+  left:30%;
+  border-radius: 50%;
+  margin: 15px;
+  border: 10px solid violet;
+}
 
 .left {
   margin-left: 80px;
@@ -647,13 +748,118 @@
 
   @media only screen and (min-width: 480px) and (max-height: 1080px) {
     
-
+    header .title-login{
+      color:blue;
+      font-family: 'Permanent Marker', cursive;
+    }
+  
+    header .title-register{
+      color:blue;
+      font-family: 'Permanent Marker', cursive;
+    }
+    .login{
+      margin: 55px auto;
+      font-weight: bold;
+      font-size: 1rem;
+      color:#fff;
+      border:3px solid #fff;
+      padding: 60px 15px  ;
+      width: 500px;
+      height: 400px;
+      font-family: 'Permanent Marker', cursive;
+    }
+    
+    .login h1{
+      font-family: 'Permanent Marker', cursive;
+    }
+    
+  .register{
+      margin: 55px auto;
+      font-weight: bold;
+      font-size: 1rem;
+      color:#fff;
+      border:3px solid #fff;
+      padding: 60px 15px  ;
+      justify-content: center;
+      width: 600px;
+      height: 800px;
+      font-family: 'Permanent Marker', cursive;
+  }
+  
+  .register h1{
+    font-family: 'Permanent Marker', cursive;
+  }
+  .register-username{
+    background-color:transparent;
+    border:none;
+    color:white;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    margin:45px 0px 45px 0px;
+    transition: all 0.3s ease;
+  }
+  .register-username::placeholder {
+    color: white;
+  }
+  
+  .register-password{
+    background-color:transparent;
+    border:none;
+    color:white;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    margin:95px 0px 45px 0px;
+    transition: all 0.3s ease;
+  }
+  
+  .slide-up{
+    border-bottom: 2px solid lightblue;
+    transform: translateY(-20px);
+    outline: none;
+    color:white;
+    font-size:25px
+  
+  }
+  .slide-up::placeholder{
+    transition: all 0.6s ease;
+    transform: translateX(-200px);
+  }
+  
+  .register-password::placeholder {
+    color: white;
+  }
+  
+  
+  .userDefault{
+    position: relative;
+    width: 30%;
+    height: 30%;
+    left:30%;
+    border-radius: 50%;
+    margin: 15px;
+    border: 10px solid violet;
+  }
+  
    
+  .img-sentidos{
+    position:absolute;
+    width:150px;
+    height:0 auto;
+    left:40% ;
+    border-radius:8px;
+    top:2%;
+    border:none;
+    box-shadow: 0 0 10px #fff;
+    margin:3px;
+    padding:5px;
+  }
     .conteiner-form{
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
+    /* MAS REDUCIDO EL MEDIA */
     @media only screen and (min-width: 768px) {
       .footer-form {
         width: 40%;
@@ -677,15 +883,16 @@
       }
       .img-sentidos{
         position:absolute;
-        width:20%;
-        height:15%;
-        left:40% ;
+        width:150px;
+        height:0 auto;
+        left:45% ;
         border-radius:8px;
-        top:0.5%;
+        top:1.2rem;
         border:none;
         box-shadow: 0 0 10px #fff;
         margin:3px;
         padding:5px;
+        border: blue 1px solid
       }
 
       .sentidos{

@@ -42,20 +42,36 @@ export default function RegisterPage() {
     document.getElementById("fileInput").click();
   }
 
+  function handleFocus(ev) {
+    ev.target.classList.add("slide-up");
+  }
+
+  function handleBlur(ev) {
+    if (ev.target.value === "") {
+      ev.target.classList.remove("slide-up");
+    }
+  }
+
   return (
     <form className="register" onSubmit={register}>
       <h1>Register</h1>
       <input
         type="text"
-        placeholder="username"
+        placeholder="Username"
         value={username}
+        className="register-username"
         onChange={(ev) => setUsername(ev.target.value)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
       <input
         type="password"
-        placeholder="password"
+        placeholder="Password"
         value={password}
+        className="register-password"
         onChange={(ev) => setPassword(ev.target.value)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       />
       <button type="button" onClick={handleChooseFile}>
         Choose Profile Picture
