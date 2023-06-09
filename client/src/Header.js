@@ -76,8 +76,8 @@ export default function Header() {
         {username && (
           <>
             <img className="author-avatar-img" src={profilePicture} alt="Profile picture" />
-            <Link to="/create" className="login">Create new post</Link>
-            <a onClick={logout} className="register">Logout ({username})</a>
+            <Link to="/create" className="title-login">Create new post</Link>
+            <a onClick={logout} className="title-register">Logout ({username})</a>
           </>
         )}
         {!username && (
