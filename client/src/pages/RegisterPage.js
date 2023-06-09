@@ -16,20 +16,15 @@ export default function RegisterPage() {
     );
 
     try {
-      const response = await fetch(`https://res.cloudinary.com/dcwwhkqb2/image/upload/register`, {
+      const response = await fetch("https://res.cloudinary.com/dcwwhkqb2/image/upload/register", {
         method: "POST",
         body: formData,
-        credentials: "include", // Incluye las cookies en la solicitud
-        headers: {
-          Authorization: `Bearer ${document.cookie.token}`, // Incluye el token en el encabezado de la solicitud
-        },
       });
 
       if (response.status === 200) {
         const data = await response.json();
         alert("Registration successful");
         console.log("User document:", data.user);
-        console.log("Token:", data.token);
       } else {
         alert("Registration failed");
       }
