@@ -19,9 +19,9 @@ export default function RegisterPage() {
       method: "POST",
       body: formData,
       withcredentials:false, // Incluye las cookies en la solicitud
-      headers: {
-        "Authorization": `Bearer ${document.cookie.token}` // Incluye el token en el encabezado de la solicitud
-      }
+      // headers: {
+      //   "Authorization": `Bearer ${document.cookie.token}` // Incluye el token en el encabezado de la solicitud
+      // }
     });
     
     console.log(response);
