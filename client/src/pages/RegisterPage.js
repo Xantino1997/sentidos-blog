@@ -19,7 +19,7 @@ export default function RegisterPage() {
       method: "POST",
       body: formData,
       mode : 'no-cors',
-      withcredentials:false, // Incluye las cookies en la solicitud
+      // withcredentials:false, // Incluye las cookies en la solicitud
       // headers: {
       //   "Authorization": `Bearer ${document.cookie.token}` // Incluye el token en el encabezado de la solicitud
       // }

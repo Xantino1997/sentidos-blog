@@ -30,7 +30,7 @@ export default function Post({ _id, title, summary, cover, content, author, crea
         <br></br>
         <br></br>
         <hr></hr>
-        <img className="profile-picture" src={ profileAvatar} alt="" />
+        <img className="profile-picture" src={ user} alt="" />
         <h6 className="author">
           <p>Author: {author.username}</p>
           <time className="time-post-page">{format(new Date(createdAt), "PPpp")}</time>
