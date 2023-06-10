@@ -75,16 +75,17 @@ export default function Header() {
       <nav>
         {username && (
           <>
-            <img className="author-avatar-img" src={profilePicture} alt="Profile picture" />
             <Link to="/create" className="title-login">Create new post</Link>
             <a onClick={logout} className="title-register">Logout ({username})</a>
+            <img className="author-avatar-img" src={profilePicture} alt="Profile picture" />
+
           </>
         )}
         {!username && (
           <>
             <img className="img-sentidos" src={sentidos} alt="Sentidos" />
             <Link to="/login" className="title-login">Login</Link>
-            <Link to="/register" className="title-register">register</Link>
+            {/* <Link to="/register" className="title-register">register</Link> */}
           </>
         )}
       </nav>
