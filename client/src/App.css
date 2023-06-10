@@ -404,9 +404,9 @@ align-items: center; /* Centra verticalmente los elementos */
 }
 
 .image{
-position:absolute;
+position:relative;
 width:40%;
-right:80px;
+right:10px;
 }
 .post-picture{
 position:relative;
@@ -824,7 +824,7 @@ footer {
   .post-picture{
     top:20px;
     width:100%;
-    left:0px;
+    left:180px;
     height:100%;
   }
   
