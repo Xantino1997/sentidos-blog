@@ -12,7 +12,7 @@ export default function IndexPage() {
   const postsPerPage = 3;
 
   useEffect(() => {
-    fetch("http://localhost:4000/post")
+    fetch("https://backend-blog-psi.vercel.app/post")
       .then((response) => response.json())
       .then((posts) => {
         setPosts(posts);
