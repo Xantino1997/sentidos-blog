@@ -435,7 +435,6 @@ width: 15%;
 flex-shrink: 0; /* Evita que el botón se encoja */
 }
 
-.content-little-h2 {
   .content-little-h2 {
     display: flex;
     justify-content: center;
