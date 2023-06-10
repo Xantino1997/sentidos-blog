@@ -78,9 +78,16 @@ header{
   margin:5px;
 }
 
+.image{
+  position:absolute;
+  width:40%;
+  right:80px;
+}
 .post-picture{
   position:relative;
   top:10px;
+  width:100%;
+  height:100%;
 }
 
 .edit-row {
@@ -166,8 +173,8 @@ header a.logo{
 }
 
 header .title-login{
-  position: absolute;
-  top: 80px;
+  /* position: absolute;
+  top: 80px; */
   right: 30px;
   font-family: 'Permanent Marker', cursive;
 }
@@ -205,12 +212,12 @@ header .title-register{
 }
 
 .register{
-  margin: 55px auto;
+  margin: 10px auto;
   font-weight: bold;
   font-size: 1rem;
   color:#fff;
   border:3px solid #fff;
-  padding: 60px 15px  ;
+  padding: 60px 5px  ;
   justify-content: center;
   width: 300px;
   height: 700px;
@@ -250,12 +257,12 @@ border-bottom: 2px solid lightblue;
 transform: translateY(-20px);
 outline: none;
 color:white;
-font-size:25px
+font-size:15px
 
 }
 .slide-up::placeholder{
 transition: all 0.6s ease;
-transform: translateX(-200px);
+transform: translateX(-80px);
 }
 
 .register-password::placeholder {
@@ -273,39 +280,6 @@ margin: 15px;
 border: 5px solid violet;
 }
 
-.left {
-margin-left: 80px;
-width:80px;
-background-color:white;
-border:solid 4px transparent;
-border-radius:50%
-}
-
-.right {
-margin-right:80px;
-width:80px;
-border-radius:50%;
-background-color:white;
-border:solid 4px transparent;
-}
-.left:hover {
-background-color:white;
-border:solid 4px orange;
-width:80px;
-border-radius:50%;
-}
-.center:hover {
-background-color:white;
-border:solid 4px orange;
-width:80px;
-border-radius:50%
-}
-.right:hover {
-background-color:white;
-border:solid 4px orange;
-width:80px;
-border-radius:50%
-}
 
 header nav{
   display:flex;
@@ -338,7 +312,6 @@ div.post {
 
 .sentidos{
   position: relative;
-  right: 50%;
   color:white;
   font-size:50px;
   font-weight:bold;
@@ -407,8 +380,10 @@ color:red;
 /* border:25px solid orange */
 }
 
+
+
 .litlePost{
-/* border:25px solid blue; */
+border:2px solid white;
 display:flex;
 flex-direction: row;
 align-items: center;
@@ -420,12 +395,83 @@ display: flex;
 justify-content: space-between;
 }
 
-.btnLitlePost .left {
-align-self: flex-start;
+.content-little-post {
+/* border: black solid 5px; */
+display: flex;
+flex-direction:row;
+justify-content: space-around;
+align-items: center; /* Centra verticalmente los elementos */
 }
 
-.btnLitlePost .right {
-align-self: flex-end;
+.image{
+position:absolute;
+width:40%;
+right:80px;
+}
+.post-picture{
+position:relative;
+top:10px;
+width:100%;
+height:100%;
+}
+
+
+.left {
+position: absolute;
+left:-40px;
+border: 1px solid yellowgreen;
+border-radius: 50%;
+width: 15%;
+flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+.right {
+position: absolute;
+right:30px;
+border: 1px solid yellowgreen;
+border-radius: 50%;
+width: 15%;
+flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+.content-little-h2 {
+position: absolute;
+display: flex;
+align-items: center; /* Centra verticalmente el texto */
+font-size: 10px;
+margin: 5px 0; /* Elimina la margen horizontal y establece solo la superior e inferior */
+flex-grow: 1; /* Permite que el H2 crezca para llenar el espacio restante */
+padding: 0 10px; /* Añade un poco de espacio alrededor del texto */
+}
+
+.litle-left {
+position: relative;
+left: 0px;  
+border: 1px solid yellowgreen;
+border-radius:50%;
+width: 20%;
+}
+
+.litle-right {
+position: relative;
+right: 50px;  
+border: 1px solid yellowgreen;
+border-radius:50%;
+width: 20%;
+}
+.litle-left:hover {
+position: relative;
+border: 1px solid yellowgreen;
+border-radius:50%;
+background-color:white;
+}
+
+.litle-right:hover {
+position: relative;
+border: 1px solid yellowgreen;
+border-radius:50%;
+background-color:white;
+
 }
 
 .content-image{
@@ -487,11 +533,7 @@ div.post .avatar-img{
   cursor:pointer;
 }
 
-.image{
-  display: flex;
-  justify-content: center;
-  max-height: 500px
-}
+
 
 .post-final{
   margin:30px 30px 10px 30px;
@@ -751,12 +793,12 @@ footer {
 @media only screen and (min-width: 480px) and (max-height: 1080px) {
   
   header .title-login{
-    color:blue;
+    position: relative;
+    top:0px;
     font-family: 'Permanent Marker', cursive;
   }
 
   header .title-register{
-    color:blue;
     font-family: 'Permanent Marker', cursive;
   }
 
@@ -775,7 +817,106 @@ footer {
     cursor: pointer;
   }
 
-
+  .image{
+    position: relative;
+    width:100%;
+  }
+  .post-picture{
+    top:-30px;
+    width:100%;
+    left:100px;
+    height:100%;
+  }
+  
+  
+  .left {
+    position: absolute;
+    left:-200px;
+    border: 1px solid yellowgreen;
+    background-color:white;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  
+  .right {
+    position: absolute;
+    right:200px;
+    border: 1px solid yellowgreen;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  .litle-left {
+    position: absolute;
+    border: 1px solid yellowgreen;
+    border-radius: 50%;
+    left:-150px;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  .litle-right {
+    position: absolute;
+    right:200px;
+    border: 1px solid yellowgreen;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  .litle-left:hover {
+    position: absolute;
+    background-color: red;
+    left:-150px;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  .litle-right:hover {
+    position: absolute;
+    right:200px;
+    background-color: red;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  .img-left-mini{
+    border-radius: 50%;
+    border:none;
+  }
+  .img-right-mini{
+    border-radius: 50%;
+    border:none;
+  }
+  .left:hover {
+    position: absolute;
+    left:-200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  
+  .right:hover {
+    position: absolute;
+    right:200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 5%;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  
+  .content-little-h2 {
+    position: absolute;
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto */
+    font-size: 20px;
+    margin: 5px 0; /* Elimina la margen horizontal y establece solo la superior e inferior */
+    flex-grow: 1; /* Permite que el H2 crezca para llenar el espacio restante */
+    padding: 0 10px; /* Añade un poco de espacio alrededor del texto */
+  }
+  
 
   .login{
     margin: 55px auto;
@@ -799,7 +940,7 @@ footer {
     font-size: 1rem;
     color:#fff;
     border:3px solid #fff;
-    padding: 60px 15px  ;
+    padding: 60px 5px  ;
     justify-content: center;
     width: 600px;
     height: 800px;

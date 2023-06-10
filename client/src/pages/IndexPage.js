@@ -69,20 +69,20 @@ export default function IndexPage() {
       <br></br>
       <br></br>
       <br></br>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className="content-little-post">
         <button className="left" onClick={handlePrevious}>
-          <img src={left} alt="Left" />
+          <img className="img-left-mini" src={left} alt="Left" />
         </button>
-        <h2 style={{ marginLeft: "250px" }}>
+        <h2 className="content-little-h2">
           PAGINA {currentPage} DE {totalPages}
         </h2>
         <button className="right" onClick={handleNext}>
-          <img src={right} alt="Right" />
+          <img className="img-right-mini" src={right} alt="Right" />
         </button>
       </div>
+      <br />
+      <br />
       <hr />
-      <br />
-      <br />
       <br />
       <br />
       <div className="litlePost">
@@ -93,14 +93,24 @@ export default function IndexPage() {
         <br />
         <br />
       </div>
+      <br />
+      <br /> 
+      <br />
+      <br />
       <div className="btnLitlePost">
-        <button className="left" onClick={handlePrevioushandleNextLitle}>
-          <img src={left} alt="Left" />
+        <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
+          <img className="img-left-mini" src={left} alt="Left" />
         </button>
-        <button className="right" onClick={handleNextLitle}>
-          <img src={right} alt="Right" />
+        <button className="litle-right" onClick={handleNextLitle}>
+          <img className="img-right-mini" src={right} alt="Right" />
         </button>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <hr />
       <br />
       <br />
