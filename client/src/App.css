@@ -436,14 +436,14 @@ flex-shrink: 0; /* Evita que el botón se encoja */
 }
 
 .content-little-h2 {
-position: absolute;
-display: flex;
-align-items: center; /* Centra verticalmente el texto */
-font-size: 10px;
-margin: 5px 0; /* Elimina la margen horizontal y establece solo la superior e inferior */
-flex-grow: 1; /* Permite que el H2 crezca para llenar el espacio restante */
-padding: 0 10px; /* Añade un poco de espacio alrededor del texto */
-}
+  .content-little-h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    font-size:15px;
+    padding:15px;
+  }
 
 .litle-left {
 position: relative;
@@ -909,14 +909,14 @@ footer {
   }
   
   .content-little-h2 {
-    position: absolute;
-    display: flex;
-    align-items: center; /* Centra verticalmente el texto */
-    font-size: 20px;
-    margin: 5px 0; /* Elimina la margen horizontal y establece solo la superior e inferior */
-    flex-grow: 1; /* Permite que el H2 crezca para llenar el espacio restante */
-    padding: 0 10px; /* Añade un poco de espacio alrededor del texto */
-  }
+    .content-little-h2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center; 
+      font-size:100px;
+      padding:15px;
+    }
   
 
   .login{
