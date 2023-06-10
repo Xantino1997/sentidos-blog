@@ -792,13 +792,13 @@ footer {
 
 @media only screen and (min-width: 480px) and (max-height: 1080px) {
   
-  .title-login{
+  header .title-login{
     position: relative;
     top:0px;
     font-family: 'Permanent Marker', cursive;
   }
 
-  .title-register{
+  header .title-register{
     font-family: 'Permanent Marker', cursive;
   }
 
@@ -907,7 +907,7 @@ footer {
     flex-shrink: 0; /* Evita que el botón se encoja */
   }
   
-  .content-little-h2 {
+
     .content-little-h2 {
       display: flex;
       justify-content: center;
