@@ -792,13 +792,13 @@ footer {
 
 @media only screen and (min-width: 480px) and (max-height: 1080px) {
   
-  header .title-login{
+  .title-login{
     position: relative;
     top:0px;
     font-family: 'Permanent Marker', cursive;
   }
 
-  header .title-register{
+  .title-register{
     font-family: 'Permanent Marker', cursive;
   }
 
