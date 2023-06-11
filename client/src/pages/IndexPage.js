@@ -85,6 +85,15 @@ export default function IndexPage() {
         <br />
         <br />
         <br />
+        <div className="btnLitlePost">
+          <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
+            <img className="img-left-mini" src={left} alt="Left" />
+          </button>
+
+          <button className="litle-right" onClick={handleNextLitle}>
+            <img className="img-right-mini" src={right} alt="Right" />
+          </button>
+        </div>
       </div>
       <br />
       <br />
@@ -93,15 +102,7 @@ export default function IndexPage() {
       <h2 className="content-little-h2">
         PAGINA {Math.floor(btnLitlePostIndex / 1) + 1} DE {Math.ceil(posts.length / 1)}
       </h2>
-      <div className="btnLitlePost">
-        <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
-          <img className="img-left-mini" src={left} alt="Left" />
-        </button>
 
-        <button className="litle-right" onClick={handleNextLitle}>
-          <img className="img-right-mini" src={right} alt="Right" />
-        </button>
-      </div>
       <br />
       <br />
       <br />
