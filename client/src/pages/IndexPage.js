@@ -46,7 +46,7 @@ export default function IndexPage() {
   const visiblePostsLitle = posts.slice(startIndexLitle, startIndexLitle + 1);
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
-  const currentPage = Math.floor(currentPostIndex / + 1) ;
+  const currentPage = Math.floor(currentPostIndex + 1) ;
 
   return (
     <>
@@ -89,23 +89,24 @@ export default function IndexPage() {
         <br />
         <br />
         <div className="btnLitlePost">
-          <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
-            <img className="img-left-mini" src={left} alt="Left" />
-          </button>
+       
+       <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
+         <img className="img-left-mini" src={left} alt="Left" />
+       </button>
 
-          <button className="litle-right" onClick={handleNextLitle}>
-            <img className="img-right-mini" src={right} alt="Right" />
-          </button>
-        </div>
+       <button className="litle-right" onClick={handleNextLitle}>
+         <img className="img-right-mini" src={right} alt="Right" />
+       </button>
+     </div>
       </div>
       <br />
       <br />
       <br />
       <br />
       <h2 className="content-little-h2">
-        PAGINA {Math.floor(btnLitlePostIndex / 1) + 1} DE {Math.ceil(posts.length / 1)}
-      </h2>
-
+          Post {Math.floor(btnLitlePostIndex / 1) + 1} DE {Math.ceil(posts.length / 1)}
+        </h2>
+    
       <br />
       <br />
       <br />
