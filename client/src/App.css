@@ -88,7 +88,12 @@ header{
   width:40%;
   right:80px;
 }
-
+.post-picture{
+  position:relative;
+  top:30px;
+  width:100%;
+  height:100%;
+}
 
 .edit-row {
   /*este es para editar el boton de edit post; */
@@ -414,15 +419,15 @@ width:40%;
 right:80px;
 }
 .post-picture{
-position:relative;
-top:30px;
-right:10px;
-width:100%;
-height:100%;
-border:none;
-background-color: red;
-}
-
+  position:relative;
+  top:30px;
+  left:100px;
+  width:100%;
+  height:100%;
+  border:none;
+  background-color: red;
+  }
+  
 
 .left {
 position: absolute;
@@ -902,10 +907,9 @@ footer {
   }
   .post-picture{
     top:30px;
-    left:100px;
     width:100%;
+    left:100px;
     height:100%;
-  
   }
   
   
