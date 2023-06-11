@@ -45,6 +45,9 @@ export default function IndexPage() {
   const startIndexLitle = btnLitlePostIndex;
   const visiblePostsLitle = posts.slice(startIndexLitle, startIndexLitle + 1);
 
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const currentPage = Math.floor(currentPostIndex / + 1) ;
+
   return (
     <>
       {/* <FindPost/> */}
@@ -53,7 +56,7 @@ export default function IndexPage() {
         <br></br>
         <br></br>
         <h2 style={{ textAlign: "center" }}>
-          PAGINA {Math.floor(currentPostIndex / postsPerPage) + 1} DE {Math.ceil(posts.length / postsPerPage)}
+          PAGINA {currentPage} DE {totalPages}
         </h2>
         <br></br>
         {visiblePosts.map((post) => (
