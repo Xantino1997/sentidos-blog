@@ -24,7 +24,7 @@ export default function Post({ _id, title, summary, cover, content, author, crea
         <h2 style={titleStyle}>{title}</h2>
         <p className="summary">{summary}</p>
         <Link to={`/post/${_id}`}>
-          <button >Ver completo</button>
+          <button className='ver-completo' >Ver completo</button>
         </Link>
         <br></br>
         <br></br>

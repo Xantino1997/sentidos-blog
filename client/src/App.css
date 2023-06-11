@@ -1,6 +1,6 @@
 *{
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif,'Permanent Marker','serif';
+  font-family: 'Roboto' important, sans-serif,'Permanent Marker','serif'; 
 }
 a{
   cursor: pointer;
@@ -46,8 +46,11 @@ main{
   padding:10px;
   max-width:1200px;
   color:#fff;
+  text-shadow: -1px -1px 0 #6164ad, 1px -1px 0 #6164ad, -1px 1px 0 #6164ad, 1px 1px 0 #6164ad;
   margin:0 auto;
-  background:#f5392c;
+  /* background:#f5392c; */
+  background:#e6e6e6;
+  
 }
 
 header{
@@ -59,7 +62,9 @@ header{
   body-align:center;
   box-shadow: 0px 0px 20px #fff;
   height:100px;
-
+  background:#314F78;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -152,10 +157,7 @@ header{
   border-radius: 50%;
 }
 
-header{
-  justify-content: space-between;
-  align-items: center;
-}
+
 header a{
   text-decoration:none;
   color: inherit;
@@ -290,7 +292,7 @@ div.post {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:20px;
-  border: 1px solid #fff;
+  border: none;
   padding: 10px;
   margin-bottom:10px;
   box-shadow: 0px 0px 20px #fff;
@@ -298,25 +300,27 @@ div.post {
   min-height:400px;
   background: linear-gradient(
     to bottom,
-    rgb(231, 33, 33),
-    rgb(231, 33, 33),
-    #f82525,
-    #f82525,
-    #f82525,
-    #f82525,
-    #ed7a45,
-    #f82525
+    rgb(167, 198, 217),
+    rgb(167, 198, 217),
+    #d8dfe3,
+    #d8dfe3,
+    #d8dfe3,
+    #d8dfe3,
+    #5283a1,
+    #d8dfe3
   );
 
 }
 
-.sentidos{
+.sentidos {
   position: relative;
-  color:white;
-  font-size:50px;
-  font-weight:bold;
+  color: white; /* Color rojo */
+  font-size: 50px;
+  font-weight: bold;
   font-family: 'Permanent Marker', cursive;
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
+
 
 div.post div.text-content h2{
   margin:0px;
@@ -349,7 +353,6 @@ div.post p.info a.author{
 
 
 .conteiner-post-recents{
-  border: 5px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -358,11 +361,12 @@ div.post p.info a.author{
   border-radius: 5px;
   box-shadow:0 0 50px white;
   overflow: hidden;
-  width:100%;
-  height:30%;
+  width:40%;
+  height:10%;
 }
 
 .visibleImages{
+background:#506673;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
@@ -370,6 +374,7 @@ align-items: center;
 flex: 1;
 width: 100%;
 overflow: hidden;
+
 }
 
 .indexImage{   
@@ -377,17 +382,20 @@ display:flex;
 flex-direction: column;
 align-items: center;
 color:red;
-/* border:25px solid orange */
+background:white;
+margin-top:40px;
+margin-bottom:40px;
 }
 
 
 
 .litlePost{
-border:2px solid white;
 display:flex;
 flex-direction: row;
 align-items: center;
-/* color:red; */
+border:none;
+background:#28404f;
+border-radius:5px;
 }
 
 .btnLitlePost {
@@ -397,6 +405,8 @@ justify-content: space-between;
 
 .content-little-post {
 /* border: black solid 5px; */
+background:#c5c6ed;
+border-radius:5px;
 display: flex;
 flex-direction:row;
 justify-content: space-around;
@@ -406,14 +416,15 @@ align-items: center; /* Centra verticalmente los elementos */
 .image{
 position:absolute;
 width:40%;
-right:5px;
+right:80px;
 }
 .post-picture{
 position:relative;
-top:70px;
-width:60%;
-height:60%;
-right:-10px;
+top:10px;
+width:100%;
+height:100%;
+border:none;
+background-color: #506673;
 }
 
 
@@ -435,21 +446,21 @@ width: 15%;
 flex-shrink: 0; /* Evita que el botón se encoja */
 }
 
-  .content-little-h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; 
-    font-size:15px;
-    padding:15px;
-  }
+.content-little-h2 {
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center; 
+font-size:15px;
+padding:15px;
+}
 
 .litle-left {
 position: relative;
-left: -40px;  
+left: 0px;  
 border: 1px solid yellowgreen;
 border-radius:50%;
-width: 15%;
+width: 20%;
 }
 
 .litle-right {
@@ -457,7 +468,7 @@ position: relative;
 right: 50px;  
 border: 1px solid yellowgreen;
 border-radius:50%;
-width: 15%;
+width: 20%;
 }
 .litle-left:hover {
 position: relative;
@@ -485,39 +496,53 @@ font-family: 'Permanent Marker', cursive;
 display: flex;
 width: 300px;
 height: 200px;
+background:#4246b8;
+border-radius:10px;
 margin: 5px;
 overflow: hidden;
 align-items: center;
+border: 3px solid #fff;
 cursor: pointer;
 transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .content-image__img-post:hover{
-border: 3px solid #d9fa78;
 box-shadow: 0 0 20px #fff;
 cursor: pointer;
 transition-delay: 0.1s;
-border-radius:0%;
 }
 
 .h2-post{
 text-align: center;
 font-family: 'Roboto';
 color:white;
+text-shadow: -1px -1px 0 #6164ad, 1px -1px 0 #6164ad, -1px 1px 0 #6164ad, 1px 1px 0 #6164ad;
+
 }
 .parrafo-post{
 text-align: center;
 font-family: 'Roboto';
 color:white;
+text-shadow: -1px -1px 0 #6164ad, 1px -1px 0 #6164ad, -1px 1px 0 #6164ad, 1px 1px 0 #6164ad;
+
 }
 .content-image__img-post__img-post{
 width: 100%;
 height: 100%;
-margin:10px;
-border:1px solid white;
+margin:20px;
 border-radius:15px;
 }
 
+.ver-completo{
+border-radius:15px;
+color:#fff;
+background:#5da4b0;
+width: 40%;
+}
+.ver-completo:hover{
+box-shadow: 0 0 30px red;
+border-radius:15px;
 
+}
 .author-avatar-img{
   border-radius: 50%;
   width:15%;
@@ -547,6 +572,16 @@ div.post p.info .time{
   color: #fff;
   text-align: center;
 }
+
+
+.post-page{
+  background:#c2c2c4;
+  color:black;
+  text-shadow: none !important;
+  margin-bottom:25px;
+  padding:10px;
+}
+
 .time-post-page{
   color: #fff;
   font-style:italic;
@@ -638,12 +673,21 @@ form h1{
   font-style: italic;
 }
 
+
+
 div.post-page div.image{
   max-width:100%;
   display:flex;
   overflow:hidden;
 }
 
+.title-post-page{
+  color: black;
+ }
+
+ .titulo-form{
+  color: white !important;
+ }
 div.post-page div.image img{
   border:none;
   width:100%;
@@ -659,16 +703,40 @@ div.post-page a{
   text-decoration:underline;
 }
 div.post-page h1{
-  color:#fff;
+  color:#000;
   text-align:center;
 }
-
+.title-blog{
+  color:#fff;
+  text-shadow: -1px -1px 0 #314F78, 1px -1px 0 #314F78, -1px 1px 0 #314F78, 1px 1px 0 #314F78;
+}
 .like-dislike{
   border-radius:50%;
   weight:90px;
   height:90px;
   cursor:pointer;
 }
+
+.additional-content {
+  border: 5px solid white;
+  padding: 20px;
+  background:#f7b654;
+  text-align:center;
+}
+
+.centered-image {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: auto;
+  background: #f7b654;
+}
+
+.additional-text {
+  color: white;
+  box-shadow: none;
+}
+
 
 /* Estilos para el contenido del footer */
 footer {
@@ -802,6 +870,21 @@ footer {
     font-family: 'Permanent Marker', cursive;
   }
 
+  .conteiner-post-recents{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin: 30px;
+    border-radius: 5px;
+    box-shadow:0 0 50px white;
+    overflow: hidden;
+    width:100%;
+    height:30%;
+  }
+
+
   .edit-post-btn {
     display: flex;
     align-items: center;
@@ -819,12 +902,12 @@ footer {
 
   .image{
     position: relative;
-    width:80%;
+    width:100%;
   }
   .post-picture{
-    top:10px;
+    top:-30px;
     width:100%;
-    left:140px;
+    left:100px;
     height:100%;
   }
   
@@ -907,15 +990,16 @@ footer {
     flex-shrink: 0; /* Evita que el botón se encoja */
   }
   
-
+  .content-little-h2 {
     .content-little-h2 {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center; 
-      font-size:15px;
+      font-size:100px;
       padding:15px;
     }
+  }
   
 
   .login{
@@ -928,6 +1012,7 @@ footer {
     width: 500px;
     height: 400px;
     font-family: 'Permanent Marker', cursive;
+    background:#314F78;
   }
   
   .login h1{
@@ -942,8 +1027,8 @@ footer {
     border:3px solid #fff;
     padding: 60px 5px  ;
     justify-content: center;
-    width: 500px;
-    height: 700px;
+    width: 600px;
+    height: 800px;
     font-family: 'Permanent Marker', cursive;
 }
 
@@ -1056,16 +1141,19 @@ footer {
       border: blue 1px solid
     }
 
-    .sentidos{
-      position: relative;
-      right:25%;
-      color:white;
-      font-size:50px;
-      font-weight:bold;
-      font-family: 'Permanent Marker', cursive;
-    }
+    .sentidos {
+        right:25%;
+        position: relative;
+        color: white; /* Color blanco */
+        font-size: 50px;
+        font-weight: bold;
+        font-family: 'Permanent Marker', cursive;
+        text-shadow: -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red, 1px 1px 0 red;
+      }
 
- 
+ .title-post-page{
+  color: black !important;
+ }
     
   }
   .footer-whatsapp{
