@@ -93,6 +93,8 @@ header{
   top:30px;
   width:100%;
   height:100%;
+  background-color: #314F78;
+
 }
 
 .edit-row {
@@ -910,6 +912,8 @@ footer {
     width:100%;
     left:100px;
     height:100%;
+  background-color: #314F78;
+
   }
   
   
