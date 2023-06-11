@@ -301,17 +301,7 @@ div.post {
   box-shadow: 0px 0px 20px #fff;
   max-height:800px;
   min-height:400px;
-  background: linear-gradient(
-    to bottom,
-    rgb(167, 198, 217),
-    rgb(167, 198, 217),
-    #d8dfe3,
-    #d8dfe3,
-    #d8dfe3,
-    #d8dfe3,
-    #5283a1,
-    #d8dfe3
-  );
+  background:#d8dfe3;
 
 }
 
@@ -320,8 +310,8 @@ div.post {
   color: white; /* Color rojo */
   font-size: 50px;
   font-weight: bold;
-  font-family: 'Permanent Marker', cursive;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+  font-family: 'Roboto';
+  text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
 }
 
 
@@ -577,15 +567,17 @@ div.post p.info .time{
   text-align: center;
 }
 
-
-.post-page{
-  background:#c2c2c4;
-  color:black;
-  text-shadow: none !important;
-  margin-bottom:25px;
-  padding:10px;
+.post{
+  background:#d4d2d2;
 }
 
+  .post-page{
+    background:#c2c2c4;
+    color:black;
+    text-shadow: none !important;
+    margin-bottom:25px;
+    padding:10px;
+  }
 .time-post-page{
   color: #fff;
   font-style:italic;
@@ -743,27 +735,17 @@ div.post-page h1{
 
 
 /* Estilos para el contenido del footer */
+
 footer {
   margin-top:20px;
   display:flex;
   flex-direction:column;
-  background: linear-gradient(
-    to bottom,
-    rgb(231, 33, 33),
-    rgb(231, 33, 33),
-    #f82525,
-    #f82525,
-    #f82525,
-    #f82525,
-    #ed7a45,
-    #f82525
-  );
+  background: #5da4b0;
   box-shadow: 0 0 10px white;
   text-align: center;
   color: white;
   padding: 10px;
 }
-
 
 
 /* Estilos para los iconos sociales */
@@ -1153,8 +1135,8 @@ footer {
         color: white; /* Color blanco */
         font-size: 50px;
         font-weight: bold;
-        font-family: 'Permanent Marker', cursive;
-        text-shadow: -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red, 1px 1px 0 red;
+        font-family:'Roboto';
+        text-shadow: -1px -1px 0 grey, 1px -1px 0 grey, -1px 1px 0 grey, 1px 1px 0 grey;
       }
 
  .title-post-page{
