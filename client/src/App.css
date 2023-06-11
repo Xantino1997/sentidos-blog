@@ -18,9 +18,7 @@ img{
   overflow: hidden;
   border: 2px solid #fff;
 }
-.post{
-border: 2px solid blue;
-}
+
 .image-cover{
   position:relative;
   text-align:center;
