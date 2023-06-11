@@ -449,32 +449,30 @@ padding:15px;
 }
 
 .litle-left {
-position: relative;
-left: 0px;  
-border: 1px solid yellowgreen;
-border-radius:50%;
-width: 20%;
+  position: absolute;
+  left: -70px;  
+  border: 1px solid yellowgreen;
+  border-radius:50%;
+  width: 15%;
 }
 
 .litle-right {
-position: relative;
-right: 50px;  
-border: 1px solid yellowgreen;
-border-radius:50%;
-width: 20%;
+  position: absolute;
+  right: 15px;  
+  border: 1px solid yellowgreen;
+  border-radius:50%;
+  width: 15%;
 }
 .litle-left:hover {
-position: relative;
-border: 1px solid yellowgreen;
-border-radius:50%;
-background-color:white;
+  border: 1px solid yellowgreen;
+  border-radius:50%;
+  background-color:white;
 }
 
 .litle-right:hover {
-position: relative;
-border: 1px solid yellowgreen;
-border-radius:50%;
-background-color:white;
+  border: 1px solid yellowgreen;
+  border-radius:50%;
+  background-color:white;
 
 }
 
