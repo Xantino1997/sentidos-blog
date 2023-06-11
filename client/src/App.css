@@ -485,25 +485,41 @@ align-items: center;
 font-family: 'Permanent Marker', cursive;
 }
 
-.content-image__img-post{
-display: flex;
-width: 300px;
-height: 200px;
-background:#4246b8;
-border-radius:10px;
-margin: 5px;
-overflow: hidden;
-align-items: center;
-border: 3px solid #fff;
-cursor: pointer;
-transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-.content-image__img-post:hover{
-box-shadow: 0 0 20px #fff;
-cursor: pointer;
-transition-delay: 0.1s;
+.content-image__img-post {
+  display: flex;
+  width: 300px;
+  height: 200px;
+  background: lightblue;
+  border-radius: 10px;
+  margin: 5px;
+  overflow: hidden;
+  align-items: center;
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative; /* Agregar posición relativa al contenedor */
 }
 
+
+
+.content-image__img-post:hover{
+  box-shadow: 0 0 20px blue;
+  cursor: pointer;
+  transition-delay: 0.1s;
+  border: 3px solid blue;
+}
+
+.content-image__img-post__img-post {
+  position: absolute; /* Agregar posición absoluta al elemento interno */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 20px;
+  border-radius: 15px;
+}
 .h2-post{
 text-align: center;
 font-family: 'Roboto';
@@ -517,12 +533,6 @@ font-family: 'Roboto';
 color:white;
 text-shadow: -1px -1px 0 #6164ad, 1px -1px 0 #6164ad, -1px 1px 0 #6164ad, 1px 1px 0 #6164ad;
 
-}
-.content-image__img-post__img-post{
-width: 100%;
-height: 100%;
-margin:20px;
-border-radius:15px;
 }
 
 .ver-completo{
@@ -701,8 +711,10 @@ div.post-page h1{
   color:#000;
   text-align:center;
 }
+
 .title-blog{
   color:#fff;
+  font-family:'Roboto' !important;
   text-shadow: -1px -1px 0 #314F78, 1px -1px 0 #314F78, -1px 1px 0 #314F78, 1px 1px 0 #314F78;
 }
 .like-dislike{
@@ -746,16 +758,13 @@ footer {
   padding: 10px;
 }
 
-
 /* Estilos para los iconos sociales */
 .footer-social a {
-  border: 1px solid red;
+  border: none;
 }
 
 .footer-social a:hover {
- border: 1px solid white;
- box-shadow: 0  0 20px violet;
-
+ border: none;
 }
 
 
@@ -768,8 +777,6 @@ footer {
   height:5%;
   cursor:pointer;
   border:none;
-  box-shadow: 0  0 20px #fff;
-  background: yellowgreen;
   border-radius: 50%;
   margin:15px;
 }
@@ -783,8 +790,6 @@ footer {
   height:5%;
   cursor:pointer;
   border:none;
-  box-shadow: 0  0 20px lightblue;
-  background: lightblue;
   border-radius: 50%;
   margin:15px;
 
@@ -799,8 +804,6 @@ footer {
   height:5%;
   border:none;
   cursor:pointer;
-  box-shadow: 0  0 20px orange;
-  background: orange;
   border-radius: 3px;
  margin:15px;
 
@@ -827,13 +830,17 @@ footer {
 }
 
 .footer-form{
-  background-color:#fc563d;
+  background:#314F78;
   border: 3px solid white;
   padding: 10px;
   width: 100%;
   margin-bottom: 100px;
 }
-
+.btn-form-suscribe{
+  color:white;
+  border-radius: 5px;
+  background:#5da4b0;
+}
 .copy{
   margin-top: 20px;
   bottom:0px;
@@ -1150,8 +1157,6 @@ footer {
     height: 8%;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0 20px #fff;
-    background: yellowgreen;
     border-radius: 50%;
     margin: 15px;
   }
@@ -1165,8 +1170,6 @@ footer {
     height: 8%;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0 20px lightblue;
-    background: lightblue;
     border-radius: 50%;
     margin: 15px;
   }
@@ -1180,8 +1183,6 @@ footer {
     height: 8%;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 20px orange;
-    background: orange;
     border-radius: 3px;
     margin: 15px;
   }

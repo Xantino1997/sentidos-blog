@@ -78,7 +78,7 @@ export default function Form() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <button type="submit">Enviar</button>
+        <button className="btn-form-suscribe" type="submit">Enviar</button>
         <br />
         <br />
         <hr />
