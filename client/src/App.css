@@ -60,7 +60,7 @@ header{
   body-align:center;
   box-shadow: 0px 0px 20px #fff;
   height:100px;
-  background:#5da4b0;
+  background:#eb344f;
   justify-content: space-between;
   align-items: center;
 }
@@ -749,7 +749,7 @@ footer {
   margin-top:20px;
   display:flex;
   flex-direction:column;
-  background: #5da4b0;
+  background:#eb344f;
   box-shadow: 0 0 10px white;
   text-align: center;
   color: white;
@@ -836,8 +836,13 @@ footer {
 }
 .btn-form-suscribe{
   color:white;
-  border-radius: 5px;
-  background:#5da4b0;
+  border-radius: 15px;
+  background:#3140c4;
+}
+.btn-form-suscribe:hover{
+  color:white;
+  border-radius: 15px;
+  box-shadow: 0 0 30px #3140c4;
 }
 .copy{
   margin-top: 20px;
