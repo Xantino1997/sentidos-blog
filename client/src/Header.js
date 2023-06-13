@@ -7,18 +7,18 @@ import { useContext, useEffect, useState } from "react";
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`https://backend-blog-psi.vercel.app/profile`, {
+    fetch(`http://localhost:4000/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
         setUserInfo(userInfo);
       });
-    })
+    });
   }, []);
 
-  // Definir el tiempo de inactividad en 5 minutos (300000 milisegundos)
   const inactivityTimeout = 300000;
   let inactivityTimer;
 
@@ -28,18 +28,15 @@ export default function Header() {
   }
 
   useEffect(() => {
-    // Reiniciar el temporizador de inactividad cuando hay interacción del usuario
     document.addEventListener('mousemove', resetInactivityTimer);
     document.addEventListener('mousedown', resetInactivityTimer);
     document.addEventListener('keypress', resetInactivityTimer);
     document.addEventListener('touchmove', resetInactivityTimer);
     document.addEventListener('touchstart', resetInactivityTimer);
 
-    // Llamar a la función logout después de 5 minutos de inactividad
     resetInactivityTimer();
 
     return () => {
-      // Limpiar los event listeners al desmontar el componente
       document.removeEventListener('mousemove', resetInactivityTimer);
       document.removeEventListener('mousedown', resetInactivityTimer);
       document.removeEventListener('keypress', resetInactivityTimer);
@@ -49,7 +46,7 @@ export default function Header() {
   }, []);
 
   function logout() {
-    fetch('https://backend-blog-psi.vercel.app/logout', {
+    fetch('http://localhost:4000/logout', {
       credentials: 'include',
       method: 'POST',
     });
@@ -66,29 +63,97 @@ export default function Header() {
 
   const username = userInfo?.username;
   const profilePicture = userInfo?.profilePicture || user;
-  console.log(profilePicture + 'fotos de perfil en login')
-  console.log(JSON.stringify(profilePicture) + 'fotos de perfil desde login')
+
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+  }
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
 
   return (
-    <header>
-      <Link to="/" className="logo">Inicio</Link>
-      <nav>
-        {username && (
-          <>
-            <Link to="/create" className="title-login">Create new post</Link>
-            <a onClick={logout} className="title-register">Logout ({username})</a>
-            <img className="author-avatar-img" src={profilePicture} alt="Profile picture" />
+    <header className="header-container">
 
-          </>
+
+      {username ? (
+
+        <>
+          <div className={`conteiner-creating`} >
+            <Link to="/create" className={`nav-link-creating `}>
+              Create new post
+            </Link>
+            {username && (
+              <Link to="/noticia-rapida" className={`nav-link-creating`}>
+                Noticia rápida
+              </Link>
+            )}
+            <Link to="/" onClick={logout} className={`nav-link-creating `}>
+              Logout ({username})
+            </Link>
+          </div>
+
+          <img
+            className={`author-avatar-img `}
+            src={profilePicture}
+            alt="Profile picture"
+          />
+        </>
+      ) : (
+        <>
+
+          <img
+            className={`img-sentidos`}
+            src={sentidos}
+            alt="Sentidos"
+          />
+          <Link to="/login" className={`login `}>
+            Login
+          </Link>
+        </>
+      )}
+
+
+      <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
+
+        {isMenuOpen && (
+
+          <ul className={`nav-links`}>
+
+            <li>
+              <Link to="/nosotros" className={`nav-link-inside`}>
+                Nosotros
+              </Link>
+            </li>
+            <li>
+              <Link to="/conocenos" className={`nav-link-inside`}>
+                Conócenos
+              </Link>
+            </li>
+            <li>
+              <Link to="/eventos" className={`nav-link-inside`}>
+                Eventos
+              </Link>
+            </li>
+
+          </ul>
         )}
-        {!username && (
-          <>
-            <img className="img-sentidos" src={sentidos} alt="Sentidos" />
-            <Link to="/login" className="title-login">Login</Link>
-            {/* <Link to="/register" className="title-register">register</Link> */}
-          </>
-        )}
+
       </nav>
+
+      <>
+        <Link to="/" className={`inicio `}>
+          Inicio
+        </Link>
+        <div className="menu-toggle" onClick={toggleMenu}>
+          {isMenuOpen ? (
+            <div className="close-icon" onClick={closeMenu}>
+              X
+            </div>
+          ) : (
+            <>&#9776;</>
+          )}
+        </div>
+      </>
     </header>
   );
 }
