@@ -10,7 +10,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/profile`, {
+    fetch(`https://backend-blog-psi.vercel.app/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
@@ -46,7 +46,7 @@ export default function Header() {
   }, []);
 
   function logout() {
-    fetch('http://localhost:4000/logout', {
+    fetch('https://backend-blog-psi.vercel.app/logout', {
       credentials: 'include',
       method: 'POST',
     });
@@ -68,12 +68,28 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   }
   function closeMenu() {
-    setIsMenuOpen(false);
+    setIsMenuOpen(true);
   }
+
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function handleMouseMovement() {
+    if (navLinks) {
+      navLinks.forEach((link) => {
+        link.classList.add('active');
+        alert('Click')
+      });
+      document.removeEventListener('mousemove', handleMouseMovement);
+    }
+  }
+
+  
+  // Agregar el evento para el movimiento del mouse
+  document.addEventListener('click', handleMouseMovement);
+  
 
   return (
     <header className="header-container">
-
 
       {username ? (
 
@@ -106,27 +122,35 @@ export default function Header() {
             src={sentidos}
             alt="Sentidos"
           />
-          <Link to="/login" className={`login `}>
-            Login
-          </Link>
+
         </>
       )}
 
 
       <nav className={`navbar ${isMenuOpen ? 'menu-open' : ''}`}>
 
-        {isMenuOpen && (
+        {!isMenuOpen && (
 
           <ul className={`nav-links`}>
 
+            <li>
+              <Link to="/login" className={`nav-link-inside`}>
+                Login
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className={`nav-link-inside `}>
+                Inicio
+              </Link>
+            </li>
             <li>
               <Link to="/nosotros" className={`nav-link-inside`}>
                 Nosotros
               </Link>
             </li>
             <li>
-              <Link to="/conocenos" className={`nav-link-inside`}>
-                Conócenos
+              <Link to="/donar" className={`nav-link-inside`}>
+                Donar
               </Link>
             </li>
             <li>
@@ -141,16 +165,15 @@ export default function Header() {
       </nav>
 
       <>
-        <Link to="/" className={`inicio `}>
-          Inicio
-        </Link>
+
         <div className="menu-toggle" onClick={toggleMenu}>
           {isMenuOpen ? (
+            <>&#9776;</>
+
+          ) : (
             <div className="close-icon" onClick={closeMenu}>
               X
             </div>
-          ) : (
-            <>&#9776;</>
           )}
         </div>
       </>
