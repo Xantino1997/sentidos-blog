@@ -52,7 +52,7 @@ export default function IndexPage() {
     <>
       {/* <FindPost/> */}
       <div className="post-large">
-        <h1 style={{ textAlign: "center", fontFamily: "Permanent Marker" }}>BIENVENIDO AL BLOG DE SENTIDOS</h1>
+        <h1 className="title-blog" style={{ textAlign: "center", fontFamily: "Permanent Marker" }}>BIENVENIDO AL BLOG DE SENTIDOS</h1>
         <br></br>
         <br></br>
         <h2 style={{ textAlign: "center" }}>

@@ -99,7 +99,7 @@ export default function Header() {
               Create new post
             </Link>
             {username && (
-              <Link to="/noticia-rapida" className={`nav-link-creating`}>
+              <Link to="/notice" className={`nav-link-creating`}>
                 Noticia rápida
               </Link>
             )}
@@ -144,7 +144,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/nosotros" className={`nav-link-inside`}>
+              <Link to="/about" className={`nav-link-inside`}>
                 Nosotros
               </Link>
             </li>

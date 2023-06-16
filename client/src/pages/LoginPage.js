@@ -83,4 +83,5 @@ export default function LoginPage() {
       <hr /> {/* Etiqueta <hr> para una línea horizontal */}
     </>
   );
+  
 }
