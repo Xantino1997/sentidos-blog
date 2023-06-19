@@ -1,101 +1,65 @@
-import React, { useContext, useState } from "react";
-import { UserContext } from "../UserContext";
+import React, { useState, useEffect } from "react";
+import { isAfter, parseISO, formatDistance, differenceInDays } from "date-fns";
 
-export default function CreateEvent() {
+export default function Events() {
   const [events, setEvents] = useState([]);
-  const [eventInfo, setEventInfo] = useState({
-    title: "",
-    image: null,
-    imageUrl: "",
-    description: ""
-  });
 
-  const { userInfo } = useContext(UserContext);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEventInfo((prevEventInfo) => ({
-      ...prevEventInfo,
-      [name]: value
-    }));
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const imageUrl = URL.createObjectURL(file);
-    setEventInfo((prevEventInfo) => ({
-      ...prevEventInfo,
-      image: file,
-      imageUrl: imageUrl
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newEvent = {
-      title: eventInfo.title,
-      image: eventInfo.image,
-      imageUrl: eventInfo.imageUrl,
-      description: eventInfo.description
-    };
-
-    setEvents((prevEvents) => [...prevEvents, newEvent]);
-
-    // Limpia el formulario después de enviar
-    setEventInfo({
-      title: "",
-      image: null,
-      imageUrl: "",
-      description: ""
-    });
-  };
+  useEffect(() => {
+    // Obtener los eventos desde el backend
+    fetch("https://backend-blog-psi.vercel.app/getadvice")
+      .then(response => response.json())
+      .then(data => {
+        setEvents(data);
+      })
+      .catch(error => {
+        console.error("Error al obtener los eventos:", error);
+        // Manejar el error de alguna forma (mostrar mensaje de error, etc.)
+      });
+  }, []);
 
   return (
-    <div className="create-event">
-      <h1>Nuevos eventos</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Título del evento:
-          <input
-            type="text"
-            name="title"
-            value={eventInfo.title}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Imagen del evento:
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-          {eventInfo.imageUrl && (
-            <div className="image-preview">
-              <img src={eventInfo.imageUrl} alt="Preview" />
-            </div>
-          )}
-        </label>
-        <label>
-          Descripción del evento:
-          <textarea
-            name="description"
-            value={eventInfo.description}
-            onChange={handleInputChange}
-          />
-        </label>
-        <button type="submit">Agregar evento</button>
-      </form>
-      <div className="event-list">
-        {events.map((event, index) => (
-          <div className="event" key={index}>
-            <img src={event.imageUrl} alt="" />
-            <h2>{event.title}</h2>
-            <p>{event.description}</p>
-          </div>
-        ))}
+    <>
+      <br />
+      <br />
+      <br />
+      <hr />
+      <div className="create-event">
+        <h1>Nuevos eventos</h1>
+        <div className="event-list">
+          {events.map((event, index) => {
+            const eventDate = parseISO(event.eventDate);
+            const currentDate = new Date();
+            const distance = isAfter(currentDate, eventDate)
+              ? <b>Evento ya pasado</b>
+              : formatDistance(currentDate, eventDate, { addSuffix: true });
+
+            const daysRemaining = differenceInDays(eventDate, currentDate);
+
+            return (
+              <div className="event" key={index}>
+              
+                <div className="image-container">
+                  <img className="event-image" src={event.image} alt="" />
+                </div>
+                <h2 className="title-info-event">{event.title}</h2>
+                <p>{event.description}</p>
+                <p><b>Este evento tendrá lugar la fecha: {event.eventDate}</b></p>
+                <p>{distance}</p>
+                {!isAfter(currentDate, eventDate) && (
+                  <p style={{ color: "red" }}><b>Días restantes: {daysRemaining}</b></p>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+      <br />
+      <hr />
+      <br />
+      <br />
+    </>
   );
 }
+
+
+
