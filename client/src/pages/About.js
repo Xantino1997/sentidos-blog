@@ -31,9 +31,8 @@ export default function About() {
           allowFullScreen
         ></iframe>
       </div>
-
       <div className="text-container">
-        <h2>Nosotros</h2>
+        <h2>About us</h2>
         <p>
           Asociación Sentidos es una ONG dedicada a apoyar a niños con flap. Nos
           enfocamos en brindarles el apoyo necesario para su desarrollo y
@@ -55,5 +54,6 @@ export default function About() {
         ))}
       </div>
     </div>
-  );
+  )
+  ;
 }
