@@ -58,7 +58,7 @@ export default function Header() {
   }
 
   if (redirect) {
-    return <Navigate to="/" />;
+    return <Navigate to="/#" />;
   }
 
   const username = userInfo?.username;
@@ -83,10 +83,10 @@ export default function Header() {
     }
   }
 
-  
+
   // Agregar el evento para el movimiento del mouse
   document.addEventListener('click', handleMouseMovement);
-  
+
 
   return (
     <header className="header-container">
@@ -99,10 +99,14 @@ export default function Header() {
               Create new post
             </Link>
             {username && (
-              <Link to="/notice" className={`nav-link-creating`}>
+              <Link to="/#" className={`nav-link-creating`}>
                 Noticia rápida
               </Link>
             )}
+              <Link to="/createadvice" className={`nav-link-creating`}>
+                Crear Evento
+              </Link>
+
             <Link to="/" onClick={logout} className={`nav-link-creating `}>
               Logout ({username})
             </Link>
@@ -154,7 +158,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/eventos" className={`nav-link-inside`}>
+              <Link to="/events" className={`nav-link-inside`}>
                 Eventos
               </Link>
             </li>
