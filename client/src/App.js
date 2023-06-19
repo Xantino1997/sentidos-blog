@@ -7,7 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import { UserContextProvider } from "./UserContext";
 import CreatePost from "./pages/CreatePost";
 import PostPage from "./pages/PostPage";
-import NoticiaRapida from "./pages/NoticiaRapida";
+import CreateNotice from "./pages/CreateNotice";
 import About from "./pages/About";
 import EditPost from "./pages/EditPost";
 import PostNext from './PostNext';
@@ -26,7 +26,7 @@ function App() {
           <Route path="/post/:id" element={<PostPage />} />
           <Route path="/edit/:id" element={<EditPost />} />
           <Route path="/post" element={<PostNext />} />
-          <Route path="/notice" element={<NoticiaRapida />} />
+          <Route path="/createadvice" element={<CreateNotice />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<CreateEvent />} />
           <Route path="*" element={<ErrorPage />} /> {/* Ruta comodín para rutas desconocidas */}
