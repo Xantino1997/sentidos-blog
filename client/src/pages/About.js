@@ -24,13 +24,12 @@ export default function About() {
   return (
     <div className="about">
       <div className="video-container">
-         <iframe
+        <iframe
           className="video-player"
-          src="https://www.youtube.com/watch?v=XRYLY4qlipE&ab_channel=SentidosPadres"
+          src="https://www.youtube.com/embed/XRYLY4qlipE"
           frameBorder="0"
-          allowFullScreen
-        />
-      </div>
+          allowFullScreen/>
+    </div>
       <div className="text-container">
         <h2>About us</h2>
         <p>
