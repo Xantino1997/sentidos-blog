@@ -26,7 +26,7 @@ export default function About() {
       <div className="video-container">
          <iframe
           className="video-player"
-          src="https://www.youtube.com/embed/w3DUZgNFRoo"
+          src="https://www.youtube.com/watch?v=XRYLY4qlipE&ab"
           frameBorder="0"
           allowFullScreen
         />
