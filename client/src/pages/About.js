@@ -26,7 +26,7 @@ export default function About() {
       <div className="video-container">
          <iframe
           className="video-player"
-          src="https://youtu.be/XRYLY4qlipE"
+          src="https://www.youtube.com/watch?v=XRYLY4qlipE&ab_channel=SentidosPadres"
           frameBorder="0"
           allowFullScreen
         />
