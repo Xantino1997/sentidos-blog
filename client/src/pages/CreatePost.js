@@ -5,6 +5,13 @@ import { Navigate } from "react-router-dom";
 import Editor from "../Editor";
 import { UserContext } from "../UserContext";
 
+export default function CreatePost() {
+  const { userInfo } = useContext(UserContext);
+  const [title, setTitle] = useState("");
+  const [summary, setSummary] = useState("");
+  const [content, setContent] = useState("");
+  const [files, setFiles] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   async function createNewPost(ev) {
     ev.preventDefault();
