@@ -4,6 +4,9 @@ import NextPage from "../NextPage";
 // import FindPost from "../FindPost";
 import right from "../assets/derecha.png";
 import left from "../assets/izquierda.png";
+// import sentidos1 from "../assets/sentidos1.png";
+import sentidos2 from "../assets/sentidos2.png";
+import sentidos3 from "../assets/sentidos3.png";
 
 export default function IndexPage() {
   const [posts, setPosts] = useState([]);
@@ -46,18 +49,20 @@ export default function IndexPage() {
   const visiblePostsLitle = posts.slice(startIndexLitle, startIndexLitle + 1);
 
   const totalPages = Math.ceil(posts.length / postsPerPage);
-  const currentPage = Math.floor(currentPostIndex + 1) ;
+  const currentPage = Math.floor(currentPostIndex + 1);
 
   return (
     <>
       {/* <FindPost/> */}
       <div className="post-large">
-        <h1 className="title-blog" style={{ textAlign: "center", fontFamily: "Permanent Marker" }}>BIENVENIDO AL BLOG DE SENTIDOS</h1>
-        <br></br>
-        <br></br>
-        <h2 style={{ textAlign: "center" }}>
-          PAGINA {currentPage} DE {totalPages}
-        </h2>
+        <div className="img-move">
+          <img className="img-min2" src={sentidos2} alt="sentidos" />
+          <div className="sentidos-move">
+            <h1>Sentidos</h1>
+            <p className="sentidos-move-sub">Asociación Chicos con Flap</p>
+          </div>
+          <img className="img-min3" src={sentidos3} alt="sentidos" />
+        </div>
         <br></br>
         {visiblePosts.map((post) => (
           <Post className="content-post" key={post._id} {...post} />
@@ -89,24 +94,24 @@ export default function IndexPage() {
         <br />
         <br />
         <div className="btnLitlePost">
-       
-       <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
-         <img className="img-left-mini" src={left} alt="Left" />
-       </button>
 
-       <button className="litle-right" onClick={handleNextLitle}>
-         <img className="img-right-mini" src={right} alt="Right" />
-       </button>
-     </div>
+          <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
+            <img className="img-left-mini" src={left} alt="Left" />
+          </button>
+
+          <button className="litle-right" onClick={handleNextLitle}>
+            <img className="img-right-mini" src={right} alt="Right" />
+          </button>
+        </div>
       </div>
       <br />
       <br />
       <br />
       <br />
       <h2 className="content-little-h2">
-          Post {Math.floor(btnLitlePostIndex / 1) + 1} DE {Math.ceil(posts.length / 1)}
-        </h2>
-    
+        Post {Math.floor(btnLitlePostIndex / 1) + 1} DE {Math.ceil(posts.length / 1)}
+      </h2>
+
       <br />
       <br />
       <br />
