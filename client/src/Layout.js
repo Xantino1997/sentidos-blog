@@ -8,6 +8,10 @@ export default function Layout() {
   return (
     <main>
       <Header />
+      <>  <br /> {/* Etiqueta <br> para salto de línea */}
+        <br />
+        <br />
+        <hr /> {/* Etiqueta <hr> para una línea horizontal */}</>
       <NoticeAlert />
       <Outlet />
       <Form />
