@@ -217,10 +217,10 @@ export default function CreateNotice() {
                 </div>
                 <h2 className="title-info-event">{event.title}</h2>
                 <p>{event.description}</p>
-                <p><b>Este evento tendrá lugar la fecha: {event.eventDate}</b></p>
+                <p><b>El evento tendrá lugar la fecha: {event.eventDate.split('T')[0]}.</b></p>
                 <p>{distance}</p>
                 {!isAfter(currentDate, eventDate) && (
-                  <p style={{ color: "red" }}><b>Días restantes: {daysRemaining}</b></p>
+                  <p style={{ color: "white" }}><b>Días restantes: {daysRemaining}</b></p>
                 )}
               </div>
             );
