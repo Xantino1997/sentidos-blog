@@ -24,12 +24,12 @@ export default function About() {
   return (
     <div className="about">
       <div className="video-container">
-        <iframe className="video-player"
-          src="https://www.youtube.com/embed/dHdwp_uPdXw"
-          title="Video"
+         <iframe
+          className="video-player"
+          src="https://www.youtube.com/embed/w3DUZgNFRoo"
           frameBorder="0"
           allowFullScreen
-        ></iframe>
+        />
       </div>
       <div className="text-container">
         <h2>About us</h2>
