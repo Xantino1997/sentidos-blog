@@ -21,6 +21,7 @@ export default function Header() {
 
   const inactivityTimeout = 300000;
   let inactivityTimer;
+
   function resetInactivityTimer() {
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(logout, inactivityTimeout);
@@ -57,7 +58,7 @@ export default function Header() {
   }
 
   if (redirect) {
-    return <Navigate to="/" />;
+    return <Navigate to="/#" />;
   }
 
   const username = userInfo?.username;
@@ -98,7 +99,7 @@ export default function Header() {
               Create new post
             </Link>
             {username && (
-              <Link to="/" className={`nav-link-creating`}>
+              <Link to="/#" className={`nav-link-creating`}>
                 Noticia rápida
               </Link>
             )}
@@ -181,5 +182,7 @@ export default function Header() {
         </div>
       </>
     </header>
+
+
   );
 }
