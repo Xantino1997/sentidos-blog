@@ -21,7 +21,6 @@ export default function Header() {
 
   const inactivityTimeout = 300000;
   let inactivityTimer;
-
   function resetInactivityTimer() {
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(logout, inactivityTimeout);
