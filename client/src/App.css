@@ -994,7 +994,7 @@ footer {
   
 .img-footer-whatsapp{
   border:none;
-  width: 15%;
+  width: 30%;
   cursor: pointer;
   background:red;
   border:yellowgreen solid 5px;
@@ -1006,7 +1006,7 @@ footer {
 
 .img-footer-facebook{
   border:none;
-  width: 15%;
+  width: 30%;
   cursor: pointer;
   border:blue solid 5px;
   padding: 5px;
@@ -1014,7 +1014,7 @@ footer {
 } 
 .img-footer-youtube{
   border:none;
-  width: 15%;
+  width: 30%;
   cursor: pointer;
   border:orange solid 5px;
   padding: 5px;
@@ -1024,7 +1024,7 @@ footer {
 
 .img-footer-instagram{
   border:none;
-  width: 15%;
+  width: 30%;
   cursor: pointer;
   border:violet solid 5px;
   padding: 5px;
@@ -2019,5 +2019,4 @@ color: black !important;
 }
   
 }
-
 
