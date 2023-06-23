@@ -698,7 +698,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 .sentidos-move::after {
   content: "";
   display: block;
-  width: 90px;
+  width: 50px;
   height: 35px;
   border: 8px solid yellow;
   border-top:none;
