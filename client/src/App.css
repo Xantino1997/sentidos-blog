@@ -779,6 +779,7 @@ div.post p.info .time{
 .post{
 background: linear-gradient(to top, darkred, red);
 color: #fff !important;
+margin-top:25px;
 }
 
 .post-page{
