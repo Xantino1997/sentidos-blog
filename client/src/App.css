@@ -1395,6 +1395,10 @@ height: 100%;
   border:none;
   width: 5%;
   cursor: pointer;
+  background:red;
+  border:yellowgreen solid 5px;
+  padding: 5px;
+  border-radius:15px;
 }
 
 
@@ -1404,6 +1408,18 @@ height: 100%;
   width: 5%;
   height: 8%;
   cursor: pointer;
+  border:blue solid 5px;
+  padding: 5px;
+  border-radius:15px;
+} 
+.img-footer-youtube{
+  border:none;
+  width: 5%;
+  height: 8%;
+  cursor: pointer;
+  border:orange solid 5px;
+  padding: 5px;
+  border-radius:15px;
 } 
 
 
@@ -1412,6 +1428,9 @@ height: 100%;
   width: 5%;
   height: 8%;
   cursor: pointer;
+  border:violet solid 5px;
+  padding: 5px;
+  border-radius:15px;
 }
 
 
@@ -1480,8 +1499,8 @@ height: 100%;
 .sentidos-move::after {
   content: "";
   display: block;
-  width: 180px;
-  height: 45px;
+  width: 150px;
+  height: 30px;
   border: 8px solid yellow;
   border-top:none;
   border-right:none;
