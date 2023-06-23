@@ -1289,10 +1289,10 @@ height: 100%;
 .left {
   position: absolute;
   left:0px;
-  border: 3px solid violet;
+  border: 3px solid red;
   background-color:white;
   border-radius: 50%;
-  width: 5%;
+  width: 10%;
   flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .flechas-container{
@@ -1302,26 +1302,26 @@ height: 100%;
 }
 .right {
   position: absolute;
-  right:80px;
+  right:100px;
   border: 3px solid red;
   border-radius: 50%;
-  width: 5%;
+  width: 10%;
   flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .litle-left {
   position: absolute;
   border: 3px solid red;
   border-radius: 50%;
-  left:-40px;
-  width: 5%;
+  left:-100px;
+  width: 10%;
   flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .litle-right {
   position: absolute;
-  right:40px;
+  right:10px;
   border: 3px solid red;
   border-radius: 50%;
-  width: 5%;
+  width: 10%;
   flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .litle-left:hover {
@@ -1791,7 +1791,7 @@ opacity: 0;
   .right {
     position: absolute;
     right:200px;
-    border: 3px solid red;
+    border: 3px solid blue;
     border-radius: 50%;
     width: 5%;
     flex-shrink: 0; /* Evita que el botón se encoja */
