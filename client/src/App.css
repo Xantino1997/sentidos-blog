@@ -994,8 +994,7 @@ footer {
   
 .img-footer-whatsapp{
   border:none;
-  width: 10%;
-  height: 5%;
+  width: 15%;
   cursor: pointer;
   background:red;
   border:yellowgreen solid 5px;
@@ -1007,8 +1006,7 @@ footer {
 
 .img-footer-facebook{
   border:none;
-  width: 10%;
-  height: 5%;
+  width: 15%;
   cursor: pointer;
   border:blue solid 5px;
   padding: 5px;
@@ -1016,8 +1014,7 @@ footer {
 } 
 .img-footer-youtube{
   border:none;
-  width: 10%;
-  height: 5%;
+  width: 15%;
   cursor: pointer;
   border:orange solid 5px;
   padding: 5px;
@@ -1027,8 +1024,7 @@ footer {
 
 .img-footer-instagram{
   border:none;
-  width: 10%;
-  height: 5%;
+  width: 15%;
   cursor: pointer;
   border:violet solid 5px;
   padding: 5px;
