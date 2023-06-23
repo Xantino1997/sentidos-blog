@@ -39,12 +39,17 @@ img{
 
 
 .create-event {
+  color:#fff;
   text-align: center;
   border: 10px solid yellow;
-  background-color: #f7e9ed;
+  background: linear-gradient(to top, darkred, red);
   justify-content: center;
   overflow:hidden;
   border-radius:10px
+}
+.create-event h1 {
+  color:#fff !important;
+  
 }
 
 .create-event .event-grid {
@@ -57,13 +62,6 @@ img{
   margin-bottom:2%;
 }
 
-
-
-.create-event h1 {
-  margin-bottom: 1rem;
-  color:#4a4647;
-}
-
 .create-event form {
   display: flex;
   flex-direction: column;
@@ -74,6 +72,8 @@ img{
   position: relative;
 
 }
+
+
 
 .create-event label {
   display: flex;
@@ -529,7 +529,7 @@ background-color: #506673;
 .left {
 position: absolute;
 border: 1px solid yellowgreen;
-border-radius: 50%;
+border-radius: 15px;
 width: 15%;
 margin:1px;
 }
@@ -537,7 +537,7 @@ margin:1px;
 .right {
 position: absolute;
 border: 1px solid yellowgreen;
-border-radius: 50%;
+border-radius: 15px;
 width: 15%;
 margin:1px;
 
@@ -568,21 +568,6 @@ border: 1px solid yellowgreen;
 border-radius:50%;
 width: 15%;
 margin:1px;
-}
-.litle-left:hover {
-  position: relative;
-  border: 1px solid yellowgreen;
-  border-radius:50%;
-  width: 15%;
-  background:black;
-}
-
-.litle-right:hover {
-  position: relative;
-  border: 1px solid yellowgreen;
-  border-radius:50%;
-  width: 15%;
-
 }
 
 .content-image{
@@ -624,15 +609,16 @@ position: relative; /* Agregar posición relativa al contenedor */
 }
 
 .img-min2 {
-  width: 15%;
-  opacity: 0;
+  width: 18%;
+  height: 18%;
   border: none;
   background-color: transparent;
   animation: moveIn2 2s ease-in-out forwards;
 }
 
 .img-min3 {
-  width: 15%;
+  width: 18%;
+  height: 18%;
   opacity: 0;
   border: none;
   background-color: transparent;
@@ -649,7 +635,7 @@ position: relative; /* Agregar posición relativa al contenedor */
   }
   100% {
     opacity: 1;
-    transform: translateX(500%);
+    transform: translateX(400%);
   }
 }
 
@@ -663,7 +649,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 
   100% {
     opacity: 1;
-    transform: translateX(-500%);
+    transform: translateX(-400%);
   }
 }
 
@@ -779,7 +765,7 @@ div.post p.info .time{
 .post{
 background: linear-gradient(to top, darkred, red);
 color: #fff !important;
-margin:45px;
+margin:5px;
 margin-top:25px;
 }
 
@@ -1278,19 +1264,19 @@ height: 100%;
 
   
 .left {
-  position: absolute;
+  position: relative;
   border: 3px solid red;
   background-color:white;
-  border-radius: 50%;
+  border-radius: 15px;
   left:12px;
   width: 10%;
   margin:1px;
 }
 
 .right {
-  position: absolute;
+  position: relative;
   border: 3px solid red;
-  border-radius: 50%;
+  border-radius: 15px;
   width: 10%;
   margin:1px;
   right:12px;
@@ -1318,7 +1304,7 @@ height: 100%;
   background:lightblue;
   border: 3px solid white;
   border-radius: 15px;
-  width: 5%;
+  width: 10%;
   flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .litle-right:hover {
@@ -1326,16 +1312,7 @@ height: 100%;
   background:lightblue;
   border: 3px solid white;
   border-radius: 15px;
-  width: 5%;
-}
-.img-left-mini{
-  left:0;
-  border:none;
-}
-.img-right-mini{
-  border-radius: 50%;
-  border:none;
-  
+  width: 10%;
 }
 
 .left:hover {
@@ -1370,8 +1347,109 @@ height: 100%;
 /* comienza los medias */
 
 
+.create-event .event {
+  position: relative;
+  align-items: center;
+}
+
+.event-image {
+  width: 200px;
+  height: 200px;
+  border: 5px solid violet;
+  cursor: pointer;
+  margin-top:10px;
+  border-radius:15px;
+}
+
+
+
+.event-image:hover {
+  transform: scale(1.6);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+
+
+.evento-nuevo{
+    border-radius:15px;
+    color:#fff;
+    background:red;
+    left:-12%;
+    width: 20%;
+    position: relative;
+}
+.evento-nuevo:hover{
+  box-shadow: 0 0 30px #eb344f ;
+  border-radius:15px;
+
+}
+
+
+.create-event .event img:hover{
+  width: 100%;
+  height: 100%;
+  border: 10px solid yellowgreen;
+  z-index: 99999;
+  cursor: pointer;
+}
+
+.create-event .event h2 {
+  margin-bottom: 0.1rem;
+}
+
+.create-event label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.create-event input[type="text"],
+.create-event textarea {
+  width: 300px;
+  padding: 0.5rem;
+}
+
+.create-event input[type="file"] {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.create-event .image-preview {
+  width: 300px;
+  height: 300px;
+  padding-top: 0.9rem;
+  /* margin: 1rem; */
+  border: 10px solid red;
+
+}
+
+.create-event .image-preview img {
+  width: 100%;
+  height: 100%;
+  top: 0.5rem;
+  position: relative;
+}
+
+.create-event .event-list {
+  display: grid;
+  grid-template-columns: repeat(1);
+  gap: 1rem;
+  justify-items: center;
+}
+
 @media only screen and (min-width: 1450px) and (max-height: 1400px) {
 
+  .post{
+    background: linear-gradient(to top, darkred, red);
+    color: #fff !important;
+    margin:45px;
+    margin-top:25px;
+    }
   
 .img-footer-whatsapp{
   border:none;
@@ -1444,6 +1522,7 @@ height: 100%;
   
   .img-min2 {
     width: 30%;
+    height: 30%;
     opacity: 0;
     border: none;
     background-color: transparent;
@@ -1452,6 +1531,7 @@ height: 100%;
   
   .img-min3 {
     width: 30%;
+    height: 30%;
     opacity: 0;
     border: none;
     background-color: transparent;
@@ -1792,29 +1872,29 @@ opacity: 0;
     position: relative;
     border: 3px solid red;
     background-color:white;
-    border-radius: 50%;
+    border-radius: 15px;
     width: 5%;
     flex-shrink: 0; /* Evita que el botón se encoja */
   }
   
   .right {
     position: relative;
-    border: 3px solid blue;
-    border-radius: 50%;
+    border: 3px solid red;
+    border-radius: 15px;
     width: 5%;
     flex-shrink: 0; /* Evita que el botón se encoja */
   }
   .litle-left {
     position: relative;
     border: 3px solid red;
-    border-radius: 50%;
+    border-radius: 15px;
     width: 5%;
     margin: 1px;
   }
   .litle-right {
     position: relative;
     border: 3px solid red;
-    border-radius: 50%;
+    border-radius: 15px;
     width: 5%;
     margin: 1px;
   }
@@ -1822,7 +1902,7 @@ opacity: 0;
     position: relative;
     background:lightblue;
     border: 3px solid white;
-    border-radius: 50%;
+    border-radius: 15px;
     width: 5%;
   }
   .litle-right:hover {
@@ -1833,11 +1913,11 @@ opacity: 0;
     width: 5%;
   }
   .img-left-mini{
-    border-radius: 50%;
+    border-radius: 15px;
     border:none;
   }
   .img-right-mini{
-    border-radius: 50%;
+    border-radius: 15px;
     border:none;
   }
   
