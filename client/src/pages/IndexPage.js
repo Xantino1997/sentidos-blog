@@ -98,16 +98,17 @@ export default function IndexPage() {
         <br />
         <br />
         <br />
-        <div className="btnLitlePost">
 
-          <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
-            <img className="img-left-mini" src={left} alt="Left" />
-          </button>
+      </div>
+      <div className="btnLitlePost">
 
-          <button className="litle-right" onClick={handleNextLitle}>
-            <img className="img-right-mini" src={right} alt="Right" />
-          </button>
-        </div>
+        <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
+          <img className="img-left-mini" src={left} alt="Left" />
+        </button>
+
+        <button className="litle-right" onClick={handleNextLitle}>
+          <img className="img-right-mini" src={right} alt="Right" />
+        </button>
       </div>
       <br />
       <br />
