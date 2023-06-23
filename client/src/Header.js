@@ -103,9 +103,9 @@ export default function Header() {
                 Noticia rápida
               </Link>
             )}
-              <Link to="/createadvice" className={`nav-link-creating`}>
-                Crear Evento
-              </Link>
+            <Link to="/createadvice" className={`nav-link-creating`}>
+              Crear Evento
+            </Link>
 
             <Link to="/" onClick={logout} className={`nav-link-creating `}>
               Logout ({username})
@@ -121,11 +121,11 @@ export default function Header() {
       ) : (
         <>
 
-          <img
+          {/* <img
             className={`img-sentidos`}
             src={sentidos}
             alt="Sentidos"
-          />
+          /> */}
 
         </>
       )}
@@ -137,16 +137,14 @@ export default function Header() {
 
           <ul className={`nav-links`}>
 
-            <li>
-              <Link to="/login" className={`nav-link-inside`}>
-                Login
-              </Link>
-            </li>
+
             <li>
               <Link to="/" className={`nav-link-inside `}>
                 Inicio
               </Link>
             </li>
+
+
             <li>
               <Link to="/about" className={`nav-link-inside`}>
                 Nosotros
@@ -162,7 +160,11 @@ export default function Header() {
                 Eventos
               </Link>
             </li>
-
+            <li>
+              <Link to="/login" className={`nav-link-inside`}>
+                Login
+              </Link>
+            </li>
           </ul>
         )}
 
