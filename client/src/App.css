@@ -994,7 +994,7 @@ footer {
   
 .img-footer-whatsapp{
   border:none;
-  width: 30%;
+  width: 20%;
   cursor: pointer;
   background:red;
   border:yellowgreen solid 5px;
@@ -1006,7 +1006,7 @@ footer {
 
 .img-footer-facebook{
   border:none;
-  width: 30%;
+  width: 20%;
   cursor: pointer;
   border:blue solid 5px;
   padding: 5px;
@@ -1014,7 +1014,7 @@ footer {
 } 
 .img-footer-youtube{
   border:none;
-  width: 30%;
+  width: 20%;
   cursor: pointer;
   border:orange solid 5px;
   padding: 5px;
@@ -1024,7 +1024,7 @@ footer {
 
 .img-footer-instagram{
   border:none;
-  width: 30%;
+  width: 20%;
   cursor: pointer;
   border:violet solid 5px;
   padding: 5px;
@@ -1391,10 +1391,42 @@ height: 100%;
   animation:destello 0.9s 2s forwards;
   border-radius:15px;
   width:40%;
-  height:40%;
+  height:45%;
   color:white;
   font-weight:bold;
   font-family: Roboto;
+}
+
+
+.sentidos-move h1 {
+  color: white;
+  position: relative;
+  top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: Roboto;
+  font-size:15px;
+}
+
+.sentidos-move-sub {
+  color: white;
+  font-family: Roboto;
+  font-size: 12px;
+
+}
+
+.sentidos-move::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 30px;
+  border: 8px solid yellow;
+  border-top:none;
+  border-right:none;
+  border-left:yellow 3px solid;
+  background-color: transparent;
+  margin: 10px auto;
+  border-radius:50%;
 }
 
 
@@ -2019,4 +2051,5 @@ color: black !important;
 }
   
 }
+
 
