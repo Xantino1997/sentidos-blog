@@ -672,8 +672,8 @@ position: relative; /* Agregar posición relativa al contenedor */
   text-align: center;
   animation:destello 0.9s 2s forwards;
   border-radius:15px;
-  width:30%;
-  height:45%;
+  width:40%;
+  height:30%;
   color:white;
   font-weight:bold;
   font-family: Roboto;
@@ -682,7 +682,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 .sentidos-move h1 {
   color: white;
   position: relative;
-  top: 10px;
+  top: 4px;
   white-space: nowrap;
   overflow: hidden;
   font-family: Roboto;
@@ -692,8 +692,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 .sentidos-move-sub {
   color: white;
   font-family: Roboto;
-  font-size: 12px;
-
+  font-size: 10px;
 }
 
 .sentidos-move::after {
@@ -1371,6 +1370,16 @@ height: 100%;
 }
 
 
+.sentidos-move {
+  text-align: center;
+  animation:destello 0.9s 2s forwards;
+  border-radius:15px;
+  width:40%;
+  height:40%;
+  color:white;
+  font-weight:bold;
+  font-family: Roboto;
+}
 
 
 
