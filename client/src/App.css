@@ -465,7 +465,7 @@ div.post {
 }
 
 .visibleImages{
-background:#fff;
+background:white;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
@@ -490,26 +490,24 @@ margin-bottom:40px;
 
 .litlePost{
 display:flex;
-flex-direction: row;
 align-items: center;
-border:none;
+justify-content: space-around;
 background:transparent;
 border-radius:5px;
 }
 
 .btnLitlePost {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
+
 .content-little-post {
-/* border: black solid 5px; */
-background:#f7b654;
 border-radius:5px;
 display: flex;
-flex-direction:row;
 justify-content: space-around;
-align-items: center; /* Centra verticalmente los elementos */
+align-items: center;
 }
 
 .image{
@@ -530,20 +528,19 @@ background-color: #506673;
 
 .left {
 position: absolute;
-left:-40px;
 border: 1px solid yellowgreen;
 border-radius: 50%;
 width: 15%;
-flex-shrink: 0; /* Evita que el botón se encoja */
+margin:1px;
 }
 
 .right {
 position: absolute;
-right:30px;
 border: 1px solid yellowgreen;
 border-radius: 50%;
 width: 15%;
-flex-shrink: 0; /* Evita que el botón se encoja */
+margin:1px;
+
 }
 
 .content-little-h2 {
@@ -555,31 +552,36 @@ font-size:15px;
 padding:15px;
 }
 
+
+/* dispositivo pc */
 .litle-left {
-position: absolute;
-left: -70px;  
+position: relative;
 border: 1px solid yellowgreen;
 border-radius:50%;
 width: 15%;
+margin:1px;
 }
 
 .litle-right {
-position: absolute;
-right: 15px;  
+position: relative;
 border: 1px solid yellowgreen;
 border-radius:50%;
 width: 15%;
+margin:1px;
 }
 .litle-left:hover {
-border: 1px solid yellowgreen;
-border-radius:50%;
-background-color:white;
+  position: relative;
+  border: 1px solid yellowgreen;
+  border-radius:50%;
+  width: 15%;
+  background:black;
 }
 
 .litle-right:hover {
-border: 1px solid yellowgreen;
-border-radius:50%;
-background-color:white;
+  position: relative;
+  border: 1px solid yellowgreen;
+  border-radius:50%;
+  width: 15%;
 
 }
 
@@ -622,7 +624,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 }
 
 .img-min2 {
-  width: 30%;
+  width: 15%;
   opacity: 0;
   border: none;
   background-color: transparent;
@@ -630,7 +632,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 }
 
 .img-min3 {
-  width: 30%;
+  width: 15%;
   opacity: 0;
   border: none;
   background-color: transparent;
@@ -638,9 +640,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 }
 
 
-@keyframes moveIn1 {
 
-}
 
 @keyframes moveIn2 {
   0% {
@@ -649,7 +649,7 @@ position: relative; /* Agregar posición relativa al contenedor */
   }
   100% {
     opacity: 1;
-    transform: translateX(235%);
+    transform: translateX(500%);
   }
 }
 
@@ -663,7 +663,7 @@ position: relative; /* Agregar posición relativa al contenedor */
 
   100% {
     opacity: 1;
-    transform: translateX(-235%);
+    transform: translateX(-500%);
   }
 }
 
@@ -779,6 +779,7 @@ div.post p.info .time{
 .post{
 background: linear-gradient(to top, darkred, red);
 color: #fff !important;
+margin:45px;
 margin-top:25px;
 }
 
@@ -961,41 +962,48 @@ footer {
   
 .img-footer-whatsapp{
   border:none;
-  width: 20%;
+  width: 15%;
   cursor: pointer;
   background:red;
   border:yellowgreen solid 5px;
   padding: 5px;
   border-radius:15px;
+  background:white;
 }
 
 
 
 .img-footer-facebook{
   border:none;
-  width: 20%;
+  width: 15%;
   cursor: pointer;
   border:blue solid 5px;
   padding: 5px;
   border-radius:15px;
+  background:white;
+
 } 
 .img-footer-youtube{
   border:none;
-  width: 20%;
+  width: 15%;
   cursor: pointer;
   border:orange solid 5px;
   padding: 5px;
   border-radius:15px;
+  background:white;
+
 } 
 
 
 .img-footer-instagram{
   border:none;
-  width: 20%;
+  width: 15%;
   cursor: pointer;
   border:violet solid 5px;
   padding: 5px;
   border-radius:15px;
+  background:white;
+
 }
 
 
@@ -1271,81 +1279,75 @@ height: 100%;
   
 .left {
   position: absolute;
-  left:0px;
   border: 3px solid red;
   background-color:white;
   border-radius: 50%;
+  left:12px;
   width: 10%;
-  flex-shrink: 0; /* Evita que el botón se encoja */
+  margin:1px;
 }
-.flechas-container{
- display:flex;
- justify-content: space-between;
- border:solid 15px green;
-}
+
 .right {
   position: absolute;
-  right:100px;
   border: 3px solid red;
   border-radius: 50%;
   width: 10%;
-  flex-shrink: 0; /* Evita que el botón se encoja */
+  margin:1px;
+  right:12px;
+  
 }
 .litle-left {
-  position: absolute;
+  position: relative;
   border: 3px solid red;
-  border-radius: 50%;
-  left:-100px;
+  border-radius: 15px;
   width: 10%;
-  flex-shrink: 0; /* Evita que el botón se encoja */
+  margin: 1px;
+
 }
 .litle-right {
-  position: absolute;
-  right:10px;
+  position: relative;
   border: 3px solid red;
-  border-radius: 50%;
+  border-radius: 15px;
   width: 10%;
-  flex-shrink: 0; /* Evita que el botón se encoja */
+  margin: 1px;
+
 }
+
 .litle-left:hover {
-  position: absolute;
+  position: relative;
   background:lightblue;
   border: 3px solid white;
-  border-radius: 50%;
+  border-radius: 15px;
   width: 5%;
   flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .litle-right:hover {
-  position: absolute;
-  right:200px;
+  position: relative;
   background:lightblue;
   border: 3px solid white;
-  border-radius: 50%;
+  border-radius: 15px;
   width: 5%;
-  flex-shrink: 0; /* Evita que el botón se encoja */
 }
 .img-left-mini{
-  border-radius: 50%;
+  left:0;
   border:none;
 }
 .img-right-mini{
   border-radius: 50%;
   border:none;
+  
 }
 
 .left:hover {
-  position: absolute;
-  left:-200px;
+  position: relative;
   border: 1px solid white;
   border-radius: 50%;
   width: 5%;
   background:lightblue;
-  flex-shrink: 0; /* Evita que el botón se encoja */
 }
 
 .right:hover {
-  position: absolute;
-  right:200px;
+  position: relative;
   border: 1px solid white;
   border-radius: 50%;
   width: 5%;
@@ -1753,8 +1755,7 @@ opacity: 0;
   
   
   .left {
-    position: absolute;
-    left:-200px;
+    position: relative;
     border: 3px solid red;
     background-color:white;
     border-radius: 50%;
@@ -1763,46 +1764,39 @@ opacity: 0;
   }
   
   .right {
-    position: absolute;
-    right:200px;
+    position: relative;
     border: 3px solid blue;
     border-radius: 50%;
     width: 5%;
     flex-shrink: 0; /* Evita que el botón se encoja */
   }
   .litle-left {
-    position: absolute;
+    position: relative;
     border: 3px solid red;
     border-radius: 50%;
-    left:-150px;
     width: 5%;
-    flex-shrink: 0; /* Evita que el botón se encoja */
+    margin: 1px;
   }
   .litle-right {
-    position: absolute;
-    right:200px;
+    position: relative;
     border: 3px solid red;
     border-radius: 50%;
     width: 5%;
-    flex-shrink: 0; /* Evita que el botón se encoja */
+    margin: 1px;
   }
   .litle-left:hover {
-    position: absolute;
+    position: relative;
     background:lightblue;
-    left:-150px;
     border: 3px solid white;
     border-radius: 50%;
     width: 5%;
-    flex-shrink: 0; /* Evita que el botón se encoja */
   }
   .litle-right:hover {
-    position: absolute;
-    right:200px;
+    position: relative;
     background:lightblue;
     border: 3px solid white;
     border-radius: 50%;
     width: 5%;
-    flex-shrink: 0; /* Evita que el botón se encoja */
   }
   .img-left-mini{
     border-radius: 50%;
@@ -1814,23 +1808,19 @@ opacity: 0;
   }
   
   .left:hover {
-    position: absolute;
-    left:-200px;
+    position: relative;
     border: 1px solid white;
     border-radius: 50%;
     width: 5%;
     background:lightblue;
-    flex-shrink: 0; /* Evita que el botón se encoja */
   }
   
   .right:hover {
-    position: absolute;
-    right:200px;
+    position: relative;
     border: 1px solid white;
     border-radius: 50%;
     width: 5%;
     background:lightblue;
-    flex-shrink: 0; /* Evita que el botón se encoja */
   }
   
   .content-little-h2 {
