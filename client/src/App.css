@@ -1449,6 +1449,32 @@ height: 100%;
     background-color: transparent;
     animation: moveIn3 2s ease-in-out forwards;
   }
+
+  
+@keyframes moveIn2 {
+  0% {
+    opacity: 0;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(235%);
+  }
+}
+
+
+
+@keyframes moveIn3 {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-235%);
+  }
+}
   
 .sentidos-move {
   text-align: center;
