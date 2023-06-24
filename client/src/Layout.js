@@ -10,9 +10,10 @@ export default function Layout() {
       <Header />
       <>  
         <br /> {/* Etiqueta <br> para salto de línea */}
-        <br /> {/* Etiqueta <hr> para una línea horizontal */}</>
-        <br /> {/* Etiqueta <br> para salto de línea */}
-        <br /> {/* Etiqueta <hr> para una línea horizontal */}</>
+        <br /> 
+        <br /> 
+        <br /> 
+    </>
       <NoticeAlert />
       <Outlet />
       <Form />
