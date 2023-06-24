@@ -23,16 +23,23 @@ img{
 /* inicio create events */
 .delete-button{
   color:#fff;
-  border: 2px solid red;
+  border: 2px solid white;
   margin-top: 2%;
-  border-radius:50%;
+  border-radius:15px;
   cursor: pointer;
   text-align: center;
   padding: 8px;
   left: 150px;
   background:red;
   position: relative;
- box-shadow:  0px 0px 30px red;
+  box-shadow:  0px 0px 30px red;
+
+}
+.delete-button:hover{
+  color:#fff;
+  border: 2px solid white;
+  background:darkred;
+  box-shadow:  0px 0px 30px yellow;
 
 }
 
@@ -95,7 +102,7 @@ img{
 .create-event .image-preview {
   width: 300px;
   height: 300px;
-  padding-top: 0.9rem;
+  padding-top: 1rem;
   /* margin: 1rem; */
   border: 10px solid red;
 
@@ -119,7 +126,7 @@ img{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  width: 360px;
   height: 600px;
   padding: 4px;
   margin-top: 15px;
@@ -127,6 +134,7 @@ img{
   border: 5px solid yellow;
   border-radius:15px;
   background-color:red;
+  box-shadow: 0 0 10px white;
   color:#fff;
 }
 
@@ -170,7 +178,7 @@ img{
     color:#fff;
     background:red;
     left:-12%;
-    width: 20%;
+    width: 50%;
     position: relative;
 }
 .evento-nuevo:hover{
@@ -294,9 +302,9 @@ main{
   background-color: #314F78;
 }
 
-.edit-row {
-  /*este es para editar el boton de edit post; */
-}
+/* .post-large{
+  background:orange;
+} */
 
 .edit-post-btn {
   display: flex;
@@ -594,9 +602,8 @@ position: relative; /* Agregar posición relativa al contenedor */
 
 .img-move {
   width: 100%;
-  height: 50vh;
+  height:25%;
   display: flex;
-  overflow:hidden;
   justify-content: space-between;
 }
 
@@ -738,7 +745,9 @@ box-shadow: 0 0 30px #eb344f ;
 
 
 
-
+.menu-open{
+  z-index:-5;
+}
 
 /* para la imagen cerca del login circulo */
 
@@ -1048,8 +1057,7 @@ footer {
   align-items:center;
   font-family:"Roboto",sans-serif;
   box-shadow: 0px 0px 20px #fff;
-  height:100px;
-
+  height:120px;
 }
 
 
@@ -1121,7 +1129,7 @@ animation-timing-function: ease-in-out;
   margin-bottom: 10px; /* Agrega un margen inferior para separar los elementos */
   color: #ffffff;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 15px;
   justify-content: space-between; /* Separa los elementos con un espacio equitativo */
   align-items: center; /* Centra verticalmente los elementos */
   z-index: 15; 
@@ -1195,8 +1203,10 @@ z-index:15;
 
 .img-sentidos{
   position:relative;
-  border: 2px solid white;
+  border: 2px solid blue;
   border-radius:8px;
+  width:150px;
+  height:100px ;
   top:10%;
   border:none;
   animation:destello 0.9s 2s forwards;
@@ -1380,7 +1390,7 @@ height: 100%;
     color:#fff;
     background:red;
     left:-12%;
-    width: 20%;
+    width: 30%;
     position: relative;
 }
 .evento-nuevo:hover{
@@ -1509,7 +1519,8 @@ height: 100%;
     display: flex;
     overflow:hidden;
     justify-content: space-between;
-
+    padding-top:10px;
+   padding-bottom:10px;
   }
   
   .img-min1 {
@@ -1593,7 +1604,8 @@ height: 100%;
     text-align:center;
     font-family:"Roboto",sans-serif;
     box-shadow: 0px 0px 20px #fff;
-    height:100px;
+    height:150px;
+
   }
 
   .modal{
@@ -1650,7 +1662,7 @@ height: 100%;
   .img-sentidos{
     position:relative;
     width:200px;
-    height:300px ;
+    height:200px ;
     border-radius:8px;
     top:2%;
     box-shadow: 0 0 30px #fff;
@@ -1661,8 +1673,7 @@ height: 100%;
   left: 0px;
   top: 0%;
   height: 100%;
-  width: 100%;   
-
+  width: 100%;  
 }
 
 .nav-links {
@@ -1677,7 +1688,6 @@ height: 100%;
   top: 95%;
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
-  z-index:12;
 }
 
 
