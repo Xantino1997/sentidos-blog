@@ -120,13 +120,11 @@ export default function Header() {
         </>
       ) : (
         <>
-
-          {/* <img
+         <img
             className={`img-sentidos`}
             src={sentidos}
             alt="Sentidos"
-          /> */}
-
+          />
         </>
       )}
 
