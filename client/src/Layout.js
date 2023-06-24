@@ -11,6 +11,8 @@ export default function Layout() {
       <>  
         <br /> {/* Etiqueta <br> para salto de línea */}
         <br /> {/* Etiqueta <hr> para una línea horizontal */}</>
+        <br /> {/* Etiqueta <br> para salto de línea */}
+        <br /> {/* Etiqueta <hr> para una línea horizontal */}</>
       <NoticeAlert />
       <Outlet />
       <Form />
