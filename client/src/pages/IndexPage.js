@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Post from "../Post";
 import NextPage from "../NextPage";
-import sentidos from '../assets/sentidos.png';
-
 // import FindPost from "../FindPost";
 import right from "../assets/derecha.png";
 import left from "../assets/izquierda.png";
@@ -59,13 +57,7 @@ export default function IndexPage() {
       <div className="post-large">
         <div className="img-move">
           <img className="img-min2" src={sentidos2} alt="sentidos" />
-          <div className="sentidos-move">
-            <img
-              className={`img-sentidos`}
-              src={sentidos}
-              alt="Sentidos"
-            />
-          </div>
+        
           <img className="img-min3" src={sentidos3} alt="sentidos" />
         </div>
         <br></br>
