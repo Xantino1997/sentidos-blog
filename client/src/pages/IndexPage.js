@@ -17,7 +17,7 @@ export default function IndexPage() {
   const postsPerPage = 3;
 
   useEffect(() => {
-    fetch("http://localhost:4000/post")
+    fetch("https://backend-blog-psi.vercel.app/post")
       .then((response) => response.json())
       .then((posts) => {
         setPosts(posts);
@@ -69,18 +69,18 @@ export default function IndexPage() {
   const startIndexLitle = btnLitlePostIndex;
   const visiblePostsLitle = posts.slice(startIndexLitle, startIndexLitle + 1);
 
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-  const currentPage = Math.floor(currentPostIndex + 1);
+  // const totalPages = Math.ceil(posts.length / postsPerPage);
+  // const currentPage = Math.floor(currentPostIndex + 1);
 
   return (
     <>
       {/* <FindPost/> */}
       <div className="post-large">
-      <div className="img-about-container">
+      <div className="img-about-container-index">
         {images.map((image, index) => (
           <img
             key={index}
-            className={`img-about-inside ${index === currentIndex ? "active" : ""
+            className={`img-about-inside-index ${index === currentIndex ? "active" : ""
               }`}
             src={image}
             alt={`Imagen ${index + 1}`}
