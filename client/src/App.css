@@ -260,19 +260,17 @@ border: 2px solid blue;
 }
 /* PARA LOS CELUS */
 
-
 main{
   padding:10px;
   max-width:1200px;
   color:#000;
   margin:0 auto;
   /* background:#f5392c; */
-  background:#e6e6e6;
+  background:#fff;
+  border:3px solid #e6e6e6;
+  box-shadow: 0 0 30px #e6e6e6;
   
 }
-
-
-
 
 .hidden {
   visibility: hidden;
