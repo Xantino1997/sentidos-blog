@@ -126,7 +126,7 @@ img{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 360px;
+  width: 320px;
   height: 600px;
   padding: 4px;
   margin-top: 15px;
@@ -260,6 +260,7 @@ border: 2px solid blue;
 }
 /* PARA LOS CELUS */
 
+
 main{
   padding:10px;
   max-width:1200px;
@@ -271,6 +272,9 @@ main{
   box-shadow: 0 0 30px #e6e6e6;
   
 }
+
+
+
 
 .hidden {
   visibility: hidden;
