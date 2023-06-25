@@ -98,11 +98,11 @@ export default function Header() {
             <Link to="/create" className={`nav-link-creating `}>
               Create new post
             </Link>
-            {username && (
-              <Link to="/#" className={`nav-link-creating`}>
-                Noticia rápida
-              </Link>
-            )}
+            // {username && (
+            //   <Link to="/#" className={`nav-link-creating`}>
+            //     Noticia rápida
+            //   </Link>
+            // )}
             <Link to="/createadvice" className={`nav-link-creating`}>
               Crear Evento
             </Link>
