@@ -270,7 +270,7 @@ export default function CreateNotice() {
                 </span>
                 <>
                   <button
-                    className="button"
+                    className="button-edit-event"
                     onClick={() => handleEdit(event._id)}
                   >
                     Editar
