@@ -3,7 +3,6 @@ import { UserContext } from "../UserContext";
 import { addDays, formatISO, isAfter, parseISO, formatDistance, differenceInDays } from "date-fns";
 import Swal from "sweetalert2";
 
-
 export default function CreateNotice() {
   const [events, setEvents] = useState([]);
   const [eventInfo, setEventInfo] = useState({
@@ -13,6 +12,7 @@ export default function CreateNotice() {
     description: "",
     eventDate: ""
   });
+  const [editingEventId, setEditingEventId] = useState(null);
 
   const { userInfo } = useContext(UserContext);
 
@@ -43,9 +43,16 @@ export default function CreateNotice() {
     data.append("description", eventInfo.description);
     data.append("eventDate", eventInfo.eventDate);
 
+    let requestUrl = "https://backend-blog-psi.vercel.app/createadvice";
+    let requestMethod = "POST";
+    if (editingEventId) {
+      requestUrl = `https://backend-blog-psi.vercel.app/updateadvice/${editingEventId}`;
+      requestMethod = "PUT";
+    }
+
     // Envía los datos del evento al backend utilizando fetch con credenciales obtenidas de cookies
-    fetch("https://backend-blog-psi.vercel.app/createadvice", {
-      method: "POST",
+    fetch(requestUrl, {
+      method: requestMethod,
       credentials: "include",
       headers: {
         Authorization: `Bearer ${userInfo.token}` // Agrega el token de autenticación en los headers
@@ -54,31 +61,62 @@ export default function CreateNotice() {
     })
       .then(response => response.json())
       .then(data => {
-        // Agrega el evento creado a la lista de eventos
-        setEvents((prevEvents) => [...prevEvents, data]);
+        if (editingEventId) {
+          // Actualiza el evento en la lista de eventos
+          setEvents((prevEvents) => {
+            const updatedEvents = [...prevEvents];
+            const eventIndex = updatedEvents.findIndex(event => event._id === editingEventId);
+            if (eventIndex !== -1) {
+              updatedEvents[eventIndex] = data;
+            }
+            return updatedEvents;
+          });
 
-        // Limpia el formulario después de enviar
-        setEventInfo({
-          title: "",
-          image: null,
-          imageUrl: "",
-          description: "",
-          eventDate: ""
-        });
+          // Limpia el formulario de edición después de enviar
+          setEventInfo({
+            title: "",
+            image: null,
+            imageUrl: "",
+            description: "",
+            eventDate: ""
+          });
 
-        // Muestra un mensaje de éxito
-        Swal.fire({
-          title: "Éxito",
-          text: "Se ha creado el evento",
-          icon: "success"
-        });
+          // Limpia el ID del evento en edición
+          setEditingEventId(null);
+
+          // Muestra un mensaje de éxito
+          Swal.fire({
+            title: "Éxito",
+            text: "Se ha editado el evento",
+            icon: "success"
+          });
+        } else {
+          // Agrega el evento creado a la lista de eventos
+          setEvents((prevEvents) => [...prevEvents, data]);
+
+          // Limpia el formulario de creación después de enviar
+          setEventInfo({
+            title: "",
+            image: null,
+            imageUrl: "",
+            description: "",
+            eventDate: ""
+          });
+
+          // Muestra un mensaje de éxito
+          Swal.fire({
+            title: "Éxito",
+            text: "Se ha creado el evento",
+            icon: "success"
+          });
+        }
       })
       .catch(error => {
-        console.error("Error al crear el evento:", error);
+        console.error("Error al crear/editar el evento:", error);
         // Muestra un mensaje de error
         Swal.fire({
           title: "Error",
-          text: "No se pudo crear el evento",
+          text: "No se pudo crear/editar el evento",
           icon: "error"
         });
       });
@@ -118,6 +156,23 @@ export default function CreateNotice() {
           });
       }
     });
+  };
+
+  const handleEdit = (eventId) => {
+    // Buscar el evento a editar en la lista de eventos
+    const eventToEdit = events.find(event => event._id === eventId);
+    if (eventToEdit) {
+      // Establecer los datos del evento a editar en el formulario
+      setEventInfo({
+        title: eventToEdit.title,
+        image: null,
+        imageUrl: eventToEdit.image,
+        description: eventToEdit.description,
+        eventDate: eventToEdit.eventDate.split('T')[0]
+      });
+      // Establecer el ID del evento en edición
+      setEditingEventId(eventId);
+    }
   };
 
   useEffect(() => {
@@ -191,12 +246,13 @@ export default function CreateNotice() {
             />
           </label>
           <button className="evento-nuevo" type="submit">
-            <b>Agregar evento</b>
+            <b>{editingEventId ? "Editar evento" : "Agregar evento"}</b>
           </button>
         </form>
         <div className="event-list">
           {events.map((event, index) => {
-            const eventDate = parseISO(event.eventDate);
+            const eventDate = parseISO(event.eventDate.replace(/\s+/g, 'T'));
+
             const currentDate = new Date();
             const distance = isAfter(currentDate, eventDate)
               ? <b>Evento ya pasado</b>
@@ -212,6 +268,14 @@ export default function CreateNotice() {
                 >
                   X
                 </span>
+                <>
+                  <button
+                    className="button"
+                    onClick={() => handleEdit(event._id)}
+                  >
+                    Editar
+                  </button>
+                </>
                 <div className="image-container">
                   <img className="event-image" src={event.image} alt="" />
                 </div>
@@ -223,8 +287,10 @@ export default function CreateNotice() {
                   <p style={{ color: "white" }}><b>Días restantes: {daysRemaining}</b></p>
                 )}
               </div>
+
             );
           })}
+
         </div>
       </div>
       <br />
