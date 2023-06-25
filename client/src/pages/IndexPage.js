@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Post from "../Post";
 import NextPage from "../NextPage";
+import sentidos from '../assets/sentidos.png';
+
 // import FindPost from "../FindPost";
 import right from "../assets/derecha.png";
 import left from "../assets/izquierda.png";
@@ -15,7 +17,7 @@ export default function IndexPage() {
   const postsPerPage = 3;
 
   useEffect(() => {
-    fetch("https://backend-blog-psi.vercel.app/post")
+    fetch("http://localhost:4000/post")
       .then((response) => response.json())
       .then((posts) => {
         setPosts(posts);
@@ -42,6 +44,25 @@ export default function IndexPage() {
     setBtnLitlePostIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
   };
 
+
+  const images = [sentidos2
+    ,sentidos3]; // Array de imágenes con el orden cambiado
+  const [currentIndex, setCurrentIndex] = useState(0); // Índice de la imagen actual
+
+  useEffect(() => {
+    // Función para avanzar al siguiente índice de imagen
+    const nextImage = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
+    // Avanzar al siguiente índice cada 2 segundos
+    const interval = setInterval(nextImage, 6000);
+
+    // Limpiar el intervalo al desmontar el componente
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+
   const startIndex = currentPostIndex * postsPerPage;
   const visiblePosts = posts.slice(startIndex, startIndex + postsPerPage);
 
@@ -55,11 +76,17 @@ export default function IndexPage() {
     <>
       {/* <FindPost/> */}
       <div className="post-large">
-        <div className="img-move">
-          <img className="img-min2" src={sentidos2} alt="sentidos" />
-        
-          <img className="img-min3" src={sentidos3} alt="sentidos" />
-        </div>
+      <div className="img-about-container">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            className={`img-about-inside ${index === currentIndex ? "active" : ""
+              }`}
+            src={image}
+            alt={`Imagen ${index + 1}`}
+          />
+        ))}
+      </div>
         <br></br>
         {visiblePosts.map((post) => (
           <Post className="content-post" key={post._id} {...post} />
