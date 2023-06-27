@@ -34,7 +34,7 @@ export default function CreatePost() {
       if (storedToken) {
         const [, tokenValue] = storedToken.split("=");
 
-        const response = await fetch("http://localhost:4000/post", {
+        const response = await fetch("https://backend-blog-psi.vercel.app/post", {
           method: "POST",
           body: data,
           headers: {
@@ -95,5 +95,3 @@ export default function CreatePost() {
     </form>
   );
 }
-
-
