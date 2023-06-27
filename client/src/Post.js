@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // 
 import selectedFont from './Editor';
 
-export default function Post({ _id, title, summary, cover, content, author, createdAt, profilePicture }) {
+export default function Post({ _id, title,category, summary, cover, content, author, createdAt, profilePicture }) {
   // alert('estas conectado a Post')
   const profileAvatar = profilePicture ? profilePicture : user;
   const titleStyle = {
@@ -36,6 +36,7 @@ export default function Post({ _id, title, summary, cover, content, author, crea
         <img className="profile-picture" src={ profileAvatar} alt="" />
         <h6 className="author">
           <p>Author: {author.username}</p>
+          <p>Categoria: {category}</p>
           <time className="time-post-page">{format(new Date(createdAt), "PPpp")}</time>
         </h6>
       </div>
