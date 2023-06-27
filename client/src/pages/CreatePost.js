@@ -11,6 +11,7 @@ export default function CreatePost() {
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState("");
+  const [category, setCategory] = useState(""); // Agregada la categoría
   const [redirect, setRedirect] = useState(false);
 
   async function createNewPost(ev) {
@@ -22,6 +23,7 @@ export default function CreatePost() {
     data.set("content", content);
     data.set("file", files[0]);
     data.set("profileAvatar", userInfo.profilePicture);
+    data.set("category", category); // Agregada la categoría al FormData
 
     try {
       const storedToken = document.cookie
@@ -32,7 +34,7 @@ export default function CreatePost() {
       if (storedToken) {
         const [, tokenValue] = storedToken.split("=");
 
-        const response = await fetch("https://backend-blog-psi.vercel.app/post", {
+        const response = await fetch("http://localhost:4000/post", {
           method: "POST",
           body: data,
           headers: {
@@ -73,6 +75,17 @@ export default function CreatePost() {
         onChange={(ev) => setSummary(ev.target.value)}
       />
       <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+      <select
+        value={category}
+        onChange={(ev) => setCategory(ev.target.value)}
+      >
+        <option value="">Select a category</option>
+        <option value="Medicina">Medicina</option>
+        <option value="Psicologia">Psicologia</option>
+        <option value="Vida Cotidiana">Vida Cotidiana</option>
+        <option value="Bullying">Bullying</option>
+        <option value="Asesoramiento">Asesoramiento</option>
+      </select>
       <Editor value={content} onChange={setContent} />
       <button style={{ marginTop: "5px" }}>Create your post</button>
       <br />
@@ -82,3 +95,5 @@ export default function CreatePost() {
     </form>
   );
 }
+
+
