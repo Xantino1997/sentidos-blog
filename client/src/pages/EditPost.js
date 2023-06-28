@@ -55,7 +55,7 @@ export default function EditPost() {
 
     if (storedToken) {
       const [, tokenValue] = storedToken.split("=");
-      const response = await fetch('https://backend-blog-psi.vercel.app/post' + id, {
+      const response = await fetch(`https://backend-blog-psi.vercel.app/post`, {
         method: 'PUT',
         body: data,
         headers: {
