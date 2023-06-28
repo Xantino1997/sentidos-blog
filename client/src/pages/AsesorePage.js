@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
-
 export default function AsesorePage() {
   const [posts, setPosts] = useState([]);
   
