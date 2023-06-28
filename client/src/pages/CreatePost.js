@@ -34,7 +34,7 @@ export default function CreatePost() {
       if (storedToken) {
         const [, tokenValue] = storedToken.split("=");
 
-        const response = await fetch("https://backend-blog-psi.vercel.app/post", {
+        const response = await fetch('https://backend-blog-psi.vercel.app/post' + id, {
           method: "POST",
           body: data,
           headers: {
