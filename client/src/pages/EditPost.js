@@ -9,17 +9,19 @@ export default function EditPost() {
   const [content, setContent] = useState('');
   const [files, setFiles] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [category, setCategory] = useState(""); // Agregada la categoría
+
 
   useEffect(() => {
     const storedToken = document.cookie
       .split(";")
       .map((cookie) => cookie.trim())
       .find((cookie) => cookie.startsWith("token="));
- 
-      
+
+
     if (storedToken) {
       const [, tokenValue] = storedToken.split("=");
-      fetch(`https://backend-blog-psi.vercel.app/post/` + id, {
+      fetch(`/post/` + id, {
         headers: {
           Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
         },
@@ -41,6 +43,7 @@ export default function EditPost() {
     data.set('title', title);
     data.set('summary', summary);
     data.set('content', content);
+    data.set("category", category); // Agregada la categoría al FormData
     data.set('id', id);
     if (files?.[0]) {
       data.set('file', files?.[0]);
@@ -60,7 +63,7 @@ export default function EditPost() {
         },
         credentials: 'include',
       });
-      
+
       if (response.ok) {
         setRedirect(true);
       }
@@ -83,6 +86,17 @@ export default function EditPost() {
         onChange={ev => setSummary(ev.target.value)} />
       <input type="file"
         onChange={ev => setFiles(ev.target.files)} />
+      <select
+        value={category}
+        onChange={(ev) => setCategory(ev.target.value)}
+      >
+        <option value="">Select a category</option>
+        <option value="Medicina">Medicina</option>
+        <option value="Psicologia">Psicologia</option>
+        <option value="Life">Vida Cotidiana</option>
+        <option value="Bullying">Bullying</option>
+        <option value="Asesoramiento">Asesoramiento</option>
+      </select>
       <Editor onChange={setContent} value={content} />
       <button style={{ marginTop: '5px' }}>Update post</button>
       <br /><br /><br /><hr />
