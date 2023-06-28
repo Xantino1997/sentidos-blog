@@ -23,7 +23,7 @@ export default function CreatePost() {
     data.set("content", content);
     data.set("file", files[0]);
     data.set("profileAvatar", userInfo.profilePicture);
-    data.set("category", category); // Agregada la categoría al FormData
+    data.set("category", category);
 
     try {
       const storedToken = document.cookie
