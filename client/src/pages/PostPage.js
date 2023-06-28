@@ -31,7 +31,7 @@ export default function PostPage() {
   return (
     <div className="post-page">
       <h1 className="title-post-page">{postInfo.title}</h1>
-       <p><b>Categoria:{postInfo.category}</b></p>
+      <p><b>Categoria:{postInfo.category}</b></p>
       <time className="time-post-page">{formatISO9075(new Date(postInfo.createdAt))}</time>
       <div className="author">by @{postInfo.author.username}</div>
       {userInfo.id === postInfo.author._id && (
