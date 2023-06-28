@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default function NotContent() {
   return (
     <div className="container-not-content">
