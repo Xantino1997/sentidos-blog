@@ -56,7 +56,6 @@ export default function AsesorePage() {
         </div>
       );
   }
-
   return (
     <div className="container-not-content">
       <h1 style={{ textAlign: "center" , color:"red"}}>No se han creado posts en Asesoramiento</h1>
