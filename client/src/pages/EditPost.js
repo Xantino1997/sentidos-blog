@@ -4,88 +4,78 @@ import Editor from "../Editor";
 
 export default function EditPost() {
   const { id } = useParams();
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [content, setContent] = useState('');
-  const [files, setFiles] = useState('');
+  const [title, setTitle] = useState("");
+  const [summary, setSummary] = useState("");
+  const [content, setContent] = useState("");
+  const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [category, setCategory] = useState(""); // Agregada la categoría
 
-
   useEffect(() => {
-    const storedToken = document.cookie
-      .split(";")
-      .map((cookie) => cookie.trim())
-      .find((cookie) => cookie.startsWith("token="));
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`https://backend-blog-psi.vercel.app/post/${id}`);
+        if (response.ok) {
+          const postInfo = await response.json();
+          setTitle(postInfo.title);
+          setSummary(postInfo.summary);
+          setContent(postInfo.content);
+          setCategory(postInfo.category);
+        }
+      } catch (error) {
+        console.log("Error fetching post:", error);
+      }
+    };
 
-
-    if (storedToken) {
-      const [, tokenValue] = storedToken.split("=");
-      fetch(`/post/` + id, {
-        headers: {
-          Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
-        },
-        credentials: "include"
-      })
-        .then(response => {
-          response.json().then(postInfo => {
-            setTitle(postInfo.title);
-            setContent(postInfo.content);
-            setSummary(postInfo.summary);
-          });
-        });
-    }
+    fetchData();
   }, [id]);
 
   async function updatePost(ev) {
     ev.preventDefault();
     const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
+    data.set("title", title);
+    data.set("summary", summary);
+    data.set("content", content);
     data.set("category", category); // Agregada la categoría al FormData
-    data.set('id', id);
+    data.set("id", id);
     if (files?.[0]) {
-      data.set('file', files?.[0]);
+      data.set("file", files?.[0]);
     }
-    const storedToken = document.cookie
-      .split(";")
-      .map((cookie) => cookie.trim())
-      .find((cookie) => cookie.startsWith("token="));
 
-    if (storedToken) {
-      const [, tokenValue] = storedToken.split("=");
-      const response = await fetch(`https://backend-blog-psi.vercel.app/post`, {
-        method: 'PUT',
+    try {
+      const response = await fetch(`https://backend-blog-psi.vercel.app/post/`+id, {
+        method: "PUT",
         body: data,
-        headers: {
-          Authorization: `Bearer ${tokenValue}`, // Utilizar el token obtenido de la cookie
-        },
-        credentials: 'include',
+        credentials: "include",
       });
 
       if (response.ok) {
         setRedirect(true);
       }
+    } catch (error) {
+      console.log("Error updating post:", error);
     }
   }
 
   if (redirect) {
-    return <Navigate to={'/post/' + id} />;
+    return <Navigate to={"/post/" + id} />;
   }
 
   return (
     <form onSubmit={updatePost}>
-      <input type="title"
-        placeholder={'Title'}
+      <input
+        type="title"
+        placeholder="Title"
         value={title}
-        onChange={ev => setTitle(ev.target.value)} />
-      <input type="summary"
-        placeholder={'Summary'}
+        onChange={(ev) => setTitle(ev.target.value)}
+      />
+      <input
+        type="summary"
+        placeholder="Summary"
         value={summary}
-        onChange={ev => setSummary(ev.target.value)} />
-      <input type="file"
-        onChange={ev => setFiles(ev.target.files)} />
+        onChange={(ev) => setSummary(ev.target.value)}
+      />
+      <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
       <select
         value={category}
         onChange={(ev) => setCategory(ev.target.value)}
@@ -98,8 +88,7 @@ export default function EditPost() {
         <option value="Asesoramiento">Asesoramiento</option>
       </select>
       <Editor onChange={setContent} value={content} />
-      <button style={{ marginTop: '5px' }}>Update post</button>
-      <br /><br /><br /><hr />
+      <button style={{ marginTop: "5px" }}>Update post</button>
     </form>
   );
 }
