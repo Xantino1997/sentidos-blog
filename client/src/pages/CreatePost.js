@@ -82,7 +82,7 @@ export default function CreatePost() {
         <option value="">Select a category</option>
         <option value="Medicina">Medicina</option>
         <option value="Psicologia">Psicologia</option>
-        <option value="Vida Cotidiana">Vida Cotidiana</option>
+        <option value="Life">Vida Cotidiana</option>
         <option value="Bullying">Bullying</option>
         <option value="Asesoramiento">Asesoramiento</option>
       </select>
@@ -95,3 +95,7 @@ export default function CreatePost() {
     </form>
   );
 }
+
+
+
+
