@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Tiempo de espera simulado (2 segundos)
+    }, 2000);)
   }, []);
 
   return (
