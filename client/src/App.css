@@ -2560,3 +2560,8 @@ color: black !important;
     background-position:left;
   }
 }
+.phrase{
+  font-width:bold;
+  font-family:"Helvetica",sans-serif;
+  font-size:20px;
+}
