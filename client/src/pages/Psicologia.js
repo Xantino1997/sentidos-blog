@@ -9,7 +9,7 @@ export default function LifePage() {
     fetch('https://backend-blog-psi.vercel.app/post')
       .then(response => response.json())
       .then(data => {
-        const medicinaPosts = data.filter(post => post.category === 'psicologia');
+        const medicinaPosts = data.filter(post => post.category === 'Psicologia');
         setPosts(medicinaPosts);
       })
       .catch(error => {
