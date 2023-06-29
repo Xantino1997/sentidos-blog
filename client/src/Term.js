@@ -33,7 +33,7 @@ export default function Term() {
                 <br></br>
                 <h4>Ley Aplicable:</h4>
                 Estos términos y condiciones se rigen por las leyes vigentes del país donde opera Sentidos. En caso de cualquier controversia o disputa relacionada con estos términos, las partes se someterán a la jurisdicción exclusiva de los tribunales competentes en dicho país,
-                conoce más en este <a target="_blank" href="https://www.argentina.gob.ar/justicia/convosenlaweb/situaciones/porque-es-importante-leer-los-terminos-y-condiciones-de-una-pagina-en-internet-o-aplicacion">enlace,</a>.
+                conoce más en este <a target="_blank" href="https://www.argentina.gob.ar/justicia/convosenlaweb/situaciones/porque-es-importante-leer-los-terminos-y-condiciones-de-una-pagina-en-internet-o-aplicacion"><b>enlace</b></a>.
 
                 Si tienes alguna pregunta o inquietud relacionada con estos términos y condiciones, te invitamos a ponerte en contacto con nosotros. Agradecemos tu confianza al suscribirte a Sentidos y nos comprometemos a proteger tus datos personales de acuerdo con estos términos y condiciones.</p>
         </div>
