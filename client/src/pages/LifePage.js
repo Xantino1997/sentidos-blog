@@ -21,7 +21,7 @@ export default function LifePage() {
   if (posts.length > 0) {
     return (
         <div style={{ textAlign: "center" , color:"red"}}>
-          <h1>Posts de Vida Flap</h1>
+          <h1>Posts de Vivir Flap</h1>
           {posts.map(post => (
             <div key={post._id}>
               <div className="post">
