@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from "react";
 import Post from "../Post";
 import NextPage from "../NextPage";
-import sentidos from '../assets/sentidos.png';
-
-// import FindPost from "../FindPost";
 import right from "../assets/derecha.png";
 import left from "../assets/izquierda.png";
-// import sentidos1 from "../assets/sentidos1.png";
-import sentidos2 from "../assets/sentidos2.png";
-import sentidos3 from "../assets/sentidos3.png";
 
 export default function IndexPage() {
   const [posts, setPosts] = useState([]);
   const [currentPostIndex, setCurrentPostIndex] = useState(0);
   const [btnLitlePostIndex, setBtnLitlePostIndex] = useState(0);
   const postsPerPage = 3;
+  const phrases = [
+    <p className="phrase">&ldquo;El éxito no es la clave de la felicidad. La felicidad es la clave del éxito. Si amas lo que haces, tendrás éxito.&rdquo; - Albert Schweitzer</p>,
+    <p className="phrase">&ldquo;El único límite para nuestros logros de mañana está en nuestras dudas de hoy.&rdquo; - Franklin D. Roosevelt</p>,
+    <p className="phrase">&ldquo;No importa lo que te haya pasado, lo importante es lo que vas a hacer al respecto.&rdquo; - W. Mitchell</p>,
+    <p className="phrase">&ldquo;No busques culpables, busca soluciones.&rdquo; - Henry Ford</p>,
+    <p className="phrase">&ldquo;El momento en el que realmente te comprometes a algo, la providencia también se pone en movimiento.&rdquo; - Johann Wolfgang von Goethe</p>,
+    <p className="phrase">&ldquo;El éxito no es definitivo, el fracaso no es fatal: lo que cuenta es el coraje para continuar.&rdquo; - Winston Churchill</p>,
+    <p className="phrase">&ldquo;El único lugar donde los sueños son imposibles es en tu mente.&rdquo; - Emilio Duró</p>,
+    <p className="phrase">&ldquo;No te desanimes. A veces es la última llave del llavero la que abre la puerta.&rdquo; - Paulo Coelho</p>,
+    <p className="phrase">&ldquo;El fracaso no es una opción. Todo el mundo tiene que triunfar.&rdquo; - Arnold Schwarzenegger</p>,
+    <p className="phrase">&ldquo;El verdadero éxito no se trata solo de hacerlo bien en lo que amas, sino de amar lo que haces.&rdquo; - Maya Angelou</p>
+  ];
+  
+  
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   useEffect(() => {
     fetch("https://backend-blog-psi.vercel.app/post")
@@ -44,24 +53,13 @@ export default function IndexPage() {
     setBtnLitlePostIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
   };
 
-
-  const images = [sentidos2
-    ,sentidos3]; // Array de imágenes con el orden cambiado
-  const [currentIndex, setCurrentIndex] = useState(0); // Índice de la imagen actual
-
   useEffect(() => {
-    // Función para avanzar al siguiente índice de imagen
-    const nextImage = () => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-
-    // Avanzar al siguiente índice cada 2 segundos
-    const interval = setInterval(nextImage, 6000);
-
-    // Limpiar el intervalo al desmontar el componente
+    const interval = setInterval(() => {
+      setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }, (23 * 60 * 60 * 1000) + (50 * 60 * 1000));
     return () => clearInterval(interval);
-  }, [images.length]);
-
+  }, [phrases.length]);
+  
 
   const startIndex = currentPostIndex * postsPerPage;
   const visiblePosts = posts.slice(startIndex, startIndex + postsPerPage);
@@ -69,38 +67,25 @@ export default function IndexPage() {
   const startIndexLitle = btnLitlePostIndex;
   const visiblePostsLitle = posts.slice(startIndexLitle, startIndexLitle + 1);
 
-  // const totalPages = Math.ceil(posts.length / postsPerPage);
-  // const currentPage = Math.floor(currentPostIndex + 1);
-
   return (
     <>
-      {/* <FindPost/> */}
       <div className="post-large">
-      <div className="img-about-container-index">
-        {images.map((image, index) => (
-          <img
-            key={index}
-            className={`img-about-inside-index ${index === currentIndex ? "active" : ""
-              }`}
-            src={image}
-            alt={`Imagen ${index + 1}`}
-          />
-        ))}
-      </div>
-        <br></br>
+        <div className="img-about-container-index">
+          <p className="phrase">{phrases[currentPhraseIndex]}</p>
+        </div>
+        <br />
         {visiblePosts.map((post) => (
           <Post className="content-post" key={post._id} {...post} />
         ))}
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <br />
+      <br />
+      <br />
+      <br />
       <div className="content-little-post">
         <button className="left" onClick={handlePrevious}>
           <img className="img-left-mini" src={left} alt="Left" />
         </button>
-
         <button className="right" onClick={handleNext}>
           <img className="img-right-mini" src={right} alt="Right" />
         </button>
@@ -117,14 +102,11 @@ export default function IndexPage() {
         <br />
         <br />
         <br />
-
       </div>
       <div className="btnLitlePost">
-
         <button className="litle-left" onClick={handlePrevioushandleNextLitle}>
           <img className="img-left-mini" src={left} alt="Left" />
         </button>
-
         <button className="litle-right" onClick={handleNextLitle}>
           <img className="img-right-mini" src={right} alt="Right" />
         </button>
