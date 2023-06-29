@@ -67,5 +67,4 @@ function App() {
     </UserContextProvider>
   );
 }
-
 export default App;
