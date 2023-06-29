@@ -3,7 +3,6 @@ export default function Term() {
         <div style={{ textAlign: "center", border: "solid 2px red",padding:"25px",margin:"25px",marginBottom:"45px" }}>
             <h3>Términos y Condiciones de Sentidos</h3>
             <p>
-
                 Bienvenido/a a Sentidos. Antes de suscribirte a nuestro servicio y proporcionar tus datos personales, te pedimos que leas detenidamente los siguientes términos y condiciones. Estos términos establecen los derechos y responsabilidades tanto del suscriptor (tú) como de Sentidos en relación con el uso de tus datos personales.
                 <br></br>
                 <br></br>
