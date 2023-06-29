@@ -785,6 +785,7 @@ font-size:10px;
 
 .ver-completo:hover{
 box-shadow: 0 0 30px #eb344f ;
+border-radius:15px;
 }
 
 .author-avatar-img{
@@ -1389,6 +1390,7 @@ z-index:15;
   display:flex;
   flex-direction: row;
   justify-content: space-around;
+  box-shadow:0 0 5px red;
   }
 
  
@@ -2551,6 +2553,11 @@ color: black !important;
   background-size: 300%; /* Tamaño del fondo (gradiente) */
   animation: cambio-color 4s infinite linear;
 }
+.phrase{
+  font-width:bold;
+  font-family:"Helvetica",sans-serif;
+  font-size:17px;
+}
 
 @keyframes cambio-color {
   0% {
@@ -2559,9 +2566,4 @@ color: black !important;
   100% {
     background-position:left;
   }
-}
-.phrase{
-  font-width:bold;
-  font-family:"Helvetica",sans-serif;
-  font-size:20px;
 }
