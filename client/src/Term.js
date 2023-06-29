@@ -1,8 +1,9 @@
 export default function Term() {
     return (
-        <div style={{ textAlign: "center", border: "solid 2px red",padding:"25px",margin:"25px",marginBottom:"45px" }}>
+        <div style={{ textAlign: "center", border: "solid 2px red", padding: "25px", margin: "25px", marginBottom: "45px" }}>
             <h3>Términos y Condiciones de Sentidos</h3>
             <p>
+
                 Bienvenido/a a Sentidos. Antes de suscribirte a nuestro servicio y proporcionar tus datos personales, te pedimos que leas detenidamente los siguientes términos y condiciones. Estos términos establecen los derechos y responsabilidades tanto del suscriptor (tú) como de Sentidos en relación con el uso de tus datos personales.
                 <br></br>
                 <br></br>
@@ -31,7 +32,8 @@ export default function Term() {
                 <br></br>
                 <br></br>
                 <h4>Ley Aplicable:</h4>
-                Estos términos y condiciones se rigen por las leyes vigentes del país donde opera Sentidos. En caso de cualquier controversia o disputa relacionada con estos términos, las partes se someterán a la jurisdicción exclusiva de los tribunales competentes en dicho país.
+                Estos términos y condiciones se rigen por las leyes vigentes del país donde opera Sentidos. En caso de cualquier controversia o disputa relacionada con estos términos, las partes se someterán a la jurisdicción exclusiva de los tribunales competentes en dicho país,
+                conoce más en este <a target="_blank" href="https://www.argentina.gob.ar/justicia/convosenlaweb/situaciones/porque-es-importante-leer-los-terminos-y-condiciones-de-una-pagina-en-internet-o-aplicacion">enlace,</a>.
 
                 Si tienes alguna pregunta o inquietud relacionada con estos términos y condiciones, te invitamos a ponerte en contacto con nosotros. Agradecemos tu confianza al suscribirte a Sentidos y nos comprometemos a proteger tus datos personales de acuerdo con estos términos y condiciones.</p>
         </div>
