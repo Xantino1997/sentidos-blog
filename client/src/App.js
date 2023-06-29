@@ -13,7 +13,7 @@ import About from './pages/About';
 import EditPost from './pages/EditPost';
 import PostNext from './PostNext';
 import ErrorPage from './pages/404';
-import NotContent from './pages/NotContent';
+// import NotContent from './pages/NotContent';
 import CreateEvent from './pages/Events';
 import Cargando from './pages/PagesWait';
 import Psicologia from './pages/Psicologia';
@@ -52,7 +52,7 @@ function App() {
             <Route path="/updateadvice/:id" element={<CreateNotice />} />
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<CreateEvent />} />
-            <Route path="/notcontent" element={<NotContent />} />
+            {/* <Route path="/notcontent" element={<NotContent />} /> */}
             <Route path="/category/psicologia" element={<Psicologia />} /> {/* Nueva ruta para la subpágina de psicologia */}
             <Route path="/category/medicina" element={<MedicinaPage />} /> {/* Nueva ruta para la subpágina de psicologia */}
             <Route path="/category/bullying" element={<BullyingPage />} /> {/* Nueva ruta para la subpágina de psicologia */}
@@ -67,4 +67,5 @@ function App() {
     </UserContextProvider>
   );
 }
+
 export default App;
