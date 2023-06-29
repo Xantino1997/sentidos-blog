@@ -120,7 +120,6 @@ export default function Form() {
         <br />
         <hr />
         <br />
-
         <div className="terminos">
           <input
             type="checkbox"
