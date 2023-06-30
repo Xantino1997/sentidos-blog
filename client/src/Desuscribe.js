@@ -52,6 +52,9 @@ export default function Desuscribe() {
   return (
     <div style={{ width: "100%", padding: "25px", display: "flex", flexDirection: "column", justifyContent: "space-around", alignItems: "center" }}>
       <h1>Desuscripción</h1>
+     <Link to="/" className="btn-form-desuscribe">
+        Regresar a Sentidos Ong
+      </Link>
       <form className="footer-form" onSubmit={handleUnsubscribe}>
         <br />
         <br />
@@ -94,10 +97,6 @@ export default function Desuscribe() {
             Acepto los términos y condiciones
           </Link>
         </div>
-
-        <Link to="/" className="ver-completo">
-          Regresar a Sentidos Ong
-        </Link>
       </form>
     </div>
   );
