@@ -859,6 +859,12 @@ margin:5px;
 margin-top:25px;
 }
 
+.post-time-post-page{
+  color: #fff !important;
+  text-align: center;
+  font-size:10px;
+}
+
 .post-page{
   background:#fff;
   color:black;
