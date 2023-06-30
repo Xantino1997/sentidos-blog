@@ -22,7 +22,7 @@ import BullyingPage from './pages/Bullying';
 import LifePage from './pages/LifePage';
 import AsesorePage from './pages/AsesorePage';
 import Term from './Term';
-// import Desuscribe from './Unsuscribe';
+import Desuscribe from './Desuscribe';
 
 
 function App() {
@@ -59,9 +59,10 @@ function App() {
             <Route path="/category/life" element={<LifePage />} /> {/* Nueva ruta para la subpágina de psicologia */}
             <Route path="/category/asesoramiento" element={<AsesorePage />} /> {/* Nueva ruta para la subpágina de psicologia */}
             <Route path="/term" element={<Term />} /> 
-            {/* <Route path="/desuscribir" element={<Desuscribe />} />  */}
             <Route path="*" element={<ErrorPage />} />
           </Route>
+          <Route path="/desuscribir" element={<Desuscribe />} /> 
+
         </Routes>
       )}
     </UserContextProvider>
