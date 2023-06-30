@@ -37,7 +37,7 @@ export default function Post({ _id, title,category, summary, cover, content, aut
         <h6 className="author">
           <p>Author: {author.username}</p>
           <p>Categoria: {category}</p>
-          <time className="time-post-page">{format(new Date(createdAt), "PPpp")}</time>
+          <time className="post-time-post-page">{format(new Date(createdAt), "PPpp")}</time>
         </h6>
       </div>
     </div>
