@@ -56,10 +56,9 @@ export default function IndexPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-    }, (23 * 60 * 60 * 1000) + (50 * 60 * 1000));
+    }, 86,4000);
     return () => clearInterval(interval);
   }, [phrases.length]);
-  
 
   const startIndex = currentPostIndex * postsPerPage;
   const visiblePosts = posts.slice(startIndex, startIndex + postsPerPage);
