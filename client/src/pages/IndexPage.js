@@ -19,6 +19,7 @@ export default function IndexPage() {
     <p className="phrase">&ldquo;El único lugar donde los sueños son imposibles es en tu mente.&rdquo; - Emilio Duró</p>,
     <p className="phrase">&ldquo;No te desanimes. A veces es la última llave del llavero la que abre la puerta.&rdquo; - Paulo Coelho</p>,
     <p className="phrase">&ldquo;El fracaso no es una opción. Todo el mundo tiene que triunfar.&rdquo; - Arnold Schwarzenegger</p>,
+    <p className="phrase">&ldquo;Ser diferente no te hace raro, sino unico.&rdquo; - Roman & Gabriel</p>,
     <p className="phrase">&ldquo;El verdadero éxito no se trata solo de hacerlo bien en lo que amas, sino de amar lo que haces.&rdquo; - Maya Angelou</p>
   ];
   
