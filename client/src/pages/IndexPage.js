@@ -23,7 +23,6 @@ export default function IndexPage() {
     <p className="phrase">&ldquo;El verdadero éxito no se trata solo de hacerlo bien en lo que amas, sino de amar lo que haces.&rdquo; - Maya Angelou</p>
   ];
   
-  
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   useEffect(() => {
