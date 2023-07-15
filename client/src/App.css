@@ -37,6 +37,7 @@ img{
 }
 .button-edit-event{
   color:red;
+  width: 30%;
   border: 2px solid yellow;
   position: absolute;
   margin-top: 2%;
@@ -156,12 +157,13 @@ img{
   height: 430px;
   padding: 4px;
   margin: 5px;
-  border: 5px solid yellow;
+  border: 5px solid lightblue;
   border-radius:15px;
   background-color:red;
   box-shadow: 0 0 10px white;
   color:#fff;
   font-size:10px;
+  margin-bottom:30px;
 }
 
 .title-info-event{
@@ -764,7 +766,6 @@ text-align: center;
 font-family: 'Roboto';
 color:white;
 text-shadow: -1px -1px 0 #6164ad, 1px -1px 0 #6164ad, -1px 1px 0 #6164ad, 1px 1px 0 #6164ad;
-
 }
 .parrafo-post{
 text-align: center;
@@ -1015,7 +1016,7 @@ div.post-page h1{
   padding: 20px;
   width: 100%;
   margin: 0 auto;
-  background:yellow;;
+  background:#ccc;
   text-align:center;
 }
 
@@ -1030,6 +1031,7 @@ div.post-page h1{
 .additional-text {
   color: white;
   box-shadow: none;
+  color:#000;
 }
 
 
@@ -1119,6 +1121,114 @@ footer {
   position: relative;
   width: 100%;
  
+}
+
+
+
+
+.donar-container{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  width:100%;
+  border:solid 2px lightblue;
+  margin-bottom:60px;
+  margin-top:60px;
+  height:100%;
+  padding-top:25px;
+  color:brown;
+  padding-bottom:25px;
+}
+
+.donar-datos-sentidos{
+  display:flex;
+  flex-direction:column;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+.donar-title-click{
+  cursor:pointer;
+  font-size:15px;
+}
+.donar-title-click:hover{
+  color:red;
+  cursor:pointer;
+}
+
+.donar-cbu{
+  border:1px solid red;
+  background-color:orange;
+  color:red;
+  font-weight:bold;
+  padding:10px;
+  margin:10px;
+}
+.donar-contactos{
+  display:flex;
+  flex-direction:column;
+}
+
+.donar-copied {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  animation: bubbleUp 3s ease-in-out;
+  visibility: hidden;
+  border-radius:15px;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes bubbleUp {
+  0% {
+    top: 50%;
+    border: 1px solid lightblue;
+  }
+  10% {
+    top: 40%;
+    background:lightblue;
+    box-shadow: 0 0 10px blue;
+  }
+  100% {
+    top: 10%;
+    opacity: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    visibility: hidden;
+  }
+}
+
+.donar-btn{
+  width: 50%;
+  border-radius: 5px;
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+.donar-btn:hover{
+  border-radius: 5px;
+}
+.donar-nombres{
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top:15px;
+}
+
+.donar-footer{
+  padding: 20px
+}
+.donar-img-whatsapp{
+  width:6%;
+  margin-right:10px;
 }
 
 
@@ -1723,12 +1833,13 @@ height: 100%;
     height: 600px;
     padding: 4px;
     margin: 5px;
-    border: 5px solid yellow;
+    border: 5px solid lightblue;
     border-radius:15px;
     background-color:red;
     box-shadow: 0 0 10px white;
     color:#fff;
     font-size:15px;
+    margin-bottom:30px;
   }
   
   
@@ -1744,7 +1855,7 @@ height: 100%;
   
   
   .event-image:hover {
-    transform: scale(4);
+    transform: scale(2.5);
     width: 90%;
     height: 100%;
     position: relative;
@@ -1822,15 +1933,123 @@ height: 100%;
   }
   
 
+.donar-container{
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  width:100%;
+  border:solid 2px lightblue;
+  margin-bottom:60px;
+  margin-top:60px;
+  height:100%;
+  padding-top:25px;
+  color:brown;
+  padding-bottom:25px;
+}
 
+.donar-datos-sentidos{
+  display:flex;
+  flex-direction:column;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+.donar-title-click{
+  cursor:pointer;
+  font-size:30px;
+}
+.donar-title-click:hover{
+  color:red;
+  cursor:pointer;
+}
 
+.donar-cbu{
+  border:1px solid red;
+  background-color:orange;
+  color:red;
+  font-weight:bold;
+  padding:10px;
+  margin:10px;
+}
+.donar-contactos{
+  display:flex;
+  flex-direction:column;
+}
+
+.donar-copied {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: fixed;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  animation: bubbleUp 8s ease-in-out;
+  visibility: hidden;
+  border-radius:15px;
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes bubbleUp {
+  0% {
+    top: 80%;
+    border: 1px solid lightblue;
+  }
+  10% {
+    top: 40%;
+    background:lightblue;
+    box-shadow: 0 0 10px blue;
+  }
+  30% {
+    top: 20%;
+    background:lightblue;
+    box-shadow: 0 0 10px blue;
+  }
+  100% {
+    top: 10%;
+    opacity: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    visibility: hidden;
+  }
+}
+
+.donar-btn{
+  width: 50%;
+  border-radius: 5px;
+  margin-top: 55px;
+  margin-bottom: 55px;
+}
+.donar-btn:hover{
+  border-radius: 5px;
+}
+.donar-nombres{
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top:15px;
+}
+
+.donar-footer{
+  padding: 20px
+}
+.donar-img-whatsapp{
+  width:3%;
+  margin-right:30px;
+}
 
   .additional-content {
     border: 5px solid white;
     padding: 20px;
     width: 50%;
     margin: 0 auto;
-    background:yellow;;
+    background:#ccc;
+    color:#000;
     text-align:center;
   }
 
