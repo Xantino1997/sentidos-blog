@@ -1,5 +1,5 @@
 import { UserContext } from "./UserContext";
-import sentidos from './assets/sentidos.png';
+import sentidos from './assets/sentidos12.png';
 import user from './assets/user.png';
 import { Link, Navigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
@@ -12,7 +12,7 @@ export default function Header() {
   const [activeButton, setActiveButton] = useState('');
 
   useEffect(() => {
-    fetch(`https://backend-blog-psi.vercel.app/profile`, {
+    fetch(`http://localhost:4000/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
