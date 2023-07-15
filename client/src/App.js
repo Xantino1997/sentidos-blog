@@ -25,7 +25,6 @@ import Term from './Term';
 import Desuscribe from './Desuscribe';
 import Donar from './pages/Donar';
 
-
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
