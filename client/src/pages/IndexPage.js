@@ -57,7 +57,7 @@ export default function IndexPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-    },  86400000);
+    }, 86000,4000);
     return () => clearInterval(interval);
   }, [phrases.length]);
 
