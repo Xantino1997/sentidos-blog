@@ -9,6 +9,7 @@ export default function Desuscribe() {
   const handleUnsubscribe = async (event) => {
     event.preventDefault(); // Prevenir el envío del formulario y la recarga de la página
 
+    
     try {
       // Cambiar el valor de email por "desuscripto"
       setEmail(email);
