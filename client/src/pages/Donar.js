@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function Donar() {
     const [copied, setCopied] = useState(false);
+
     const handleCopy = () => {
         const cbuNumber = '1910516755051600064228'; // Ejemplo de número de CBU
         navigator.clipboard.writeText(cbuNumber)
