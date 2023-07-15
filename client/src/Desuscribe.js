@@ -27,8 +27,10 @@ export default function Desuscribe() {
         Swal.fire({
           icon: "success",
           title: "¡Te has desuscrito correctamente!",
-          showConfirmButton: false,
-          timer: 2000,
+          showConfirmButton: true,
+        }).then(() => {
+          // Navegar a la carpeta raíz
+          window.location.href = "/";
         });
       } else {
         // Mostrar ventana emergente de error
@@ -97,6 +99,8 @@ export default function Desuscribe() {
             Acepto los términos y condiciones
           </Link>
         </div>
+
+
       </form>
     </div>
   );
