@@ -23,7 +23,7 @@ export default function Desuscribe() {
       });
 
       if (response.ok) {
-        // Mostrar ventana emergente de éxito
+        // Mostrar ventana  de éxito
         Swal.fire({
           icon: "success",
           title: "¡Te has desuscrito correctamente!",
