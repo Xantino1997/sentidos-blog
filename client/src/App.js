@@ -23,6 +23,7 @@ import LifePage from './pages/LifePage';
 import AsesorePage from './pages/AsesorePage';
 import Term from './Term';
 import Desuscribe from './Desuscribe';
+import Donar from './pages/Donar';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
             <Route path="/updateadvice/:id" element={<CreateNotice />} />
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<CreateEvent />} />
+            <Route path="/donar" element={<Donar />} /> {/* Nueva ruta para la subpágina de psicologia */}
             {/* <Route path="/notcontent" element={<NotContent />} /> */}
             <Route path="/category/psicologia" element={<Psicologia />} /> {/* Nueva ruta para la subpágina de psicologia */}
             <Route path="/category/medicina" element={<MedicinaPage />} /> {/* Nueva ruta para la subpágina de psicologia */}
