@@ -35,6 +35,7 @@ function Donar() {
     return (
         <div className='donar-container'>
             <h1>Bienvenidos a donar</h1>
+            <h2>Lee:..</h2>
             <h2 className='donar-title-click' onClick={handleScrollToFooter}>Por qué es importante donar para Sentidos - Chicos con fisura labio alvéolo palatina</h2>
             <div className='donar-datos-sentidos'>
                 <span>Denominación: ASOCIACION CIVIL SENTIDOS</span>
