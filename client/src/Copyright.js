@@ -6,7 +6,7 @@ function Copyright() {
 
   
   return (
-    <div className="container-copyright ">
+    <div style={{ textAlign: "center",color:"brown" ,border: "solid 2px red", padding: "25px", margin: "25px", marginBottom: "45px" }}>
       <h1>Derechos de autor</h1>
       <h2>{organizationTitle}</h2>
       <p>&copy; {year} - Todos los derechos reservados.</p>
