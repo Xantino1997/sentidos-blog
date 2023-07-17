@@ -1,4 +1,5 @@
 import React from 'react';
+
 function Copyright() {
   const year = new Date().getFullYear();
   const organizationTitle = 'Sentidos';
