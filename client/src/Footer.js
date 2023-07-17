@@ -4,6 +4,7 @@ import inst from './assets/instagram.png';
 import youtube from './assets/youtube.png';
 import { Link } from 'react-router-dom';
 
+
 export default function Footer() {
     const year = new Date().getFullYear();
 
