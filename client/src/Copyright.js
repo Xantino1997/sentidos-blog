@@ -4,6 +4,7 @@ function Copyright() {
   const year = new Date().getFullYear();
   const organizationTitle = 'Sentidos';
 
+  
   return (
     <div className="container-copyright ">
       <h1>Derechos de autor</h1>
