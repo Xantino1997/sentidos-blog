@@ -1127,6 +1127,12 @@ footer {
 .events-comparte{
   width: 100%;
 }
+.comparte-titulo{
+  margin-top:100px;
+}
+.comparte-titulo-h1{
+  color:brown !important;
+}
 .events-comparte-redes-post{
   display:flex;
   margin-top: 100px;
@@ -1145,9 +1151,9 @@ footer {
   margin-left: 5px;
   margin-right: 5px;
   font-size:10px;
-  box-shadow: 0 0 10px lightblue;
-  background:lightblue;
-  color:blue;
+  border: 3px solid yellow;
+  background:red;
+  color:white;
 }
 
 .events-comparte-redes-btn:hover{
