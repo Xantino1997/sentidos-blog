@@ -42,7 +42,15 @@ export default function Events() {
   };
 
   const shareOnWhatsApp = (url) => {
-    const whatsappURL = `https://web.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    let whatsappURL;
+
+    if (isMobile) {
+      whatsappURL = `whatsapp://send?text=${encodeURIComponent(url)}`;
+    } else {
+      whatsappURL = `https://web.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    }
+
     window.open(whatsappURL, "_blank");
   };
 
