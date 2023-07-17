@@ -43,7 +43,7 @@ export default function PostPage() {
   };
 
   const shareOnWhatsApp = (url) => {
-    const whatsappURL = `https://web.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    const whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`;
     window.open(whatsappURL, "_blank");
   };
 
