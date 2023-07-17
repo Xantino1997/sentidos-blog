@@ -44,7 +44,9 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <p className="copy">&copy; {year} <b>Sentidos</b></p>
+       <Link to="/copyright" className="copy" style={{ color: 'white' }}>
+                &copy; {year} <b>Sentidos</b>
+        </Link>
     </footer>
   );
 }
