@@ -10,28 +10,51 @@ export default function PostPage() {
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
 
-
-
   useEffect(() => {
-
     fetch(`https://backend-blog-psi.vercel.app/post/` + id)
-
       .then(response => {
         response.json().then(postInfo => {
           setPostInfo(postInfo);
-
         });
       });
-  }, [id]); // agregamos id como dependencia para que se vuelva a cargar cuando cambie
-
-
+  }, [id]);
 
   if (!postInfo) return '';
+
+  const handleShare = (network) => {
+    const shareURL = window.location.href;
+
+    if (network === "facebook") {
+      shareOnFacebook(shareURL);
+    }
+
+    if (network === "whatsapp") {
+      shareOnWhatsApp(shareURL);
+    }
+
+    if (network === "twitter") {
+      shareOnTwitter(shareURL);
+    }
+  };
+
+  const shareOnFacebook = (url) => {
+    const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+    window.open(facebookURL, "_blank");
+  };
+
+  const shareOnWhatsApp = (url) => {
+    const whatsappURL = `https://web.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    window.open(whatsappURL, "_blank");
+  };
+
+  const shareOnTwitter = (url) => {
+    const twitterURL = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
+    window.open(twitterURL, "_blank");
+  };
 
   return (
     <div className="post-page">
       <h1 className="title-post-page">{postInfo.title}</h1>
-      <p><b>Categoria:{postInfo.category}</b></p>
       <time className="time-post-page">{formatISO9075(new Date(postInfo.createdAt))}</time>
       <div className="author">by @{postInfo.author.username}</div>
       {userInfo.id === postInfo.author._id && (
@@ -44,24 +67,32 @@ export default function PostPage() {
               Edit this post
             </Link>
           </button>
-
         </div>
-      )
-      }
+      )}
       <div className="image">
-
         <img className="post-final" src={`https://backend-blog-psi.vercel.app/${postInfo.cover}`} alt="" />
-
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
-      <br></br>
-      <br></br>
-      <br></br>
+
+      <div className="events-comparte-redes-post">
+        <button className="events-comparte-redes-btn" onClick={() => handleShare("facebook")}>
+          Comparte en Facebook
+        </button>
+        <button className="events-comparte-redes-btn" onClick={() => handleShare("whatsapp")}>
+          Comparte en WhatsApp
+        </button>
+        <button className="events-comparte-redes-btn" onClick={() => handleShare("twitter")}>
+          Comparte en Twitter
+        </button>
+      </div>
+
+      <br />
+      <br />
+      <br />
       {/* <LikeToPost /> */}
-      <br></br>
-      <br></br>
-      <br></br>
-    </div >
+      <br />
+      <br />
+      <br />
+    </div>
   );
 }
-
