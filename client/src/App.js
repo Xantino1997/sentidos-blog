@@ -24,6 +24,8 @@ import AsesorePage from './pages/AsesorePage';
 import Term from './Term';
 import Desuscribe from './Desuscribe';
 import Donar from './pages/Donar';
+import Copyright from './Copyright';
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +55,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<CreateEvent />} />
             <Route path="/donar" element={<Donar />} /> {/* Nueva ruta para la subpágina de psicologia */}
+            <Route path="/copyright" element={<Copyright />} /> {/* Nueva ruta para la subpágina de psicologia */}
             {/* <Route path="/notcontent" element={<NotContent />} /> */}
             <Route path="/category/psicologia" element={<Psicologia />} /> {/* Nueva ruta para la subpágina de psicologia */}
             <Route path="/category/medicina" element={<MedicinaPage />} /> {/* Nueva ruta para la subpágina de psicologia */}
