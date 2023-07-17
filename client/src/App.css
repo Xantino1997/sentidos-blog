@@ -1124,6 +1124,33 @@ footer {
 }
 
 
+.events-comparte{
+  width: 100%;
+}
+.events-comparte-redes-post{
+  display:flex;
+  margin-top: 100px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.events-comparte-redes{
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.events-comparte-redes-btn{
+  border-radius: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  box-shadow: 0 0 10px lightblue;
+  background:lightblue;
+  color:blue;
+}
+.events-comparte-redes-btn:hover{
+  border-radius: 15px;
+}
 
 
 .donar-container{
