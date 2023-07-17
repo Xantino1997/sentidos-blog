@@ -32,8 +32,8 @@ export default function PostPage() {
       shareOnWhatsApp(shareURL);
     }
 
-    if (network === "twitter") {
-      shareOnTwitter(shareURL);
+    if (network === "instagram") {
+      shareOnInstagram(shareURL);
     }
   };
 
@@ -48,9 +48,9 @@ export default function PostPage() {
     window.open(whatsappURL, "_blank");
   };
 
-  const shareOnTwitter = (url) => {
-    const twitterURL = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
-    window.open(twitterURL, "_blank");
+  const shareOnInstagram = (url) => {
+    const instagramURL = `https://www.instagram.com/?url=${encodeURIComponent(url)}`;
+    window.open(instagramURL, "_blank");
   };
 
   return (
@@ -74,7 +74,8 @@ export default function PostPage() {
         <img className="post-final" src={`https://backend-blog-psi.vercel.app/${postInfo.cover}`} alt="" />
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
-
+      <hr></hr>
+      <div className="comparte-titulo"><h1 className="comparte-titulo-h1">Te gusto el articulo, comparte para seguir ayudando</h1></div>
       <div className="events-comparte-redes-post">
         <button className="events-comparte-redes-btn" onClick={() => handleShare("facebook")}>
           Comparte en Facebook
@@ -82,8 +83,8 @@ export default function PostPage() {
         <button className="events-comparte-redes-btn" onClick={() => handleShare("whatsapp")}>
           Comparte en WhatsApp
         </button>
-        <button className="events-comparte-redes-btn" onClick={() => handleShare("twitter")}>
-          Comparte en Twitter
+        <button className="events-comparte-redes-btn" onClick={() => handleShare("instagram")}>
+          Comparte en Instagram
         </button>
       </div>
 
