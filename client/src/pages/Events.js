@@ -6,7 +6,7 @@ export default function Events() {
   const eventRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:4000/getadvice")
+    fetch("https://backend-blog-psi.vercel.app/getadvice")
       .then((response) => response.json())
       .then((data) => {
         setEvents(data);
