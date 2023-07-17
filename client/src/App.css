@@ -1142,12 +1142,14 @@ footer {
 }
 .events-comparte-redes-btn{
   border-radius: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size:10px;
   box-shadow: 0 0 10px lightblue;
   background:lightblue;
   color:blue;
 }
+
 .events-comparte-redes-btn:hover{
   border-radius: 15px;
 }
