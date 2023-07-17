@@ -6,7 +6,7 @@ export default function Events() {
   const eventRef = useRef(null);
 
   useEffect(() => {
-    fetch("https://backend-blog-psi.vercel.app/getadvice")
+    fetch("http://localhost:4000/getadvice")
       .then((response) => response.json())
       .then((data) => {
         setEvents(data);
@@ -42,8 +42,15 @@ export default function Events() {
   };
 
   const shareOnWhatsApp = (url) => {
-    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const whatsappURL = isMobileDevice ? `whatsapp://send?text=${encodeURIComponent(url)}` : `https://web.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    let whatsappURL;
+
+    if (isMobile) {
+      whatsappURL = `https://api.whatsapp://send?text=${encodeURIComponent(url)}`;
+    } else {
+      whatsappURL = `https://web.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    }
+
     window.open(whatsappURL, "_blank");
   };
 
