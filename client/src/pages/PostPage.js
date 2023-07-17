@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
 import { UserContext } from "../UserContext";
@@ -43,7 +43,8 @@ export default function PostPage() {
   };
 
   const shareOnWhatsApp = (url) => {
-    const whatsappURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const whatsappURL = isMobileDevice ? `whatsapp://send?text=${encodeURIComponent(url)}` : `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`;
     window.open(whatsappURL, "_blank");
   };
 
@@ -84,6 +85,8 @@ export default function PostPage() {
         <button className="events-comparte-redes-btn" onClick={() => handleShare("twitter")}>
           Comparte en Twitter
         </button>
+        {/* Otras opciones para compartir en redes sociales */}
+        {/* Agrega aquí los botones para compartir en otras redes sociales */}
       </div>
 
       <br />
