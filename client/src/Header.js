@@ -20,12 +20,10 @@ export default function Header() {
   //     });
   //   });
   // }, []);
-
   useEffect(() => {
-  fetch(`https://backend-blog-psi.vercel.app/profile`, {
-    credentials: 'include',
-  })
-    .then(response => {
+    fetch(`https://backend-blog-psi.vercel.app/profile`, {
+      credentials: 'include',
+    }) .then(response => {
       if (response.status === 401) {
         // Handle unauthorized error
         console.error("Unauthorized access. Please log in.");
@@ -43,6 +41,7 @@ export default function Header() {
       console.error("Error fetching profile:", error);
     });
 }, []);
+
 
 
   const inactivityTimeout = 300000;
