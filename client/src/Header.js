@@ -12,7 +12,7 @@ export default function Header() {
   const [activeButton, setActiveButton] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:4000/profile`, {
+    fetch(`https://backend-blog-psi.vercel.app/profile`, {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
